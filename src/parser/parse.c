@@ -16,8 +16,8 @@ int parse(char **raw_info) // TODO: return struct with main information.
 {
 	if (prs_map(&raw_info))
 		return (2);
-	if (prs_txt(&raw_info))
+	if (prs_txt(raw_info))
 		return (3);
-	if (prs_clr(&raw_info))
+	if (prs_clr(raw_info))
 		return (4);
 }

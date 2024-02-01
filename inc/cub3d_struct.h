@@ -26,8 +26,8 @@ struct typedef s_info
 	char	*txr_so;
 	char	*txr_we;
 	char	*txr_ea;
-	int		clng;
-	int 	flr;
+	int		c;
+	int 	f;
 }	t_info;
 
 #endif
