@@ -1,21 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   errors.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cpeset-c <cpeset-c@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/01 17:09:13 by alajara-          #+#    #+#             */
-/*   Updated: 2024/02/01 18:23:51 by cpeset-c         ###   ########.fr       */
+/*   Created: 2024/02/01 17:42:23 by cpeset-c          #+#    #+#             */
+/*   Updated: 2024/02/01 18:22:06 by cpeset-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
+#include "cub3d_colors.h"
+#include "cub3d_errors.h"
 
-int	main(int ac, char **av)
+int	print_error(char *str, int syserr)
 {
-	if (ac != 2)
-	   return(1);
-	reader(av[1]);
-	// parse(av);
+	if (ft_printf_fd(STDERR_FILENO, "%sError\n%s", RED, str) == ERRNUM)
+		terminate_error(ERR_PRNT, SYS_PRNT);
+	return (syserr);
+}
+
+void	terminate_error(char *str, int syserr)
+{
+	if (ft_printf_fd(STDERR_FILENO, "%sError\n%s", RED, str) == ERRNUM)
+		exit(ERRNUM);
+	exit(syserr);
 }

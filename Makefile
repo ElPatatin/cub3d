@@ -6,7 +6,7 @@
 #    By: cpeset-c <cpeset-c@student.42barcel>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/07 19:56:27 by cpeset-c          #+#    #+#              #
-#    Updated: 2024/02/01 17:22:53 by cpeset-c         ###   ########.fr        #
+#    Updated: 2024/02/01 18:25:33 by cpeset-c         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -75,12 +75,14 @@ LIBRARY	= $(LIB_DIR)libft.a $(LIB_DIR)liboutput.a $(MLX_DIR)libmlx.a
 INCLUDE	= -I$(INC_DIR) -I$(MLX_DIR) \
 			-I$(LFT_DIR)$(INC_DIR) -I$(OUT_DIR)$(INC_DIR)
 
-CUB_SRC	= main.c
+CUB_SRC	= main.c \
+		reader.c \
+		errors.c
 
-CUB_PRS	= parse.c
+# CUB_PRS	= parse.c
 
 SRCS	+= $(addprefix $(SRC_DIR), $(CUB_SRC))
-SRCS	+= $(addprefix $(PRS_DIR), $(CUB_PRS))
+# SRCS	+= $(addprefix $(PRS_DIR), $(CUB_PRS))
 
 OBJS	= $(addprefix $(OBJ_DIR), $(SRCS:.c=.o))
 DEPS	= $(addprefix $(DEP_DIR), $(addsuffix .d, $(basename $(SRCS))))
