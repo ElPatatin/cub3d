@@ -50,3 +50,12 @@ modules.order
 Module.symvers
 Mkfile.old
 dkms.conf
+.objs/
+.deps/
+cub3D
+.DS_Store
+._.DS_Store
+bin/
+.vscode
+*.gen
+*test
