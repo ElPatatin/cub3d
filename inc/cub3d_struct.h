@@ -1,23 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parse.c                                            :+:      :+:    :+:   */
+/*   cub3d_struct.h                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: alajara- <alajara-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/01 17:16:44 by alajara-          #+#    #+#             */
-/*   Updated: 2024/02/01 17:19:05 by alajara-         ###   ########.fr       */
+/*   Created: 2024/02/01 17:46:34 by alajara-          #+#    #+#             */
+/*   Updated: 2024/02/01 17:46:36 by alajara-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+\
+#ifndef CUB3D_STRUCT_H
+# define CUB3D_STRUCT_H
 
-
-// Al
-int parse(char **raw_info) // TODO: return struct with main information.
+/*
+			map		map for playing
+			txr_XX	texture of [NO]rth, [SO]uth, ...
+			clng	cealing color
+			flr		floor color
+*/
+struct typedef s_info
 {
-	if (prs_map(&raw_info))
-		return (2);
-	if (prs_txt(&raw_info))
-		return (3);
-	if (prs_clr(&raw_info))
-		return (4);
-}
+	char	**map;
+	char	*txr_no;
+	char	*txr_so;
+	char	*txr_we;
+	char	*txr_ea;
+	int		clng;
+	int 	flr;
+}	t_info;
+
+#endif
