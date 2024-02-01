@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub_parser_map_validation.c                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ogonzale <ogonzale@student.42.fr>          +#+  +:+       +#+        */
+/*   By: cpeset-c <cpeset-c@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/05 17:35:36 by cpeset-c          #+#    #+#             */
-/*   Updated: 2023/06/17 10:15:16 by ogonzale         ###   ########.fr       */
+/*   Updated: 2024/02/01 16:06:34 by cpeset-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,7 +84,7 @@ static t_bool	check_map_characters(char **grid, size_t width, size_t height)
 	size_t	x;
 	size_t	y;
 	int		player_count;
-	char	valid_chars[10];
+	char	valid_chars[8];
 
 	built_valid_chars(valid_chars, &player_count);
 	y = 0;

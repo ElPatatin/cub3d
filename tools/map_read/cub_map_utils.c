@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub_map_utils.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cpeset-c <cpeset-c@student.42.fr>          +#+  +:+       +#+        */
+/*   By: cpeset-c <cpeset-c@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/07 16:55:49 by cpeset-c          #+#    #+#             */
-/*   Updated: 2023/06/09 19:17:09 by cpeset-c         ###   ########.fr       */
+/*   Updated: 2024/02/01 16:04:41 by cpeset-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,15 +66,13 @@ int	get_line(char **line, int fd)
 void	built_valid_chars(char *valid_chars, int *nullable)
 {
 	valid_chars[0] = WALL;
-	valid_chars[1] = FREE;
+	valid_chars[1] = MPTY;
 	valid_chars[2] = P_NO;
 	valid_chars[3] = P_SO;
 	valid_chars[4] = P_WE;
 	valid_chars[5] = P_EA;
-	valid_chars[6] = CLOSE_DOOR;
-	valid_chars[7] = OPEN_DOOR;
-	valid_chars[8] = VOID;
-	valid_chars[9] = '\0';
+	valid_chars[6] = VOID;
+	valid_chars[7] = '\0';
 	if (nullable)
 		*nullable = 0;
 }

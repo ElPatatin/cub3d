@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d_parser.h                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cpeset-c <cpeset-c@student.42.fr>          +#+  +:+       +#+        */
+/*   By: cpeset-c <cpeset-c@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/06 17:23:46 by cpeset-c          #+#    #+#             */
-/*   Updated: 2023/06/09 18:03:32 by cpeset-c         ###   ########.fr       */
+/*   Updated: 2024/02/01 16:06:30 by cpeset-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,14 +18,14 @@
 # define NORTH	(char *)"NO"
 # define SOUTH	(char *)"SO"
 # define WEST	(char *)"WE"
-# define EAST	(char *)"E"
+# define EAST	(char *)"EA"
 # define SPRITE	(char *)"S"
 
 # define FLOOR	(char *)"F"
 # define CEALING	(char *)"C"
 
 # define WALL		(char)'1'
-# define FREE		(char)'0'
+# define MPTY		(char)'0'
 # define P_NO		(char)'N'
 # define P_SO		(char)'S'
 # define P_WE		(char)'W'

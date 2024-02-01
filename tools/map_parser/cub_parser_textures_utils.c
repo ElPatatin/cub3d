@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub_parser_textures_utils.c                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ogonzale <ogonzale@student.42.fr>          +#+  +:+       +#+        */
+/*   By: cpeset-c <cpeset-c@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/04 19:05:34 by cpeset-c          #+#    #+#             */
-/*   Updated: 2023/06/17 10:30:32 by ogonzale         ###   ########.fr       */
+/*   Updated: 2024/02/01 16:12:24 by cpeset-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ void	parse_texture(char **line, char **texture, char *type)
 t_bool	validate_textures(t_map *map)
 {
 	if (!map->no_path || !map->so_path
-		|| !map->we_path || !map->ea_path || !map->s_path)
+		|| !map->we_path || !map->ea_path) //  || !map->s_path && more sprites path
 		return (FALSE);
 	return (TRUE);
 }

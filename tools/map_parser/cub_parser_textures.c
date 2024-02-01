@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub_parser_textures.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cpeset-c <cpeset-c@student.42.fr>          +#+  +:+       +#+        */
+/*   By: cpeset-c <cpeset-c@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/04 16:29:20 by cpeset-c          #+#    #+#             */
-/*   Updated: 2023/06/04 20:14:43 by cpeset-c         ###   ########.fr       */
+/*   Updated: 2024/02/01 16:11:04 by cpeset-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,9 +94,9 @@ void	load_east_texture(t_map *map)
 	{
 		if (map->ea_path)
 			terminate_error(ERR_DUP_TEX, SYS_DUP_TEX);
-		if (map->map[idx][0] == 'E')
+		if (map->map[idx][0] == 'E' && map->map[idx][1] == 'A')
 		{
-			parse_texture(&map->map[idx], &map->ea_path, "E");
+			parse_texture(&map->map[idx], &map->ea_path, "EA");
 			return ;
 		}
 	}

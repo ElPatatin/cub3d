@@ -1,24 +1,7 @@
-NO                                                      ./resources/north.xpm
-SO                                              ./resources/south.xpm
-WE                                                                                                      ./resources/west.xpm
-
-
-
-
-
-
-
-
-
-
-E ./resources/east.xpm
-
-
-
-
-
-
-S ./resources/sprite.xpm
+NO           ./resources/north.xpm
+SO              ./resources/south.xpm
+WE   	./resources/west.xpm
+EA ./resources/east.xpm
 
 F 255,0,255
 C 100,50,200
@@ -39,6 +22,7 @@ C 100,50,200
 11100011   11110001111   11010010001        10000001
 11110111   11111011111   10101110001        10000001
 11111111   11111111111   11111111111        11111111
+
 
 111111
 100001

@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: ogonzale <ogonzale@student.42.fr>          +#+  +:+       +#+         #
+#    By: cpeset-c <cpeset-c@student.42barcel>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/07 19:56:27 by cpeset-c          #+#    #+#              #
-#    Updated: 2023/06/17 10:37:54 by ogonzale         ###   ########.fr        #
+#    Updated: 2024/02/01 16:07:47 by cpeset-c         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -141,12 +141,12 @@ $(NAME)::
 
 clean:
 	@$(MAKE) clean -C $(LIB_DIR)
-	@$(MAKE) clean -C $(MLX_DIR)
+# @$(MAKE) clean -C $(MLX_DIR)
 	@$(RM) -r $(OBJ_DIR) $(DEP_DIR)
 	@echo "$(BLUE)	Cub3D object and dependencies files cleaned.$(DEF_COLOR)"
 
 fclean: 
-	@$(MAKE) clean -C $(MLX_DIR)
+# @$(MAKE) clean -C $(MLX_DIR)
 	@$(MAKE) fclean -C $(LIB_DIR)
 	@$(RM) -r $(OBJ_DIR) $(DEP_DIR) $(BIN_DIR)
 	@$(RM) $(NAME)

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d_data.h                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ogonzale <ogonzale@student.42.fr>          +#+  +:+       +#+        */
+/*   By: cpeset-c <cpeset-c@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/24 14:54:19 by cpeset-c          #+#    #+#             */
-/*   Updated: 2023/06/17 11:37:06 by ogonzale         ###   ########.fr       */
+/*   Updated: 2024/02/01 16:24:53 by cpeset-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,7 +80,6 @@ struct s_imgs
 	t_img_data	south;
 	t_img_data	east;
 	t_img_data	west;
-	t_img_data	sprite;
 };
 
 struct s_wall
