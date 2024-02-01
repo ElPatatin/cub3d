@@ -6,7 +6,7 @@
 #    By: cpeset-c <cpeset-c@student.42barcel>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/07 19:56:27 by cpeset-c          #+#    #+#              #
-#    Updated: 2024/02/01 16:07:47 by cpeset-c         ###   ########.fr        #
+#    Updated: 2024/02/01 17:22:53 by cpeset-c         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -31,15 +31,9 @@ WHITE		:= \033[0;97m
 # -=-=-=-=-	PATH -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=- #
 
 INC_DIR	:= inc/
-SRC_DIR	:= srcs/
-TUL_DIR	:= tools/
-UTL_DIR	:= utils/
+SRC_DIR	:= src/
 
-MAP_DIR	:= $(TUL_DIR)map_read/
-PRS_DIR	:= $(TUL_DIR)map_parser/
-HUK_DIR	:= $(TUL_DIR)cub_hooks/
-PLY_DIR	:= $(TUL_DIR)player/
-RAY_DIR	:= $(TUL_DIR)ray/
+PRS_DIR	:= $(TUL_DIR)parser/
 
 OBJ_DIR	:= .objs/
 DEP_DIR	:= .deps/
@@ -81,44 +75,12 @@ LIBRARY	= $(LIB_DIR)libft.a $(LIB_DIR)liboutput.a $(MLX_DIR)libmlx.a
 INCLUDE	= -I$(INC_DIR) -I$(MLX_DIR) \
 			-I$(LFT_DIR)$(INC_DIR) -I$(OUT_DIR)$(INC_DIR)
 
-CUB_SRC	= cub3d.c \
-		cub3d_init_vals.c \
-		cub3d_init_imgs.c \
-		cub3d_init_player.c
+CUB_SRC	= main.c
 
-CUB_MAP	= cub_map.c \
-		cub_map_utils.c
-
-CUB_PRS	= cub_parser.c \
-		cub_parser_utils.c  \
-		cub_parser_textures.c \
-		cub_parser_textures_utils.c \
-		cub_parser_colours.c \
-		cub_parser_map.c \
-		cub_parser_map_expander.c \
-		cub_parser_map_validation.c \
-		cub_parser_format_map.c
-
-CUB_HUK	= key_hooks.c \
-		mouse_hooks.c
-
-CUB_PLY = player_move.c \
-		player_rotate.c
-
-CUB_RAY = ray_calc.c \
-		ray_dda.c \
-		draw.c
-
-CUB_UTL = cub3d_utils.c \
-		cub3d_errors.c
+CUB_PRS	= parse.c
 
 SRCS	+= $(addprefix $(SRC_DIR), $(CUB_SRC))
-SRCS	+= $(addprefix $(MAP_DIR), $(CUB_MAP))
 SRCS	+= $(addprefix $(PRS_DIR), $(CUB_PRS))
-SRCS	+= $(addprefix $(HUK_DIR), $(CUB_HUK))
-SRCS	+= $(addprefix $(PLY_DIR), $(CUB_PLY))
-SRCS	+= $(addprefix $(RAY_DIR), $(CUB_RAY))
-SRCS	+= $(addprefix $(UTL_DIR), $(CUB_UTL))
 
 OBJS	= $(addprefix $(OBJ_DIR), $(SRCS:.c=.o))
 DEPS	= $(addprefix $(DEP_DIR), $(addsuffix .d, $(basename $(SRCS))))
