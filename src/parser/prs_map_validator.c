@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   prs_map_validator.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cpeset-c <cpeset-c@student.42barcel>       +#+  +:+       +#+        */
+/*   By: cpeset-c <cpeset-c@student.42barce.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/02 20:37:05 by cpeset-c          #+#    #+#             */
-/*   Updated: 2024/02/02 21:16:25 by cpeset-c         ###   ########.fr       */
+/*   Updated: 2024/02/02 23:40:03 by cpeset-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ t_bool	map_validator(t_info *info, size_t width, size_t height)
 				++x;
 				continue ;
 			}
-			if (is_surrounded_by_void_or_wall(info->map, x, y))
+			if (is_surrounded_by_void_or_wall(info, x, y))
 				return (TRUE);
 			++x;
 		}
