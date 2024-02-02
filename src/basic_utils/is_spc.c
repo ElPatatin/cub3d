@@ -1,21 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   is_spc.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cpeset-c <cpeset-c@student.42barcel>       +#+  +:+       +#+        */
+/*   By: alajara- <alajara-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/01 17:09:13 by alajara-          #+#    #+#             */
-/*   Updated: 2024/02/01 18:23:51 by cpeset-c         ###   ########.fr       */
+/*   Created: 2024/02/02 11:56:15 by alajara-          #+#    #+#             */
+/*   Updated: 2024/02/02 11:56:18 by alajara-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3d.h"
+#include "libft.h"
 
-int	main(int ac, char **av)
+t_bool	is_spc(char c)
 {
-	if (ac != 2)
-	   return(1);
-	parse(reader(av[1]));
-	return (0);
+	if (c == ' ' || c == '\t')
+		return (TRUE);
+	return (FALSE);
 }

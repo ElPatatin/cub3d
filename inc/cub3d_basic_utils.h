@@ -1,21 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   cub3d_basic_utils.h                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cpeset-c <cpeset-c@student.42barcel>       +#+  +:+       +#+        */
+/*   By: alajara- <alajara-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/01 17:09:13 by alajara-          #+#    #+#             */
-/*   Updated: 2024/02/01 18:23:51 by cpeset-c         ###   ########.fr       */
+/*   Created: 2024/02/02 11:57:48 by alajara-          #+#    #+#             */
+/*   Updated: 2024/02/02 11:57:51 by alajara-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3d.h"
 
-int	main(int ac, char **av)
-{
-	if (ac != 2)
-	   return(1);
-	parse(reader(av[1]));
-	return (0);
-}
+#ifndef CUB3D_BASIC_UTILS_H
+# define CUB3D_BASIC_UTILS_H
+
+t_bool	is_spc(char c);
+
+#endif

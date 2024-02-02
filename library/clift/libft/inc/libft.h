@@ -35,9 +35,7 @@
 #  endif
 # endif
 
-# define TRUE	(int)1
-# define FALSE	(int)0
-# define UNUSED	(void)
+typedef enum {FALSE, TRUE} t_bool;
 
 # define SPACES	(char *)" \n\t\v\f\r"
 

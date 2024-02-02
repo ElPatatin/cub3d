@@ -11,6 +11,17 @@
 /* ************************************************************************** */
 
 #include "libft.h"
+#include "cub3d_struct.h"
+
+is_cf_flag(char c)
+{
+	
+}
+
+get_color(char *)
+{
+
+}
 
 // TODO proper error handling
 // Allocates the information for info.c and info.f
@@ -33,7 +44,7 @@ prs_clr(char **r_info, t_info *info)
 		}
 		else if (r_info[i][0] == 'F' && (sc == ' ' || sc == '\t'))
 		{
-			if (j >> 1 == 0)
+			if (j >> 1 == 1)
 				return(1); 								// ERROR mas de una F
 			j += 2;
 			get_color(r_info[i]);

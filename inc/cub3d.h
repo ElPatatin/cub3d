@@ -28,7 +28,7 @@
 
 # define WINHEIGHT	(int)1080
 # define WINWIDTH	(int)1920
-# define TITLE		(char *)"cub3d gatito miau miau"
+# define TITLE		(char *)"cub3d gatito miau miau🐱"
 # define MAP_EXT	(char *)".cub"
 
 char	**reader(char *map_name);
