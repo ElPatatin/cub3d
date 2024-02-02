@@ -3,21 +3,27 @@
 /*                                                        :::      ::::::::   */
 /*   parse.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alajara- <alajara-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: cpeset-c <cpeset-c@student.42barce.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/01 17:16:44 by alajara-          #+#    #+#             */
-/*   Updated: 2024/02/01 17:19:05 by alajara-         ###   ########.fr       */
+/*   Updated: 2024/02/02 13:01:32 by cpeset-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "cub3d.h"
+#include "cub3d_struct.h"
+#include "cub3d_parser_private.h"
 
-// Al
-int parse(char **raw_info) // TODO: return struct with main information.
+ // TODO: return struct with main information.
+int parse(char **raw_info)
 {
-	if (prs_map(&raw_info))
+	t_info	info;
+
+	if (prs_map(raw_info, &info))
 		return (2);
-	if (prs_txt(raw_info))
-		return (3);
-	if (prs_clr(raw_info))
-		return (4);
+	// if (prs_txt(raw_info, &info))
+	// 	return (3);
+	// if (prs_clr(raw_info, &info))
+	// 	return (4);
+	return (0);
 }

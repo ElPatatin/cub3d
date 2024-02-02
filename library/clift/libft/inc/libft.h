@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cpeset-c <cpeset-c@student.42barcel>       +#+  +:+       +#+        */
+/*   By: cpeset-c <cpeset-c@student.42barce.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/09 18:08:37 by cpeset-c          #+#    #+#             */
-/*   Updated: 2024/02/01 18:05:56 by cpeset-c         ###   ########.fr       */
+/*   Updated: 2024/02/02 12:58:23 by cpeset-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,12 +31,15 @@
 # elif __linux__
 #  define OPEN_MAX 		FOPEN_MAX
 #  ifndef BUFFER_SIZE
-#   define BUFFER_SIZE	(int)1
+#   define BUFFER_SIZE	(int)1024
 #  endif
 # endif
 
-typedef enum {FALSE, TRUE} t_bool;
+// Not compiling
+// typedef enum {FALSE, TRUE} t_bool;
 
+# define TRUE	(int)1
+# define FALSE	(int)0
 # define SPACES	(char *)" \n\t\v\f\r"
 
 typedef int					t_bool;

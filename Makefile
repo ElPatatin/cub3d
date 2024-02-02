@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: cpeset-c <cpeset-c@student.42barcel>       +#+  +:+       +#+         #
+#    By: cpeset-c <cpeset-c@student.42barce.com>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/07 19:56:27 by cpeset-c          #+#    #+#              #
-#    Updated: 2024/02/01 18:25:33 by cpeset-c         ###   ########.fr        #
+#    Updated: 2024/02/02 13:01:45 by cpeset-c         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -33,7 +33,7 @@ WHITE		:= \033[0;97m
 INC_DIR	:= inc/
 SRC_DIR	:= src/
 
-PRS_DIR	:= $(TUL_DIR)parser/
+PRS_DIR	:= $(SRC_DIR)parser/
 
 OBJ_DIR	:= .objs/
 DEP_DIR	:= .deps/
@@ -79,10 +79,12 @@ CUB_SRC	= main.c \
 		reader.c \
 		errors.c
 
-# CUB_PRS	= parse.c
+CUB_PRS	= parse.c \
+		prs_map.c \
+		prs_map_utls.c \
 
 SRCS	+= $(addprefix $(SRC_DIR), $(CUB_SRC))
-# SRCS	+= $(addprefix $(PRS_DIR), $(CUB_PRS))
+SRCS	+= $(addprefix $(PRS_DIR), $(CUB_PRS))
 
 OBJS	= $(addprefix $(OBJ_DIR), $(SRCS:.c=.o))
 DEPS	= $(addprefix $(DEP_DIR), $(addsuffix .d, $(basename $(SRCS))))
@@ -112,7 +114,7 @@ clean:
 fclean: 
 # @$(MAKE) clean -C $(MLX_DIR)
 	@$(MAKE) fclean -C $(LIB_DIR)
-	@$(RM) -r $(OBJ_DIR) $(DEP_DIR) $(BIN_DIR)
+	@$(RM) -r $(OBJ_DIR) $(DEP_DIR)
 	@$(RM) $(NAME)
 	@echo "$(WHITE)	All objects, dependencies and executables removed.$(DEF_COLOR)"
 
