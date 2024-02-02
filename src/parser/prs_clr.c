@@ -12,6 +12,7 @@
 
 #include "libft.h"
 #include "cub3d_struct.h"
+#include "cub3d_basic_utils.h"
 
 t_bool	is_cf_flag(char c)
 {
@@ -27,14 +28,18 @@ int	get_subcolor(char **s)
 
 	n = -1;
 	val = 0;
-	while(++n < 3 && is_digit(s[n]))
+	while(++n < 3 && ft_isdigit((*s)[n]))
 	{
 		val *= 10;
-		val += (*s)[n] - '0'
+		val += (*s)[n] - '0';
 	}
 	if (!n)
+	{
+		printf("error: 38 subcolor\n");
 		return (-1);
+	}
 	*s += n;
+	printf("subval = %d\n", val);
 	return (val);
 
 }
@@ -43,28 +48,22 @@ int	get_subcolor(char **s)
 // corresponent parameter in t_info.
 int	get_color(char *s)
 {
-	char	where;
-	int		n;
 	int		val;
 	int		trueval;
 
-	where = *s;
 	while (*s && is_spc(*s))
 		++s;
-	trueval = get_subcolor(&s)
+	trueval = get_subcolor(&s);
 	if (trueval < 0 || *s != ',')
 		return (-1);				// TODO: Error handling
 	++s;
-	trueval <<= 8;
-	val = get_subcolor(&s)
+	val = get_subcolor(&s);
 	if (val < 0 || *s != ',')
 		return (-1);				// TODO: Error handling
 	++s;
-	trueval = trueval << 8 + val;
-	val = get_subcolor(&s)
-	if (val < 0 || *s != ',')
-		return (-1);				// TODO: Error handling
-	trueval = trueval << 8 + val;
+	trueval = (trueval << 8) + val;
+	val = get_subcolor(&s);
+	trueval = (trueval << 8) + val;
 	return (trueval);
 }
 
@@ -74,20 +73,17 @@ int	get_color(char *s)
 void	prs_clr(char **r_info, t_info *info)
 {
 	int	i;
-	int	j;
 
 	i = -1;
 	while(r_info[++i])
 	{
-		if (is_c_flag(r_info[i][0]) && is_spc(r_info[i][1]))
+		if (is_cf_flag(r_info[i][0]) && is_spc(r_info[i][1]))
 		{
 			if (*r_info[i] == 'C')
-				info->c = 1 << 24 + get_color(++(r_info[i]));
+				info->c = get_color(++(r_info[i]));
 			else
-				info->f = 1 << 24 + get_color(++(r_info[i]));
+				info->f = get_color(++(r_info[i]));
+			printf("color: %X\n", info->c);
 		}
 	}
-	if (j != 3)
-		return (1);										// ERROR no hay un C y F
-	return (0);
 }
