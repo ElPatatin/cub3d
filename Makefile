@@ -6,7 +6,7 @@
 #    By: cpeset-c <cpeset-c@student.42barcel>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/07 19:56:27 by cpeset-c          #+#    #+#              #
-#    Updated: 2024/02/02 15:59:31 by cpeset-c         ###   ########.fr        #
+#    Updated: 2024/02/02 20:22:42 by cpeset-c         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -34,6 +34,7 @@ INC_DIR	:= inc/
 SRC_DIR	:= src/
 
 PRS_DIR	:= $(SRC_DIR)parser/
+EXP_DIR	:= $(PRS_DIR)map_expander/
 
 OBJ_DIR	:= .objs/
 DEP_DIR	:= .deps/
@@ -49,7 +50,7 @@ MLX_DIR	= minilibx/
 UNAME	= $(shell uname -s)
 
 CFLAGS		= -Wall -Wextra -Werror -W
-# XFLAGS		= -fsanitize=address -g
+XFLAGS		= -g3
 DFLAGS		= -MT $@ -MMD -MP
 
 ifeq ($(UNAME), Darwin)
@@ -81,17 +82,20 @@ CUB_SRC	= main.c \
 
 CUB_PRS	= parse.c \
 		prs_map.c \
-		prs_map_data.c \
+		prs_map_data.c
+
+CUB_EXP	= exp_map.c
 
 SRCS	+= $(addprefix $(SRC_DIR), $(CUB_SRC))
 SRCS	+= $(addprefix $(PRS_DIR), $(CUB_PRS))
+SRCS	+= $(addprefix $(EXP_DIR), $(CUB_EXP))
 
 OBJS	= $(addprefix $(OBJ_DIR), $(SRCS:.c=.o))
 DEPS	= $(addprefix $(DEP_DIR), $(addsuffix .d, $(basename $(SRCS))))
 
 
 # -=-=-=-=-	RULE -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=- #
-
+q
 all: makelib $(NAME)
 	
 makelib:
@@ -99,7 +103,7 @@ makelib:
 	@$(MAKE) -sC $(LIB_DIR)
 
 $(NAME):: $(OBJS)
-	@$(CC) $(CFLAGS) $(OBJS) $(GFLAGS) $(LIBRARY) -o $(NAME)
+	@$(CC) $(CFLAGS) $(XFLAGS) $(OBJS) $(GFLAGS) $(LIBRARY) -o $(NAME)
 	@printf "\n\t$(WHITE)Program \033[1;31m$(NAME) $(WHITE)has been compiled!$(DEF_COLOR)\n"
 
 $(NAME)::
@@ -126,7 +130,7 @@ re:
 $(OBJ_DIR)%.o: %.c $(MKFL)
 	@$(MK) $(dir $@) $(dir $(subst $(OBJ_DIR), $(DEP_DIR), $@))
 	@printf "\r$(GREEN)\tCompiling: $(YELLOW)$< $(DEF_CLR)                   \r"
-	@$(CC) $(CFLAGS) $(DFLAGS) $(INCLUDE) -c $< -o $@
+	@$(CC) $(CFLAGS) $(XFLAGS) $(DFLAGS) $(INCLUDE) -c $< -o $@
 	@mv $(patsubst %.o, %.d, $@) $(dir $(subst $(OBJ_DIR), $(DEP_DIR), $@))
 
 -include $(DEPS)

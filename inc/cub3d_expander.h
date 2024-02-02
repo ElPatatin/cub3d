@@ -1,27 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   cub3d_expander.h                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cpeset-c <cpeset-c@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/01 17:09:13 by alajara-          #+#    #+#             */
-/*   Updated: 2024/02/02 19:35:13 by cpeset-c         ###   ########.fr       */
+/*   Created: 2024/02/02 16:39:35 by cpeset-c          #+#    #+#             */
+/*   Updated: 2024/02/02 17:27:05 by cpeset-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3d.h"
-#include "cub3d_parser.h"
+#ifndef CUB3D_EXPANDER_H
+# define CUB3D_EXPANDER_H
 
-int	main(int ac, char **av)
-{
-	if (ac != 2)
-	   return(1);
-	// BEFORE ANYTHING
-	/**
-	 * New split
-	     * Check empty lines with only spaces and new lines characters
-	*/
-	parse(reader(av[1]));
-	return (0);
-}
+# include "cub3d_parser_private.h"
+
+int	map_expander(char **raw_info, t_raw_map_data raw_map_data, t_info *info);
+
+#endif

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memset.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cpeset-c <cpeset-c@student.42barce>        +#+  +:+       +#+        */
+/*   By: cpeset-c <cpeset-c@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/16 16:13:29 by cpeset-c          #+#    #+#             */
-/*   Updated: 2022/12/06 20:46:19 by cpeset-c         ###   ########.fr       */
+/*   Updated: 2024/02/02 19:48:28 by cpeset-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void
 {
 	unsigned char	*t;
 
-	t = (unsigned char *) b;
+	t = (unsigned char *)b;
 	while (len-- > 0)
 		*t++ = c;
 	return (b);
