@@ -6,7 +6,7 @@
 /*   By: cpeset-c <cpeset-c@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/01 17:42:26 by alajara-          #+#    #+#             */
-/*   Updated: 2024/02/02 20:39:33 by cpeset-c         ###   ########.fr       */
+/*   Updated: 2024/02/02 21:15:28 by cpeset-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,6 @@
  * Sanitazición del mapa:
      + Todas las lineas deberán tener la misma longitud
 	 + Solo pueden existir en el mapa los caracteres predefinidos (10NEWSV)
- * Validación de mapa completamente cerrado
 */
 int	prs_map(char **raw_info, t_info *info)
 {
@@ -33,7 +32,9 @@ int	prs_map(char **raw_info, t_info *info)
 		terminate_error(ERR_MEM, SYS_MEM);
 	if (map_expander(raw_info, raw_map_data, info))
 		terminate_error(ERR_EXP_MAP, SYS_EXP_MAP);
-
-		
+	if (map_sanitizer(info, raw_map_data.width, raw_map_data.height))
+		terminate_error(ERR_BAD_MAP, SYS_BAD_MAP);
+	if (map_validator(info, raw_map_data.width, raw_map_data.height))
+		terminate_error(ERR_BAD_MAP, SYS_BAD_MAP);
 	return (0);
 }

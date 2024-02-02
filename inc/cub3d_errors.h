@@ -6,14 +6,15 @@
 /*   By: cpeset-c <cpeset-c@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/24 15:03:58 by cpeset-c          #+#    #+#             */
-/*   Updated: 2024/02/02 16:38:16 by cpeset-c         ###   ########.fr       */
+/*   Updated: 2024/02/02 20:56:20 by cpeset-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef CUB3D_ERRORS_H
 # define CUB3D_ERRORS_H
 
-// Error Messages
+// ERROR MESSAGES
+// ==============
 # define ERR_ARGS		(char *)"\aInvalid number of arguments!\n"
 # define ERR_PRNT		(char *)"\aSomething went wrong while doing a print!\n"
 # define ERR_MEM		(char *)"\aSomething went wrong while allocating memory!\
@@ -35,7 +36,8 @@
 # define ERR_INV_DTA	(char *)"\aInvalid data found while parsing map!\n"
 # define ERR_EXP_MAP	(char *)"\aMap expansion have gone wrong at some point!\n"
 
-// Error Codes
+// ERROR CODES
+// ===========
 # define SYS_ARGS		(int)1
 # define SYS_PRNT		(int)2
 # define SYS_MEM		(int)3

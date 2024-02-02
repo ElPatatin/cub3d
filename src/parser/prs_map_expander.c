@@ -6,7 +6,7 @@
 /*   By: cpeset-c <cpeset-c@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/02 16:43:21 by cpeset-c          #+#    #+#             */
-/*   Updated: 2024/02/02 20:38:00 by cpeset-c         ###   ########.fr       */
+/*   Updated: 2024/02/02 20:40:26 by cpeset-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 #include "cub3d_struct.h"
 #include "cub3d_parser.h"
 #include "cub3d_parser_private.h"
-#include <stdio.h>
 
 static void	copy_raw_to_map(char **raw_info,
 				t_raw_map_data raw_map_data, t_info *info);

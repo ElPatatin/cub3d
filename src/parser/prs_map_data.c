@@ -6,7 +6,7 @@
 /*   By: cpeset-c <cpeset-c@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/02 12:27:04 by cpeset-c          #+#    #+#             */
-/*   Updated: 2024/02/02 20:17:00 by cpeset-c         ###   ########.fr       */
+/*   Updated: 2024/02/02 20:44:48 by cpeset-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,8 @@ int	get_raw_map_data(char **raw_info, t_raw_map_data *raw_map_data)
 	if (raw_map_data->width == 0)  
 		return (TRUE);
 	raw_map_data->width += 2;
-	raw_map_data->height = (raw_map_data->map_end - raw_map_data->map_start) + 3;
+	raw_map_data->height
+		= (raw_map_data->map_end - raw_map_data->map_start) + 3;
 	if (raw_map_data->map_end == 0)
 		return (TRUE);
 	return (FALSE);
@@ -53,7 +54,6 @@ int	allocate_map_grid(t_raw_map_data raw_map_data, t_info *info)
 			ft_memfree(info->map);
 			return (TRUE);
 		}
-
 	}
 	info->map[i] = NULL;
 	return (FALSE);

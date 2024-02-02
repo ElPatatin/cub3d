@@ -6,7 +6,7 @@
 /*   By: cpeset-c <cpeset-c@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/01 17:45:08 by alajara-          #+#    #+#             */
-/*   Updated: 2024/02/02 20:39:18 by cpeset-c         ###   ########.fr       */
+/*   Updated: 2024/02/02 21:08:27 by cpeset-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,19 +30,22 @@ struct	s_raw_map_data
 	size_t	map_end;
 };
 
-int	prs_map(char **raw_info, t_info *info);
+int		prs_map(char **raw_info, t_info *info);
 
-int	get_raw_map_data(char **raw_info, t_raw_map_data *raw_map_data);
-int	allocate_map_grid(t_raw_map_data raw_map_data, t_info *info);
+int		get_raw_map_data(char **raw_info, t_raw_map_data *raw_map_data);
+int		allocate_map_grid(t_raw_map_data raw_map_data, t_info *info);
 
 // MAP EXPANDER
 // ============
-int	map_expander(char **raw_info, t_raw_map_data raw_map_data, t_info *info);
+int		map_expander(char **raw_info,
+			t_raw_map_data raw_map_data, t_info *info);
 
 // MAP SANITIZER
 // =============
+t_bool	map_sanitizer(t_info *info, size_t width, size_t height);
 
 // MAP VALIDATOR
 // =============
+t_bool	map_validator(t_info *info, size_t width, size_t height);
 
 #endif
