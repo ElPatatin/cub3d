@@ -6,7 +6,7 @@
 #    By: cpeset-c <cpeset-c@student.42barcel>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/07 19:56:27 by cpeset-c          #+#    #+#              #
-#    Updated: 2024/02/02 20:22:42 by cpeset-c         ###   ########.fr        #
+#    Updated: 2024/02/02 20:36:47 by cpeset-c         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -34,7 +34,6 @@ INC_DIR	:= inc/
 SRC_DIR	:= src/
 
 PRS_DIR	:= $(SRC_DIR)parser/
-EXP_DIR	:= $(PRS_DIR)map_expander/
 
 OBJ_DIR	:= .objs/
 DEP_DIR	:= .deps/
@@ -82,13 +81,13 @@ CUB_SRC	= main.c \
 
 CUB_PRS	= parse.c \
 		prs_map.c \
-		prs_map_data.c
-
-CUB_EXP	= exp_map.c
+		prs_map_data.c \
+		prs_map_expander.c \
+		prs_map_sanitizer.c \
+		prs_map_validator.c
 
 SRCS	+= $(addprefix $(SRC_DIR), $(CUB_SRC))
 SRCS	+= $(addprefix $(PRS_DIR), $(CUB_PRS))
-SRCS	+= $(addprefix $(EXP_DIR), $(CUB_EXP))
 
 OBJS	= $(addprefix $(OBJ_DIR), $(SRCS:.c=.o))
 DEPS	= $(addprefix $(DEP_DIR), $(addsuffix .d, $(basename $(SRCS))))
