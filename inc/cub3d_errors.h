@@ -6,7 +6,7 @@
 /*   By: cpeset-c <cpeset-c@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/24 15:03:58 by cpeset-c          #+#    #+#             */
-/*   Updated: 2024/02/01 18:18:14 by cpeset-c         ###   ########.fr       */
+/*   Updated: 2024/02/02 14:35:49 by cpeset-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@
 # define ERR_BAD_CLR	(char *)"\aMap colour is invalid!\n"
 # define ERR_CLR		(char *)"\aA map colour was found missing!\n"
 # define ERR_IMG		(char *)"\aA map image was found missing or invalid!\n"
+# define ERR_INV_DTA	(char *)"\aInvalid data found while parsing map!\n"
 
 // Error Codes
 # define SYS_ARGS		(int)1
@@ -51,6 +52,7 @@
 # define SYS_BAD_CLR	(int)15
 # define SYS_CLR		(int)16
 # define SYS_IMG		(int)17
+# define SYS_INV_DTA	(int)18
 
 int		print_error(char *str, int syserr);
 void	terminate_error(char *str, int syserr);

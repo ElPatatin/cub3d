@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d_parser_private.h                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cpeset-c <cpeset-c@student.42barce.com>    +#+  +:+       +#+        */
+/*   By: cpeset-c <cpeset-c@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/01 17:45:08 by alajara-          #+#    #+#             */
-/*   Updated: 2024/02/02 13:07:51 by cpeset-c         ###   ########.fr       */
+/*   Updated: 2024/02/02 15:26:06 by cpeset-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,9 +26,10 @@ struct s_raw_map_data {
 };
 
 # define VALID_MAP_CHARS    (char *)"01"
+# define EOL      (char *)"\0\n"
 
 int prs_map(char **raw_info, t_info *info);
 
-void    get_raw_map_data(char **raw_info, t_raw_map_data *raw_map_data);
+int get_raw_map_data(char **raw_info, t_raw_map_data *raw_map_data);
 
 #endif

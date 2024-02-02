@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: cpeset-c <cpeset-c@student.42barce.com>    +#+  +:+       +#+         #
+#    By: cpeset-c <cpeset-c@student.42barcel>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/07 19:56:27 by cpeset-c          #+#    #+#              #
-#    Updated: 2024/02/02 13:01:45 by cpeset-c         ###   ########.fr        #
+#    Updated: 2024/02/02 15:59:31 by cpeset-c         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -81,7 +81,7 @@ CUB_SRC	= main.c \
 
 CUB_PRS	= parse.c \
 		prs_map.c \
-		prs_map_utls.c \
+		prs_map_data.c \
 
 SRCS	+= $(addprefix $(SRC_DIR), $(CUB_SRC))
 SRCS	+= $(addprefix $(PRS_DIR), $(CUB_PRS))
@@ -100,16 +100,16 @@ makelib:
 
 $(NAME):: $(OBJS)
 	@$(CC) $(CFLAGS) $(OBJS) $(GFLAGS) $(LIBRARY) -o $(NAME)
-	@printf "\n\t$(WHITE)Program \033[1;31mCub3D $(WHITE)has been compiled!$(DEF_COLOR)\n"
+	@printf "\n\t$(WHITE)Program \033[1;31m$(NAME) $(WHITE)has been compiled!$(DEF_COLOR)\n"
 
 $(NAME)::
-	@printf "\t$(WHITE)Nothing more to be done for program \033[1;31mCub3D$(DEF_COLOR)\n"
+	@printf "\t$(WHITE)Nothing more to be done for program \033[1;31m$(NAME)$(DEF_COLOR)\n"
 
 clean:
 	@$(MAKE) clean -C $(LIB_DIR)
 # @$(MAKE) clean -C $(MLX_DIR)
 	@$(RM) -r $(OBJ_DIR) $(DEP_DIR)
-	@echo "$(BLUE)	Cub3D object and dependencies files cleaned.$(DEF_COLOR)"
+	@echo "$(BLUE)	$(NAME) object and dependencies files cleaned.$(DEF_COLOR)"
 
 fclean: 
 # @$(MAKE) clean -C $(MLX_DIR)
@@ -121,7 +121,7 @@ fclean:
 re:
 	@$(MAKE) fclean
 	@$(MAKE) all
-	@echo "$(GREEN)	Cleaned and rebuilt everything for Cub3D project.$(DEF_COLOR)"
+	@echo "$(GREEN)	Cleaned and rebuilt everything for $(NAME) project.$(DEF_COLOR)"
 
 $(OBJ_DIR)%.o: %.c $(MKFL)
 	@$(MK) $(dir $@) $(dir $(subst $(OBJ_DIR), $(DEP_DIR), $@))
