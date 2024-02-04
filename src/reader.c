@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   reader.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cpeset-c <cpeset-c@student.42barcel>       +#+  +:+       +#+        */
+/*   By: cpeset-c <cpeset-c@student.42barce.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/01 17:28:37 by cpeset-c          #+#    #+#             */
-/*   Updated: 2024/02/02 19:01:21 by cpeset-c         ###   ########.fr       */
+/*   Updated: 2024/02/04 20:45:59 by cpeset-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,9 @@ static int	check_map_extension(char *map_name);
 static char	*read_map_file(int fd, char *buffer);
 static void	*clean_buffer(void **dlt);
 
-char	**reader(char *map_name)
+char	*reader(char *map_name)
 {
 	int		fd;
-	char	**map_data;
 	char	*buffer;
 
 	if (check_map_extension(map_name))
@@ -36,10 +35,7 @@ char	**reader(char *map_name)
 		terminate_error(ERR_READ_MAP, SYS_READ_MAP);
 	if (close(fd))
 		terminate_error(ERR_CLOSE_MAP, SYS_CLOSE_MAP);
-	map_data = ft_split(buffer, '\n');
-	if (!map_data)
-		terminate_error(ERR_MEM, SYS_MEM);
-	return (map_data);
+	return (buffer);
 }
 
 static int	check_map_extension(char *map_name)

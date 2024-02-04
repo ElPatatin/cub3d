@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cpeset-c <cpeset-c@student.42barcel>       +#+  +:+       +#+        */
+/*   By: cpeset-c <cpeset-c@student.42barce.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/01 17:28:53 by cpeset-c          #+#    #+#             */
-/*   Updated: 2024/02/01 18:20:03 by cpeset-c         ###   ########.fr       */
+/*   Updated: 2024/02/04 20:45:56 by cpeset-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,6 @@
 # define TITLE		(char *)"cub3d gatito miau miau🐱"
 # define MAP_EXT	(char *)".cub"
 
-char	**reader(char *map_name);
+char	*reader(char *map_name);
 
 #endif

@@ -3,15 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d_parser.h                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cpeset-c <cpeset-c@student.42barcel>       +#+  +:+       +#+        */
+/*   By: cpeset-c <cpeset-c@student.42barce.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/01 17:45:08 by alajara-          #+#    #+#             */
-/*   Updated: 2024/02/02 16:49:32 by cpeset-c         ###   ########.fr       */
+/*   Updated: 2024/02/04 20:28:22 by cpeset-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef CUB3D_PARSER_H
 # define CUB3D_PARSER_H
+
+# include "cub3d_struct.h"
 
 # define NORTH	(char *)"NO"
 # define SOUTH	(char *)"SO"
@@ -33,6 +35,6 @@
 
 # define VOID	(char)'V'
 
-int parse(char **raw_info);
+void  parse(char **raw_info, t_info *info);
 
 #endif

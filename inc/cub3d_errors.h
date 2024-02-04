@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d_errors.h                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cpeset-c <cpeset-c@student.42barcel>       +#+  +:+       +#+        */
+/*   By: cpeset-c <cpeset-c@student.42barce.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/24 15:03:58 by cpeset-c          #+#    #+#             */
-/*   Updated: 2024/02/02 20:56:20 by cpeset-c         ###   ########.fr       */
+/*   Updated: 2024/02/04 20:51:19 by cpeset-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,10 @@
 
 // ERROR MESSAGES
 // ==============
-# define ERR_ARGS		(char *)"\aInvalid number of arguments!\n"
+# define ERR_ARGS		(char *)"\aInvalid number of arguments!\n\
+ > Program usage: ./cub3D [path_to_file.cub]\n"
 # define ERR_PRNT		(char *)"\aSomething went wrong while doing a print!\n"
-# define ERR_MEM		(char *)"\aSomething went wrong while allocating memory!\
-									\n"
+# define ERR_MEM		(char *)"\aSomething went wrong while allocating memory!\n"
 # define ERR_WIN		(char *)"\aSomething went wrong while opening a window!\n"
 # define ERR_OPEN_MAP	(char *)"\aMap could not be opened!\n"
 # define ERR_READ_MAP	(char *)"\aMap could not be read!\n"

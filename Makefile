@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: cpeset-c <cpeset-c@student.42barcel>       +#+  +:+       +#+         #
+#    By: cpeset-c <cpeset-c@student.42barce.com>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/07 19:56:27 by cpeset-c          #+#    #+#              #
-#    Updated: 2024/02/02 21:15:43 by cpeset-c         ###   ########.fr        #
+#    Updated: 2024/02/04 20:45:06 by cpeset-c         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -34,6 +34,7 @@ INC_DIR	:= inc/
 SRC_DIR	:= src/
 
 PRS_DIR	:= $(SRC_DIR)parser/
+UTL_DIR	:= $(SRC_DIR)basic_utils/
 
 OBJ_DIR	:= .objs/
 DEP_DIR	:= .deps/
@@ -86,8 +87,11 @@ CUB_PRS	= parse.c \
 		prs_map_sanitizer.c \
 		prs_map_validator.c
 
+CUB_UTL = inclusive_split.c
+
 SRCS	+= $(addprefix $(SRC_DIR), $(CUB_SRC))
 SRCS	+= $(addprefix $(PRS_DIR), $(CUB_PRS))
+SRCS	+= $(addprefix $(UTL_DIR), $(CUB_UTL))
 
 OBJS	= $(addprefix $(OBJ_DIR), $(SRCS:.c=.o))
 DEPS	= $(addprefix $(DEP_DIR), $(addsuffix .d, $(basename $(SRCS))))
