@@ -1,22 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   cub3d_basic_utils.h                                :+:      :+:    :+:   */
+/*   prs_file_data.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cpeset-c <cpeset-c@student.42barce.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/02 11:57:48 by alajara-          #+#    #+#             */
-/*   Updated: 2024/02/04 23:07:19 by cpeset-c         ###   ########.fr       */
+/*   Created: 2024/02/04 21:58:40 by cpeset-c          #+#    #+#             */
+/*   Updated: 2024/02/05 00:57:49 by cpeset-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "cub3d.h"
+#include "cub3d_parser_private.h"
 
-#ifndef CUB3D_BASIC_UTILS_H
-# define CUB3D_BASIC_UTILS_H
+int prs_file_data(char **data, t_file_data *file_data)
+{
+    prs_file_header(data, file_data);
+    // prs_file_body(data, file_data);
+    return (0);
+}
 
-t_bool	is_spc(char c);
-char    **inclusive_split(char const *str, char chr);
-char	*ft_strncpy(char *dest, const char *src, size_t n);
-char	*ft_strnchr(const char *s, int c, size_t n);
-
-#endif

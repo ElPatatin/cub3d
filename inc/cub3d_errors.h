@@ -6,7 +6,7 @@
 /*   By: cpeset-c <cpeset-c@student.42barce.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/24 15:03:58 by cpeset-c          #+#    #+#             */
-/*   Updated: 2024/02/04 20:51:19 by cpeset-c         ###   ########.fr       */
+/*   Updated: 2024/02/05 00:06:08 by cpeset-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@
 # define ERR_IMG		(char *)"\aA map image was found missing or invalid!\n"
 # define ERR_INV_DTA	(char *)"\aInvalid data found while parsing map!\n"
 # define ERR_EXP_MAP	(char *)"\aMap expansion have gone wrong at some point!\n"
+# define ERR_HDR_MIS    (char *)"\aThe header is incomplete or does not exist!\n"
 
 // ERROR CODES
 // ===========
@@ -57,6 +58,7 @@
 # define SYS_IMG		(int)17
 # define SYS_INV_DTA	(int)18
 # define SYS_EXP_MAP	(int)19
+# define SYS_HDR_MIS    (int)20
 
 int		print_error(char *str, int syserr);
 void	terminate_error(char *str, int syserr);

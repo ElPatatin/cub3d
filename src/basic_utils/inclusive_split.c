@@ -6,14 +6,13 @@
 /*   By: cpeset-c <cpeset-c@student.42barce.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/02 23:59:24 by cpeset-c          #+#    #+#             */
-/*   Updated: 2024/02/04 21:06:26 by cpeset-c         ###   ########.fr       */
+/*   Updated: 2024/02/05 00:29:51 by cpeset-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include "cub3d_basic_utils.h"
 
-static char	*ft_strncpy(char *dest, const char *src, size_t n);
 static char	**do_split(char **tab, char const *str, char chr, size_t len);
 
 /**
@@ -65,25 +64,6 @@ static char	**do_split(char **tab, char const *str, char chr, size_t len)
 			start = i + 1;
         }
     }
+	tab[count] = NULL;
 	return (tab);
-}
-
-static char	*ft_strncpy(char *dest, const char *src, size_t n)
-{
-	char	*cpy;
-	
-	cpy = dest;
-	while (n > 0 && *src)
-	{
-		*dest++ = *src++;
-		n--;
-	}
-
-	while (n > 0)
-	{
-		*dest++ = '\0';
-		n--;
-	}
-
-	return (cpy);
 }

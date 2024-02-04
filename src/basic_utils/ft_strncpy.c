@@ -1,22 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   cub3d_basic_utils.h                                :+:      :+:    :+:   */
+/*   ft_strncpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cpeset-c <cpeset-c@student.42barce.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/02 11:57:48 by alajara-          #+#    #+#             */
-/*   Updated: 2024/02/04 23:07:19 by cpeset-c         ###   ########.fr       */
+/*   Created: 2024/02/04 23:04:23 by cpeset-c          #+#    #+#             */
+/*   Updated: 2024/02/04 23:04:41 by cpeset-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft.h"
+#include "cub3d_basic_utils.h"
 
-#ifndef CUB3D_BASIC_UTILS_H
-# define CUB3D_BASIC_UTILS_H
+char	*ft_strncpy(char *dest, const char *src, size_t n)
+{
+	char	*cpy;
+	
+	cpy = dest;
+	while (n > 0 && *src)
+	{
+		*dest++ = *src++;
+		n--;
+	}
 
-t_bool	is_spc(char c);
-char    **inclusive_split(char const *str, char chr);
-char	*ft_strncpy(char *dest, const char *src, size_t n);
-char	*ft_strnchr(const char *s, int c, size_t n);
+	while (n > 0)
+	{
+		*dest++ = '\0';
+		n--;
+	}
 
-#endif
+	return (cpy);
+}

@@ -6,7 +6,7 @@
 /*   By: cpeset-c <cpeset-c@student.42barce.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/01 17:16:44 by alajara-          #+#    #+#             */
-/*   Updated: 2024/02/04 21:08:06 by cpeset-c         ###   ########.fr       */
+/*   Updated: 2024/02/05 00:32:49 by cpeset-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,11 @@
 
 void	parse(char **data, t_info *info)
 {
-	// TODO
+	t_file_data	file_data;
 
-	(void)prs_map(data, info);
-	// if (prs_txt(data, &info))
-	// 	return (3);
-	// if (prs_clr(data, &info))
-	// 	return (4);
+	(void)info;
+	(void)prs_file_data(data, &file_data);
+	// (void)prs_map(file_data.body, info);
+	// (void)prs_txt(file_data.metadate, &info);
+	// (void)prs_clr(file_data.metadata, &info);
 }

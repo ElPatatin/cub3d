@@ -6,7 +6,7 @@
 #    By: cpeset-c <cpeset-c@student.42barce.com>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/07 19:56:27 by cpeset-c          #+#    #+#              #
-#    Updated: 2024/02/04 20:45:06 by cpeset-c         ###   ########.fr        #
+#    Updated: 2024/02/04 23:46:57 by cpeset-c         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -81,13 +81,18 @@ CUB_SRC	= main.c \
 		errors.c
 
 CUB_PRS	= parse.c \
+		prs_file_data.c \
+		prs_file_header.c \
+		prs_file_body.c \
 		prs_map.c \
 		prs_map_data.c \
 		prs_map_expander.c \
 		prs_map_sanitizer.c \
 		prs_map_validator.c
 
-CUB_UTL = inclusive_split.c
+CUB_UTL = inclusive_split.c \
+		ft_strncpy.c \
+		ft_strnchr.c
 
 SRCS	+= $(addprefix $(SRC_DIR), $(CUB_SRC))
 SRCS	+= $(addprefix $(PRS_DIR), $(CUB_PRS))

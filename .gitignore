@@ -60,3 +60,4 @@ bin/
 *.gen
 *test
 code.*
+*.txt
