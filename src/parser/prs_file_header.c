@@ -6,7 +6,7 @@
 /*   By: cpeset-c <cpeset-c@student.42barce.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/04 22:07:56 by cpeset-c          #+#    #+#             */
-/*   Updated: 2024/02/05 00:57:37 by cpeset-c         ###   ########.fr       */
+/*   Updated: 2024/02/05 13:16:30 by cpeset-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,65 +16,93 @@
 #include "cub3d_parser_private.h"
 #include "cub3d_errors.h"
 
-static size_t   get_metadata_size(char **data, char **metadata);
-static void built_valid_metadata(char **valid_metadata);
+int get_metadata(char *current_data, char **metadata, t_file_data *file_data)
+{	
+	ssize_t	j;
 
-void    prs_file_header(char **data, t_file_data *file_data)
-{
-    size_t  i;
-    size_t  j;
-    char    *metadata[MIN_HEADER + 1];
-
-    built_valid_metadata(metadata);
-    file_data->metadate = (char **)ft_calloc(get_metadata_size(data, metadata) + 1, sizeof(char *));
-    if (!file_data->metadate)
-        terminate_error(ERR_MEM, SYS_MEM);
-    i = -1;
-    while (data[++i])
-    {
-        if (ft_strlen(data[i]) < 3)
-            continue ;
-        if (data[i][0] == '1' || data[i][0] == '0')
-            break ;
-        j = -1;
-        while (metadata[++j] && data[i] != NULL)
-            if (data[i][2] != '\0' && !ft_strncmp(data[i], metadata[j], ft_strlen(metadata[j])))
+	if (end_of_metadata(current_data))
+		return (FALSE);
+    j = -1;
+    while (metadata[++j] && current_data != NULL)
+	{
+			if (current_data[0] == '\0' || current_data == NULL)
+				continue;
+            if (!ft_strncmp(current_data, metadata[j], ft_strlen(metadata[j])))
             {
-                file_data->metadate[j] = ft_strdup(data[i]);
+                file_data->metadate[j] = ft_strdup(current_data);
                 if (!file_data->metadate[j])
-                    terminate_error(ERR_MEM, SYS_MEM);
+                    return (TRUE);
+				return (FALSE);
             }
-    }
+	}
+	return (FALSE);
 }
 
-static size_t   get_metadata_size(char **data, char **metadata)
+int	duplicated_metadata(char **data, char **metadata)
 {
-    size_t  i;
-    size_t  j;
+	ssize_t	i;
+	ssize_t	j;
+	t_bool	found;
+
+	i = -1;
+	while (metadata[++i])
+	{
+		found = FALSE;
+		j = -1;
+		while (data[++j])
+		{
+			if (data[j][0] == '\0' || data[j] == NULL)
+				continue;
+			if (!ft_strncmp(data[j], metadata[i], ft_strlen(metadata[i])))
+			{
+				if (found)
+					return (TRUE);
+				found = TRUE;
+			}
+		}
+	}
+	return (FALSE);
+}
+
+int   get_metadata_size(char **data, char **metadata)
+{
+    ssize_t  i;
+    ssize_t  j;
     size_t  metadata_size;
 
     i = -1;
     metadata_size = 0;
     while (data[++i])
     {
-        if (ft_strlen(data[i]) < 3)
-            continue ;
-        if (data[i][0] == '1' || data[i][0] == '0')
-            break ;
+		if (end_of_metadata(data[i]))
+			break ;
         j = -1;
         while (metadata[++j])
-            if (!ft_strncmp(data[i], metadata[j], ft_strlen(metadata[j])) && data[i][2])
+		{
+			if (data[i][0] == '\0' || data[i] == NULL)
+				continue;
+            if (!ft_strncmp(data[i], metadata[j], ft_strlen(metadata[j])))
                 metadata_size++;
+		}
     }
     if (metadata_size < MIN_HEADER)
-    {
-        ft_memfree(data);
-        terminate_error(ERR_HDR_MIS, SYS_HDR_MIS);
-    }
+        return (-1);
     return (metadata_size);
 }
 
-static void built_valid_metadata(char **valid_metadata)
+int	end_of_metadata(char *line)
+{
+	size_t	i;
+
+	i = 0;
+	while (line[i] == ' ')
+		i++;
+	if (line[i] == '1' || line[i] == '0')
+		return (TRUE);
+	return (FALSE);
+}
+
+void built_valid_metadata(char **valid_metadata)
 {
     valid_metadata[0] = NORTH;
     valid_metadata[1] = SOUTH;
