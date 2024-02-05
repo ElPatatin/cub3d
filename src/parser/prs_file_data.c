@@ -6,7 +6,7 @@
 /*   By: cpeset-c <cpeset-c@student.42barce.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/04 21:58:40 by cpeset-c          #+#    #+#             */
-/*   Updated: 2024/02/05 13:19:56 by cpeset-c         ###   ########.fr       */
+/*   Updated: 2024/02/05 22:48:00 by cpeset-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 
 static int	prs_file_trash(char **data);
 static int	prs_file_header(char **data, t_file_data *file_data);
-// static int	prs_file_body(char **data, t_file_data *file_data);
+static int	prs_file_body(char **data, t_file_data *file_data);
 static void	free_file_mem(char **data, t_file_data *file_data,
 				char *err_msg, int sys_code);
 
@@ -33,11 +33,11 @@ int prs_file_data(char **data, t_file_data *file_data)
         free_file_mem(data, file_data, ERR_MEM, SYS_MEM);
     else if (status == 3)
         free_file_mem(data, file_data, ERR_HDR_DUP, SYS_HDR_DUP);
-    // status = prs_file_body(data, file_data);
-    // if (status == 1)
-    //     ;
-    // else if (status == 2)
-    //     free_file_mem(data, file_data, ERR_MEM, SYS_MEM);
+    status = prs_file_body(data, file_data);
+    if (status == 1)
+		free_file_mem(data, file_data, ERR_BAD_MAP, SYS_BAD_MAP);
+    else if (status == 2)
+        free_file_mem(data, file_data, ERR_MEM, SYS_MEM);
     return (status);
 }
 
@@ -66,7 +66,7 @@ static int	prs_file_trash(char **data)
 	return (FALSE);
 }
 
-static int    prs_file_header(char **data, t_file_data *file_data)
+static int    	prs_file_header(char **data, t_file_data *file_data)
 {
     ssize_t	i;
     ssize_t	size;
@@ -78,8 +78,8 @@ static int    prs_file_header(char **data, t_file_data *file_data)
     size = get_metadata_size(data, metadata);
     if (size < 0)
         return (1);
-    file_data->metadate = (char **)ft_calloc(size + 1, sizeof(char *));
-    if (!file_data->metadate)
+    file_data->metadata = (char **)ft_calloc(size + 1, sizeof(char *));
+    if (!file_data->metadata)
         return (2);
     i = -1;
     while (data[++i])
@@ -90,12 +90,29 @@ static int    prs_file_header(char **data, t_file_data *file_data)
     return (0);
 }
 
-// static int	prs_file_body(char **data, t_file_data *file_data)
-// {
-// 	UNUSED(data);
-// 	UNUSED(file_data);
-// 	return (FALSE);
-// }
+static int	prs_file_body(char **data, t_file_data *file_data)
+{
+	ssize_t	i;
+	size_t	size;
+
+	size = 0;
+	i = ft_strcount(data);
+	if (get_body_size(data, i, &size))
+		return (1);
+	file_data->body = (char **)ft_calloc(size + 1, sizeof(char *));
+	if (!file_data->body)
+		return (2);
+	while (--i != 0 && size != 0)
+	{
+		if (data[i][0] == '1' || data[i][0] == '0')
+		{
+			file_data->body[--size] = ft_strdup(data[i]);
+			if (!file_data->body[size])
+				return (2);
+		}
+	}
+	return (FALSE);
+}
 
 static void	free_file_mem(char **data, t_file_data *file_data,
 				char *err_msg, int sys_code)
@@ -104,8 +121,8 @@ static void	free_file_mem(char **data, t_file_data *file_data,
 		ft_memfree(data);
 	if (file_data)
 	{
-		if (file_data->metadate)
-			ft_memfree(file_data->metadate);
+		if (file_data->metadata)
+			ft_memfree(file_data->metadata);
 		if (file_data->body)
 			ft_memfree(file_data->body);
 	}

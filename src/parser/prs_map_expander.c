@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   prs_map_expander.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cpeset-c <cpeset-c@student.42barcel>       +#+  +:+       +#+        */
+/*   By: cpeset-c <cpeset-c@student.42barce.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/02 16:43:21 by cpeset-c          #+#    #+#             */
-/*   Updated: 2024/02/02 20:40:26 by cpeset-c         ###   ########.fr       */
+/*   Updated: 2024/02/05 23:01:42 by cpeset-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,8 @@ int	map_expander(char **raw_info, t_raw_map_data raw_map_data, t_info *info)
 static void	copy_raw_to_map(char **raw_info,
 	t_raw_map_data raw_map_data, t_info *info)
 {
-	size_t	i;
-	size_t	j;
+	ssize_t	i;
+	ssize_t	j;
 
 	i = -1;
 	while (++i < raw_map_data.width)

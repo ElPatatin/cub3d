@@ -6,7 +6,7 @@
 /*   By: cpeset-c <cpeset-c@student.42barce.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/04 22:07:56 by cpeset-c          #+#    #+#             */
-/*   Updated: 2024/02/05 13:16:30 by cpeset-c         ###   ########.fr       */
+/*   Updated: 2024/02/05 20:00:50 by cpeset-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,15 +25,15 @@ int get_metadata(char *current_data, char **metadata, t_file_data *file_data)
     j = -1;
     while (metadata[++j] && current_data != NULL)
 	{
-			if (current_data[0] == '\0' || current_data == NULL)
-				continue;
-            if (!ft_strncmp(current_data, metadata[j], ft_strlen(metadata[j])))
-            {
-                file_data->metadate[j] = ft_strdup(current_data);
-                if (!file_data->metadate[j])
-                    return (TRUE);
-				return (FALSE);
-            }
+		if (current_data[0] == '\0' || current_data == NULL)
+			continue;
+		if (!ft_strncmp(current_data, metadata[j], ft_strlen(metadata[j])))
+		{
+			file_data->metadata[j] = ft_strdup(current_data);
+			if (!file_data->metadata[j])
+				return (TRUE);
+			return (FALSE);
+		}
 	}
 	return (FALSE);
 }

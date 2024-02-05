@@ -6,7 +6,7 @@
 /*   By: cpeset-c <cpeset-c@student.42barce.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/01 17:28:37 by cpeset-c          #+#    #+#             */
-/*   Updated: 2024/02/04 20:45:59 by cpeset-c         ###   ########.fr       */
+/*   Updated: 2024/02/05 20:38:46 by cpeset-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ static char	*read_map_file(int fd, char *buffer)
 	char	*line;
 	int		bytes;
 
-	line = ft_calloc((BUFFER_SIZE + 2), sizeof(char));
+	line = ft_calloc((BUFFER_SIZE + 1), sizeof(char));
 	if (!line)
 		terminate_error(ERR_MEM, SYS_MEM);
 	bytes = 1;

@@ -6,7 +6,7 @@
 /*   By: cpeset-c <cpeset-c@student.42barce.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/01 17:45:08 by alajara-          #+#    #+#             */
-/*   Updated: 2024/02/05 12:34:04 by cpeset-c         ###   ########.fr       */
+/*   Updated: 2024/02/05 23:00:48 by cpeset-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,15 +26,15 @@ typedef struct s_file_data		t_file_data;
 
 struct	s_raw_map_data
 {
-	size_t	width;
-	size_t	height;
-	size_t	map_start;
-	size_t	map_end;
+	ssize_t	width;
+	ssize_t	height;
+	ssize_t	map_start;
+	ssize_t	map_end;
 };
 
 struct	s_file_data
 {
-	char	**metadate;
+	char	**metadata;
 	char	**body;
 };
 
@@ -51,7 +51,7 @@ void	built_valid_metadata(char **valid_metadata);
 // FILE BODY
 // =========
 t_bool	check_metadata(char *currnet_data);
-
+int	get_body_size(char **data, ssize_t i, size_t *size);
 
 // PARSE MAP
 // =========
