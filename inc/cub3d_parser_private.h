@@ -40,13 +40,15 @@ struct	s_file_data
 
 int		prs_file_data(char **data, t_file_data *file_data);
 
-// FILE HEADER
+// FILE HEADERS
 // ===========
 int		get_metadata_size(char **data, char **metadata);
 int		duplicated_metadata(char **data, char **metadata);
 int		get_metadata(char *current_data, char **metadata, t_file_data *file_data);
 int		end_of_metadata(char *line);
 void	built_valid_metadata(char **valid_metadata);
+
+// 
 
 // FILE BODY
 // =========

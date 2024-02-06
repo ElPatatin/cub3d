@@ -13,7 +13,7 @@
 #include "libft.h"
 #include "cub3d_basic_utils.h"
 
-static char	**do_split(char **tab, char const *str, char chr, size_t len);
+static char	**do_split(char **tab, const char *str, char chr, size_t len);
 
 /**
  * @brief Splits a string into an array of strings using a character as delimiter.
@@ -24,7 +24,7 @@ static char	**do_split(char **tab, char const *str, char chr, size_t len);
  * 
  * @retval char ** - The array of strings.
  */
-char	**inclusive_split(char const *str, char chr)
+char	**inclusive_split(const char *str, char chr)
 {
 	char	**tab;
 	size_t	len;
@@ -41,7 +41,7 @@ char	**inclusive_split(char const *str, char chr)
     return (tab);
 }
 
-static char	**do_split(char **tab, char const *str, char chr, size_t len)
+static char	**do_split(char **tab, const char *str, char chr, size_t len)
 {
 	size_t count;
 	size_t start;

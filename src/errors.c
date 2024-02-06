@@ -14,14 +14,14 @@
 #include "cub3d_colors.h"
 #include "cub3d_errors.h"
 
-int	print_error(char *str, int syserr)
+int	print_error(const char *str, int syserr)
 {
 	if (ft_printf_fd(STDERR_FILENO, "%sError\n%s", RED, str) == ERRNUM)
 		terminate_error(ERR_PRNT, SYS_PRNT);
 	return (syserr);
 }
 
-void	terminate_error(char *str, int syserr)
+void	terminate_error(const char *str, int syserr)
 {
 	if (ft_printf_fd(STDERR_FILENO, "%sError\n%s", RED, str) == ERRNUM)
 		exit(ERRNUM);

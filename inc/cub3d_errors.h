@@ -62,7 +62,7 @@
 # define SYS_HDR_MIS    (int)20
 # define SYS_HDR_DUP    (int)21
 
-int		print_error(char *str, int syserr);
-void	terminate_error(char *str, int syserr);
+int		print_error(const char *str, int syserr);
+void	terminate_error(const char *str, int syserr);
 
 #endif
