@@ -14,7 +14,7 @@
 #include "cub3d_parser_private.h"
 #include "cub3d_errors.h"
 
-t_bool	check_metadata(char *currnet_data)
+t_bool	check_metadata(const char *currnet_data)
 {
 	ssize_t	i;
     char	*metadata[MIN_HEADER + 1];

@@ -14,11 +14,13 @@
 #include "cub3d_parser_private.h"
 #include "cub3d_errors.h"
 
+// ===============================PROTOTYPES===================================
 static int	prs_file_trash(char **data);
 static int	prs_file_header(char **data, t_file_data *file_data);
 static int	prs_file_body(char **data, t_file_data *file_data);
 static void	free_file_mem(char **data, t_file_data *file_data,
-				char *err_msg, int sys_code);
+				const char *err_msg, int sys_code);
+// ============================================================================
 
 int prs_file_data(char **data, t_file_data *file_data)
 {
@@ -119,7 +121,7 @@ static int	prs_file_body(char **data, t_file_data *file_data)
 }
 
 static void	free_file_mem(char **data, t_file_data *file_data,
-				char *err_msg, int sys_code)
+				const char *err_msg, int sys_code)
 {
 	if (data)
 		ft_memfree(data);

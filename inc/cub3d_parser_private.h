@@ -52,7 +52,7 @@ void	built_valid_metadata(char **valid_metadata);
 
 // FILE BODY
 // =========
-t_bool	check_metadata(char *currnet_data);
+t_bool	check_metadata(const char *currnet_data);
 int	get_body_size(char **data, ssize_t i, size_t *size);
 
 // PARSE MAP
