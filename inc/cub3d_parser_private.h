@@ -77,4 +77,8 @@ t_bool	map_sanitizer(t_info *info, size_t width, size_t height);
 // =============
 t_bool	map_validator(t_info *info, size_t width, size_t height);
 
+// MAP COLOR
+// =========
+void	prs_clr(char **r_info, t_info *info);
+
 #endif

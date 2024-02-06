@@ -18,13 +18,12 @@ void	parse(char **data, t_info *info)
 {
 	t_file_data	file_data;
 
-	(void)info;
 	file_data.metadata = NULL;
 	file_data.body = NULL;
 	(void)prs_file_data(data, &file_data);
 	(void)prs_map(file_data.body, info);
 	// (void)prs_txt(file_data.metadata, info);
-	// (void)prs_clr(file_data.metadata, info);
+	(void)prs_clr(file_data.metadata, info);
 
 	ft_memfree(file_data.metadata);
 	ft_memfree(file_data.body);

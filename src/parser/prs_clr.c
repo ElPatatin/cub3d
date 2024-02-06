@@ -14,14 +14,14 @@
 #include "cub3d_struct.h"
 #include "cub3d_basic_utils.h"
 
-t_bool	is_cf_flag(char c)
+static t_bool	is_cf_flag(char c)
 {
 	if (c == 'C' || c == 'F')
 		return (TRUE);
 	return (FALSE);
 }
 
-int	get_subcolor(char **s)
+static int	get_subcolor(char **s)
 {
 	int n;
 	int	val;
@@ -46,25 +46,21 @@ int	get_subcolor(char **s)
 
 // Gets a [s]tring begining with 'C' or 'F' and stores the value to the 
 // corresponent parameter in t_info.
-int	get_color(char *s)
+static void	get_color(char *s, t_argb *clr)
 {
-	int		val;
-	int		trueval;
-
 	while (*s && is_spc(*s))
 		++s;
-	trueval = get_subcolor(&s);
-	if (trueval < 0 || *s != ',')
-		return (-1);				// TODO: Error handling
+	clr->clr[1] = get_subcolor(&s);
+	// if (trueval < 0 || *s != ',')
+	// 	return (-1);				// TODO: Error handling
 	++s;
-	val = get_subcolor(&s);
-	if (val < 0 || *s != ',')
-		return (-1);				// TODO: Error handling
+	clr->clr[2] = get_subcolor(&s);
+	// if (val < 0 || *s != ',')
+	// 	return (-1);				// TODO: Error handling
 	++s;
-	trueval = (trueval << 8) + val;
-	val = get_subcolor(&s);
-	trueval = (trueval << 8) + val;
-	return (trueval);
+	clr->clr[3] = get_subcolor(&s);
+	pintf("clr: %d\n", clr.argb);
+	//return (trueval);
 }
 
 // TODO: proper error handling
@@ -80,9 +76,9 @@ void	prs_clr(char **r_info, t_info *info)
 		if (is_cf_flag(r_info[i][0]) && is_spc(r_info[i][1]))
 		{
 			if (*r_info[i] == 'C')
-				info->c = get_color(++(r_info[i]));
+				get_color(++(r_info[i]), &(info->c));
 			else
-				info->f = get_color(++(r_info[i]));
+				info->f = get_color(++(r_info[i], &(info->f)));
 			printf("color: %X\n", info->c);
 		}
 	}

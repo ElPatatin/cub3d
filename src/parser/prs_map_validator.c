@@ -53,7 +53,7 @@ static t_bool	is_surrounded_by_void_or_wall(t_info *info, size_t x, size_t y)
 	size_t		ny;
 
 	idx = 0;
-	while (idx < 88)
+	while (idx < 8)
 	{
 		nx = x + dx[idx];
 		ny = y + dy[idx];
