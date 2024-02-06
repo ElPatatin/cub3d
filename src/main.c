@@ -12,8 +12,9 @@
 
 #include "cub3d.h"
 #include "cub3d_basic_utils.h"
-#include "cub3d_parser.h"
 #include "cub3d_errors.h"
+#include "cub3d_parser.h"
+#include "cub3d_reader.h"
 
 int	main(int ac, char **av)
 {

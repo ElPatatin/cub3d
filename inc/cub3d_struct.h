@@ -14,6 +14,13 @@
 # define CUB3D_STRUCT_H
 
 typedef struct s_info	t_info;
+typedef union s_argb	t_argb;
+
+union s_argb
+{
+	unsigned char	clr[4];
+	unsigned int	argb;
+};
 
 /*
 			map		map for playing
@@ -28,8 +35,8 @@ struct s_info
 	char	*txr_so;
 	char	*txr_we;
 	char	*txr_ea;
-	int		c;
-	int 	f;
+	t_argb	c;
+	t_argb	f;
 };
 
 #endif

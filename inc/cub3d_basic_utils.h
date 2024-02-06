@@ -14,6 +14,8 @@
 #ifndef CUB3D_BASIC_UTILS_H
 # define CUB3D_BASIC_UTILS_H
 
+# include "libft.h"
+
 t_bool	is_spc(char c);
 char    **inclusive_split(char const *str, char chr);
 char	*ft_strncpy(char *dest, const char *src, size_t n);

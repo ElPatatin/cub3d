@@ -10,14 +10,10 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3d.h"
-#include "cub3d_errors.h"
+#include "cub3d_basic_utils.h"
+#include "cub3d_reader_private.h"
 
-static int	check_map_extension(char *map_name);
-static char	*read_map_file(int fd, char *buffer);
-static void	*clean_buffer(void **dlt);
-
-char	*reader(char *map_name)
+char	*reader(const char *map_name)
 {
 	int		fd;
 	char	*buffer;
@@ -38,7 +34,7 @@ char	*reader(char *map_name)
 	return (buffer);
 }
 
-static int	check_map_extension(char *map_name)
+static int	check_map_extension(const char *map_name)
 {
 	size_t	len;
 	char	*str;
@@ -46,7 +42,7 @@ static int	check_map_extension(char *map_name)
 	len = ft_strlen(map_name);
 	str = ft_strrchr(map_name, '/');
 	if (!str)
-		str = map_name;
+		ft_strncpy(str, map_name, ft_strlen(map_name));
 	if (len <= 4 || ft_strlen(&str[1]) <= 4)
 		return (TRUE);
 	if (ft_strncmp(MAP_EXT, &map_name[len - 4], ft_strlen(MAP_EXT)))

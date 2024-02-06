@@ -31,6 +31,4 @@
 # define TITLE		(char *)"cub3d gatito miau miau🐱"
 # define MAP_EXT	(char *)".cub"
 
-char	*reader(char *map_name);
-
 #endif
