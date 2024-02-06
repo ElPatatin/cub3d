@@ -6,7 +6,7 @@
 /*   By: cpeset-c <cpeset-c@student.42barce.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/01 17:42:09 by alajara-          #+#    #+#             */
-/*   Updated: 2024/02/06 17:21:23 by cpeset-c         ###   ########.fr       */
+/*   Updated: 2024/02/06 17:51:09 by cpeset-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 #include "cub3d_struct.h"
 #include "cub3d_parser_private.h"
 #include "cub3d_basic_utils.h"
+#include "ft_printf_fd.h"
 
 static t_bool	is_cf_flag(char c)
 {
@@ -51,16 +52,16 @@ static void	get_color(char *s, t_argb *clr)
 {
 	while (*s && is_spc(*s))
 		++s;
-	clr->clr[1] = get_subcolor(&s);
+	clr->clr[2] = get_subcolor(&s);
 	// if (trueval < 0 || *s != ',')
 	// 	return (-1);				// TODO: Error handling
 	++s;
-	clr->clr[2] = get_subcolor(&s);
+	clr->clr[1] = get_subcolor(&s);
 	// if (val < 0 || *s != ',')
 	// 	return (-1);				// TODO: Error handling
 	++s;
-	clr->clr[3] = get_subcolor(&s);
-	printf("clr: %d\n", clr->argb);
+	clr->clr[0] = get_subcolor(&s);
+	ft_printf_fd(1, "color = %x\n", clr->argb);
 	//return (trueval);
 }
 
@@ -77,9 +78,9 @@ void	prs_clr(char **r_info, t_info *info)
 		if (is_cf_flag(r_info[i][0]) && is_spc(r_info[i][1]))
 		{
 			if (*r_info[i] == 'C')
-				get_color(++(r_info[i]), &(info->c));
-			else
-				get_color(++(r_info[i]), &(info->f));
+				get_color(&r_info[i][2], &(info->c));
+			else if (*r_info[i] == 'F')
+				get_color(&r_info[i][2], &(info->f));
 		}
 	}
 }

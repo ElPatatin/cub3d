@@ -6,7 +6,7 @@
 /*   By: cpeset-c <cpeset-c@student.42barce.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/01 17:09:13 by alajara-          #+#    #+#             */
-/*   Updated: 2024/02/05 23:03:45 by cpeset-c         ###   ########.fr       */
+/*   Updated: 2024/02/06 17:32:09 by cpeset-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,9 +34,10 @@ int	main(int ac, char **av)
 	parse(data, &info);
 	ft_memfree(data);
 
-	for (size_t i = 0; info.map[i]; i++)
-		printf("%s\n", info.map[i]);
+	// for (size_t i = 0; info.map[i]; i++)
+	// 	printf("%s\n", info.map[i]);
 
 	// graphics(&info);
+	ft_memfree(info.map);
 	return (0);
 }
