@@ -15,9 +15,11 @@
 #include "cub3d_parser.h"
 #include "cub3d_parser_private.h"
 
+// ===============================PROTOTYPES===================================
 static void	copy_raw_to_map(char **raw_info,
 				t_raw_map_data raw_map_data, t_info *info);
 static void	replace_spaces_with_void(t_info *info, size_t width, size_t height);
+// ============================================================================
 
 int	map_expander(char **raw_info, t_raw_map_data raw_map_data, t_info *info)
 {

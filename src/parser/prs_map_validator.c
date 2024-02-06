@@ -14,8 +14,10 @@
 #include "cub3d_struct.h"
 #include "cub3d_parser_private.h"
 
+// ===============================PROTOTYPES===================================
 static t_bool	is_surrounded_by_void_or_wall(t_info *info,
 					size_t x, size_t y);
+// ============================================================================
 
 t_bool	map_validator(t_info *info, size_t width, size_t height)
 {

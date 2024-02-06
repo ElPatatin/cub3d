@@ -15,7 +15,9 @@
 #include "cub3d_parser.h"
 #include "cub3d_parser_private.h"
 
+// ===============================PROTOTYPES===================================
 static void	built_valid_chars(char *valid_chars, int *nullable);
+// ============================================================================
 
 t_bool	map_sanitizer(t_info *info, size_t width, size_t height)
 {

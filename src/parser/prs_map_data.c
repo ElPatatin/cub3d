@@ -13,10 +13,12 @@
 #include "libft.h"
 #include "cub3d_parser_private.h"
 
+// ===============================PROTOTYPES===================================
 static size_t	locate_map_start(char **raw_info);
 static size_t	locate_map_end(char **raw_info);
 static int		get_map_width(char **raw_info, ssize_t map_start,
 					ssize_t map_end);
+// ============================================================================
 
 int	get_raw_map_data(char **raw_info, t_raw_map_data *raw_map_data)
 {
