@@ -60,7 +60,7 @@ static void	get_color(char *s, t_argb *clr)
 	// 	return (-1);				// TODO: Error handling
 	++s;
 	clr->clr[3] = get_subcolor(&s);
-	pintf("clr: %d\n", clr->argb);
+	printf("clr: %d\n", clr->argb);
 	//return (trueval);
 }
 
@@ -80,7 +80,6 @@ void	prs_clr(char **r_info, t_info *info)
 				get_color(++(r_info[i]), &(info->c));
 			else
 				get_color(++(r_info[i]), &(info->f));
-			printf("color: %X\n", info->c);
 		}
 	}
 }

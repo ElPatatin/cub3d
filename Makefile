@@ -93,7 +93,8 @@ CUB_PRS	= parse.c \
 
 CUB_UTL = inclusive_split.c \
 		ft_strncpy.c \
-		ft_strnchr.c
+		ft_strnchr.c \
+		is_spc.c
 
 SRCS	+= $(addprefix $(SRC_DIR), $(CUB_SRC))
 SRCS	+= $(addprefix $(PRS_DIR), $(CUB_PRS))
