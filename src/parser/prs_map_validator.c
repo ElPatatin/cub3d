@@ -6,7 +6,7 @@
 /*   By: cpeset-c <cpeset-c@student.42barce.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/02 20:37:05 by cpeset-c          #+#    #+#             */
-/*   Updated: 2024/02/06 16:39:05 by cpeset-c         ###   ########.fr       */
+/*   Updated: 2024/02/06 16:56:25 by cpeset-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ static t_bool	is_surrounded_by_void_or_wall(t_info *info, size_t x, size_t y)
 	size_t		ny;
 
 	idx = 0;
-	while (idx < 88)
+	while (idx < 8)
 	{
 		nx = x + dx[idx];
 		ny = y + dy[idx];
