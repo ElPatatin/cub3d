@@ -3,15 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   prs_clr.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alajara- <alajara-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: cpeset-c <cpeset-c@student.42barce.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/01 17:42:09 by alajara-          #+#    #+#             */
-/*   Updated: 2024/02/01 17:42:15 by alajara-         ###   ########.fr       */
+/*   Updated: 2024/02/06 17:21:23 by cpeset-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include "cub3d_struct.h"
+#include "cub3d_parser_private.h"
 #include "cub3d_basic_utils.h"
 
 static t_bool	is_cf_flag(char c)
@@ -59,7 +60,7 @@ static void	get_color(char *s, t_argb *clr)
 	// 	return (-1);				// TODO: Error handling
 	++s;
 	clr->clr[3] = get_subcolor(&s);
-	pintf("clr: %d\n", clr.argb);
+	pintf("clr: %d\n", clr->argb);
 	//return (trueval);
 }
 
@@ -78,7 +79,7 @@ void	prs_clr(char **r_info, t_info *info)
 			if (*r_info[i] == 'C')
 				get_color(++(r_info[i]), &(info->c));
 			else
-				info->f = get_color(++(r_info[i], &(info->f)));
+				get_color(++(r_info[i]), &(info->f));
 			printf("color: %X\n", info->c);
 		}
 	}

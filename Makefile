@@ -6,7 +6,7 @@
 #    By: cpeset-c <cpeset-c@student.42barce.com>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/07 19:56:27 by cpeset-c          #+#    #+#              #
-#    Updated: 2024/02/05 13:17:10 by cpeset-c         ###   ########.fr        #
+#    Updated: 2024/02/06 17:22:27 by cpeset-c         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -88,7 +88,8 @@ CUB_PRS	= parse.c \
 		prs_map_data.c \
 		prs_map_expander.c \
 		prs_map_sanitizer.c \
-		prs_map_validator.c
+		prs_map_validator.c \
+		prs_clr.c
 
 CUB_UTL = inclusive_split.c \
 		ft_strncpy.c \
