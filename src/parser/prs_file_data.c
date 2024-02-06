@@ -6,7 +6,7 @@
 /*   By: cpeset-c <cpeset-c@student.42barce.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/04 21:58:40 by cpeset-c          #+#    #+#             */
-/*   Updated: 2024/02/05 22:48:00 by cpeset-c         ###   ########.fr       */
+/*   Updated: 2024/02/06 16:19:27 by cpeset-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,6 +93,7 @@ static int    	prs_file_header(char **data, t_file_data *file_data)
 static int	prs_file_body(char **data, t_file_data *file_data)
 {
 	ssize_t	i;
+	ssize_t	j;
 	size_t	size;
 
 	size = 0;
@@ -104,7 +105,10 @@ static int	prs_file_body(char **data, t_file_data *file_data)
 		return (2);
 	while (--i != 0 && size != 0)
 	{
-		if (data[i][0] == '1' || data[i][0] == '0')
+		j = -1;
+		while (data[i][++j] == ' ')
+			;
+		if (data[i][j] == '1' || data[i][j] == '0')
 		{
 			file_data->body[--size] = ft_strdup(data[i]);
 			if (!file_data->body[size])
