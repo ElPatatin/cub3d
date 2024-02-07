@@ -6,7 +6,7 @@
 #    By: cpeset-c <cpeset-c@student.42barce.com>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/07 19:56:27 by cpeset-c          #+#    #+#              #
-#    Updated: 2024/02/06 17:30:16 by cpeset-c         ###   ########.fr        #
+#    Updated: 2024/02/07 18:02:09 by cpeset-c         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -35,6 +35,8 @@ SRC_DIR	:= src/
 
 PRS_DIR	:= $(SRC_DIR)parser/
 UTL_DIR	:= $(SRC_DIR)basic_utils/
+GME_DIR	:= $(SRC_DIR)game/
+HKS_DIR	:= $(SRC_DIR)hooks/
 
 OBJ_DIR	:= .objs/
 DEP_DIR	:= .deps/
@@ -78,6 +80,7 @@ INCLUDE	= -I$(INC_DIR) -I$(MLX_DIR) \
 
 CUB_SRC	= main.c \
 		reader.c \
+		graphics.c \
 		errors.c
 
 CUB_PRS	= parse.c \
@@ -91,14 +94,25 @@ CUB_PRS	= parse.c \
 		prs_map_validator.c \
 		prs_clr.c
 
+CUB_GME	= game.c
+
+CUB_HKS = hooks.c \
+		hooks_keys_press.c \
+		hooks_keys_release.c \
+		hooks_mouse_press.c \
+		hooks_utils.c
+		
 CUB_UTL = inclusive_split.c \
 		ft_strncpy.c \
 		ft_strnchr.c \
-		is_spc.c
+		is_spc.c \
+		ft_put_pixel.c
 
 SRCS	+= $(addprefix $(SRC_DIR), $(CUB_SRC))
 SRCS	+= $(addprefix $(PRS_DIR), $(CUB_PRS))
 SRCS	+= $(addprefix $(UTL_DIR), $(CUB_UTL))
+SRCS	+= $(addprefix $(GME_DIR), $(CUB_GME))
+SRCS	+= $(addprefix $(HKS_DIR), $(CUB_HKS))
 
 OBJS	= $(addprefix $(OBJ_DIR), $(SRCS:.c=.o))
 DEPS	= $(addprefix $(DEP_DIR), $(addsuffix .d, $(basename $(SRCS))))

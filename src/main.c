@@ -6,7 +6,7 @@
 /*   By: cpeset-c <cpeset-c@student.42barce.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/01 17:09:13 by alajara-          #+#    #+#             */
-/*   Updated: 2024/02/06 17:32:09 by cpeset-c         ###   ########.fr       */
+/*   Updated: 2024/02/07 18:02:37 by cpeset-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 #include "cub3d_errors.h"
 #include "cub3d_parser.h"
 #include "cub3d_reader.h"
+#include "cub3d_graphics.h"
 
 int	main(int ac, char **av)
 {
@@ -33,11 +34,7 @@ int	main(int ac, char **av)
 		terminate_error(ERR_MEM, SYS_MEM);
 	parse(data, &info);
 	ft_memfree(data);
-
-	// for (size_t i = 0; info.map[i]; i++)
-	// 	printf("%s\n", info.map[i]);
-
-	// graphics(&info);
+	graphics(&info);
 	ft_memfree(info.map);
 	return (0);
 }

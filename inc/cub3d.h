@@ -6,7 +6,7 @@
 /*   By: cpeset-c <cpeset-c@student.42barce.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/01 17:28:53 by cpeset-c          #+#    #+#             */
-/*   Updated: 2024/02/04 20:45:56 by cpeset-c         ###   ########.fr       */
+/*   Updated: 2024/02/07 18:01:23 by cpeset-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,9 +26,11 @@
 
 # include <math.h>
 
-# define WINHEIGHT	(int)1080
-# define WINWIDTH	(int)1920
-# define TITLE		(char *)"cub3d gatito miau miau🐱"
+// # define WINHEIGHT	(int)1080
+// # define WINWIDTH	(int)1920
+# define WINHEIGHT	(int)720
+# define WINWIDTH	(int)1280
+# define TITLE		(char *)"cub3d gatito miau miau"
 # define MAP_EXT	(char *)".cub"
 
 #endif

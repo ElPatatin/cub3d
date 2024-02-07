@@ -1,26 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   cub3d_basic_utils.h                                :+:      :+:    :+:   */
+/*   hooks_utils.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cpeset-c <cpeset-c@student.42barce.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/02 11:57:48 by alajara-          #+#    #+#             */
-/*   Updated: 2024/02/07 13:57:07 by cpeset-c         ###   ########.fr       */
+/*   Created: 2024/02/07 13:45:27 by cpeset-c          #+#    #+#             */
+/*   Updated: 2024/02/07 13:46:52 by cpeset-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "cub3d.h"
+#include "cub3d_struct.h"
+#include "cub3d_hooks.h"
+#include "cub3d_keys.h"
 
-#ifndef CUB3D_BASIC_UTILS_H
-# define CUB3D_BASIC_UTILS_H
-
-# include "libft.h"
-# include "cub3d_struct.h"
-
-t_bool	is_spc(char c);
-char    **inclusive_split(char const *str, char chr);
-char	*ft_strncpy(char *dest, const char *src, size_t n);
-char	*ft_strnchr(const char *s, int c, size_t n);
-void	ft_mlx_put_pixels(t_graphics *graphics, int x, int y, int color);
-
-#endif
+void	exit_game(t_graphics *graphics)
+{
+	mlx_destroy_window(graphics->mlx, graphics->win);
+	ft_memfree(graphics->info->map);
+	exit(EXIT_SUCCESS);
+}

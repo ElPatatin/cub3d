@@ -1,26 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   cub3d_basic_utils.h                                :+:      :+:    :+:   */
+/*   ft_put_pixel.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cpeset-c <cpeset-c@student.42barce.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/02 11:57:48 by alajara-          #+#    #+#             */
-/*   Updated: 2024/02/07 13:57:07 by cpeset-c         ###   ########.fr       */
+/*   Created: 2024/02/07 13:19:43 by cpeset-c          #+#    #+#             */
+/*   Updated: 2024/02/07 13:56:39 by cpeset-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 
-#ifndef CUB3D_BASIC_UTILS_H
-# define CUB3D_BASIC_UTILS_H
+#include "cub3d.h"
+#include "cub3d_struct.h"
+#include "cub3d_basic_utils.h"
 
-# include "libft.h"
-# include "cub3d_struct.h"
+void	ft_mlx_put_pixels(t_graphics *graphics, int x, int y, int color)
+{
+	char	*dst;
 
-t_bool	is_spc(char c);
-char    **inclusive_split(char const *str, char chr);
-char	*ft_strncpy(char *dest, const char *src, size_t n);
-char	*ft_strnchr(const char *s, int c, size_t n);
-void	ft_mlx_put_pixels(t_graphics *graphics, int x, int y, int color);
-
-#endif
+	dst = graphics->img->addr + (y * graphics->img->line_len + x * (graphics->img->bpp / 8));
+	*(t_unt *)dst = color;
+}
