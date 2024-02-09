@@ -38,7 +38,7 @@ static int	get_subcolor(char **s)
 	if (!n)
 	{
 		printf("error: 38 subcolor\n");
-		return (-1);
+		return (0);
 	}
 	*s += n;
 	printf("subval = %d\n", val);
@@ -53,19 +53,14 @@ static void	get_color(char *s, t_argb *clr)
 	while (*s && is_spc(*s))
 		++s;
 	clr->clr[2] = get_subcolor(&s);
-	// if (trueval < 0 || *s != ',')
-	// 	return (-1);				// TODO: Error handling
+	if (*s != ',')
+		return ;
 	++s;
 	clr->clr[1] = get_subcolor(&s);
-	// if (val < 0 || *s != ',')
-	// 	return (-1);				// TODO: Error handling
 	++s;
 	clr->clr[0] = get_subcolor(&s);
-	ft_printf_fd(1, "color = %x\n", clr->argb);
-	//return (trueval);
 }
 
-// TODO: proper error handling
 // Allocates the information for info.c and info.f
 // Also checks for duplicated inputs, in case of error returns the proper message
 void	prs_clr(char **r_info, t_info *info)
@@ -83,4 +78,5 @@ void	prs_clr(char **r_info, t_info *info)
 				get_color(&r_info[i][2], &(info->f));
 		}
 	}
+	ft_printf_fd(1, "c = %x | f = %x\n", info->c.argb,info->f.argb);
 }
