@@ -11,5 +11,16 @@
 /* ************************************************************************** */
 
 #include "cub3d.h"
+#include <math.h>
+//#define M_PI   3.14159265358979323846264338327950288
 
-float degToRad(int a) { return a*M_PI/180.0;}
+#define INV_180 0.00555555
+#define DEG_TO_RAD 0.0174533
+
+//float degToRad(int a) { return a * M_PI * INV_180;}
+
+float degToRad(int a)
+{
+	return ((float)a * M_PI * INV_180);
+}
+
