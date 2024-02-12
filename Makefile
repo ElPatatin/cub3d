@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: cpeset-c <cpeset-c@student.42barce.com>    +#+  +:+       +#+         #
+#    By: cpeset-c <cpeset-c@student.42barcel>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/07 19:56:27 by cpeset-c          #+#    #+#              #
-#    Updated: 2024/02/07 18:02:09 by cpeset-c         ###   ########.fr        #
+#    Updated: 2024/02/12 12:10:57 by cpeset-c         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -35,8 +35,8 @@ SRC_DIR	:= src/
 
 PRS_DIR	:= $(SRC_DIR)parser/
 UTL_DIR	:= $(SRC_DIR)basic_utils/
-GME_DIR	:= $(SRC_DIR)game/
 HKS_DIR	:= $(SRC_DIR)hooks/
+RDR_DIR	:= $(SRC_DIR)render/
 
 OBJ_DIR	:= .objs/
 DEP_DIR	:= .deps/
@@ -80,7 +80,7 @@ INCLUDE	= -I$(INC_DIR) -I$(MLX_DIR) \
 
 CUB_SRC	= main.c \
 		reader.c \
-		graphics.c \
+		graphics_init.c \
 		errors.c
 
 CUB_PRS	= parse.c \
@@ -94,13 +94,13 @@ CUB_PRS	= parse.c \
 		prs_map_validator.c \
 		prs_clr.c
 
-CUB_GME	= game.c
-
 CUB_HKS = hooks.c \
 		hooks_keys_press.c \
 		hooks_keys_release.c \
 		hooks_mouse_press.c \
 		hooks_utils.c
+
+CUB_RDR = render.c
 		
 CUB_UTL = inclusive_split.c \
 		ft_strncpy.c \
@@ -111,8 +111,8 @@ CUB_UTL = inclusive_split.c \
 SRCS	+= $(addprefix $(SRC_DIR), $(CUB_SRC))
 SRCS	+= $(addprefix $(PRS_DIR), $(CUB_PRS))
 SRCS	+= $(addprefix $(UTL_DIR), $(CUB_UTL))
-SRCS	+= $(addprefix $(GME_DIR), $(CUB_GME))
 SRCS	+= $(addprefix $(HKS_DIR), $(CUB_HKS))
+SRCS	+= $(addprefix $(RDR_DIR), $(CUB_RDR))
 
 OBJS	= $(addprefix $(OBJ_DIR), $(SRCS:.c=.o))
 DEPS	= $(addprefix $(DEP_DIR), $(addsuffix .d, $(basename $(SRCS))))

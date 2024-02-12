@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   prs_map_validator.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cpeset-c <cpeset-c@student.42barce.com>    +#+  +:+       +#+        */
+/*   By: cpeset-c <cpeset-c@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/02 20:37:05 by cpeset-c          #+#    #+#             */
-/*   Updated: 2024/02/06 16:39:05 by cpeset-c         ###   ########.fr       */
+/*   Updated: 2024/02/12 11:20:23 by cpeset-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,8 +46,8 @@ t_bool	map_validator(t_info *info, size_t width, size_t height)
 
 static t_bool	is_surrounded_by_void_or_wall(t_info *info, size_t x, size_t y)
 {
-    const int dx[] = {0, 0, 1, -1, 1, -1, 1, -1};
-    const int dy[] = {1, -1, 0, 0, 1, -1, -1, 1};
+	const int	dx[] = {0, 0, 1, -1, 1, -1, 1, -1};
+	const int	dy[] = {1, -1, 0, 0, 1, -1, -1, 1};
 	size_t		idx;
 	size_t		nx;
 	size_t		ny;

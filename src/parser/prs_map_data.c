@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   prs_map_data.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cpeset-c <cpeset-c@student.42barce.com>    +#+  +:+       +#+        */
+/*   By: cpeset-c <cpeset-c@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/02 12:27:04 by cpeset-c          #+#    #+#             */
-/*   Updated: 2024/02/05 23:03:24 by cpeset-c         ###   ########.fr       */
+/*   Updated: 2024/02/12 11:19:25 by cpeset-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,7 +91,8 @@ static size_t	locate_map_end(char **raw_info)
 			++j;
 		if (raw_info[i][j] == '\0')
 			continue ;
-		else if (raw_info[i + 1] == NULL && (raw_info[i][j] == '1' || raw_info[i][j] == '0'))
+		else if (raw_info[i + 1] == NULL && (raw_info[i][j] == '1'
+			|| raw_info[i][j] == '0'))
 			return (i);
 	}
 	return (-1);

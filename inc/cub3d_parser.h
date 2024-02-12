@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d_parser.h                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cpeset-c <cpeset-c@student.42barce.com>    +#+  +:+       +#+        */
+/*   By: cpeset-c <cpeset-c@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/01 17:45:08 by alajara-          #+#    #+#             */
-/*   Updated: 2024/02/04 22:56:18 by cpeset-c         ###   ########.fr       */
+/*   Updated: 2024/02/12 11:26:03 by cpeset-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,26 +15,26 @@
 
 # include "cub3d_struct.h"
 
-# define NORTH	(char *)"NO"
-# define SOUTH	(char *)"SO"
-# define WEST	(char *)"WE"
-# define EAST	(char *)"EA"
-# define SPRITE	(char *)"S"
+# define NORTH	"NO"
+# define SOUTH	"SO"
+# define WEST	"WE"
+# define EAST	"EA"
+# define SPRITE	"S"
 
-# define FLOOR	(char *)"F"
-# define CEALING	(char *)"C"
+# define FLOOR	"F"
+# define CEALING	"C"
 
-# define WALL		(char)'1'
-# define MPTY		(char)'0'
-# define P_NO		(char)'N'
-# define P_SO		(char)'S'
-# define P_WE		(char)'W'
-# define P_EA		(char)'E'
-# define CLOSE_DOOR	(char)'D'
-# define OPEN_DOOR	(char)'C'
+# define WALL		'1'
+# define MPTY		'0'
+# define P_NO		'N'
+# define P_SO		'S'
+# define P_WE		'W'
+# define P_EA		'E'
+# define CLOSE_DOOR	'D'
+# define OPEN_DOOR	'C'
 
-# define VOID	(char)'V'
+# define VOID	'V'
 
-void  parse(char **raw_info, t_info *info);
+void	parse(char **raw_info, t_info *info);
 
 #endif

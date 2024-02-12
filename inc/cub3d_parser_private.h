@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d_parser_private.h                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cpeset-c <cpeset-c@student.42barce.com>    +#+  +:+       +#+        */
+/*   By: cpeset-c <cpeset-c@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/01 17:45:08 by alajara-          #+#    #+#             */
-/*   Updated: 2024/02/05 23:00:48 by cpeset-c         ###   ########.fr       */
+/*   Updated: 2024/02/12 11:25:09 by cpeset-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,10 @@
 # include <stddef.h>
 # include "cub3d_struct.h"
 
-# define SPCTAB				(char *)" \t"
-# define VALID_MAP_CHARS	(char *)"01"
-# define EOL				(char *)"\0\n"
-# define MIN_HEADER			(int)6
+# define SPCTAB				" \t"
+# define VALID_MAP_CHARS	"01"
+# define EOL				"\0\n"
+# define MIN_HEADER			6
 
 typedef struct s_raw_map_data	t_raw_map_data;
 typedef struct s_file_data		t_file_data;
@@ -44,7 +44,8 @@ int		prs_file_data(char **data, t_file_data *file_data);
 // ===========
 int		get_metadata_size(char **data, char **metadata);
 int		duplicated_metadata(char **data, char **metadata);
-int		get_metadata(char *current_data, char **metadata, t_file_data *file_data);
+int		get_metadata(char *current_data, char **metadata,
+			t_file_data *file_data);
 int		end_of_metadata(char *line);
 void	built_valid_metadata(char **valid_metadata);
 

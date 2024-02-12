@@ -1,25 +1,15 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_put_pixel.c                                     :+:      :+:    :+:   */
+/*   deg_to_rad.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cpeset-c <cpeset-c@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/07 13:19:43 by cpeset-c          #+#    #+#             */
-/*   Updated: 2024/02/12 12:09:20 by cpeset-c         ###   ########.fr       */
+/*   Created: 2024/02/12 12:34:56 by cpeset-c          #+#    #+#             */
+/*   Updated: 2024/02/12 12:36:30 by cpeset-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-
 #include "cub3d.h"
-#include "cub3d_struct.h"
-#include "cub3d_basic_utils.h"
 
-void	ft_mlx_put_pixel(t_graphics *graphics, int x, int y, int color)
-{
-	char	*dst;
-
-	dst = graphics->img->addr + (y * graphics->img->line_len + x * \
-		(graphics->img->bpp / 8));
-	*(t_unt *)dst = color;
-}
+float degToRad(int a) { return a*M_PI/180.0;}

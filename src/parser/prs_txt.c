@@ -3,11 +3,13 @@
 /*                                                        :::      ::::::::   */
 /*   prs_txt.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alajara- <alajara-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: cpeset-c <cpeset-c@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/01 17:42:37 by alajara-          #+#    #+#             */
-/*   Updated: 2024/02/01 17:42:40 by alajara-         ###   ########.fr       */
+/*   Updated: 2024/02/12 11:26:11 by cpeset-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-prs_txt.c
+#include "cub3d.h"
+#include "cub3d_parser_private.h"
+

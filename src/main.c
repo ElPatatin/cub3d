@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cpeset-c <cpeset-c@student.42barce.com>    +#+  +:+       +#+        */
+/*   By: cpeset-c <cpeset-c@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/01 17:09:13 by alajara-          #+#    #+#             */
-/*   Updated: 2024/02/07 18:02:37 by cpeset-c         ###   ########.fr       */
+/*   Updated: 2024/02/12 11:22:36 by cpeset-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ int	main(int ac, char **av)
 	t_info	info;
 
 	if (ac != 2)
-	   return(print_error(ERR_ARGS, SYS_ARGS));
+		return (print_error(ERR_ARGS, SYS_ARGS));
 	raw = reader(av[1]);
 	if (!raw)
 		terminate_error(ERR_READ_MAP, SYS_READ_MAP);

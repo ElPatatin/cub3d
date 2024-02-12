@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   prs_map.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cpeset-c <cpeset-c@student.42barce.com>    +#+  +:+       +#+        */
+/*   By: cpeset-c <cpeset-c@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/01 17:42:26 by alajara-          #+#    #+#             */
-/*   Updated: 2024/02/05 22:53:10 by cpeset-c         ###   ########.fr       */
+/*   Updated: 2024/02/12 11:20:51 by cpeset-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,8 @@
  * @retval 0 - Success.
  * 
  * @note
- * First, it gets the raw map data, such as with, height and  where the map starts and ends.
+ * First, it gets the raw map data, such as with, height and  where the map
+ * starts and ends.
  * Then, it allocates the memory for the map grid.
  * After that, it expands the map, adding a border of walls around it.
  * Then, it sanitizes the map, checking if it has any invalid characters.
