@@ -6,17 +6,15 @@
 /*   By: cpeset-c <cpeset-c@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/12 12:36:20 by cpeset-c          #+#    #+#             */
-/*   Updated: 2024/02/12 12:36:28 by cpeset-c         ###   ########.fr       */
+/*   Updated: 2024/02/12 13:13:50 by cpeset-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-//int FixAng(int a){ if(a>359){ a-=360;} if(a<0){ a+=360;} return a;}
-
 int	fix_angle(int a)
 {
-	if(a>359)
-		a-=360; 
-	if(a<0)
-		a+=360;
+	if (a > 359)
+		a -= 360;
+	else if (a < 0)
+		a += 360;
 	return (a);
 }
