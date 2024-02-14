@@ -3,13 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   minimap.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alajara- <alajara-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: cpeset-c <cpeset-c@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/14 14:47:47 by alajara-          #+#    #+#             */
-/*   Updated: 2024/02/14 14:47:50 by alajara-         ###   ########.fr       */
+/*   Updated: 2024/02/14 19:11:48 by cpeset-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "cub3d.h"
 #include "cub3d_struct.h"
 #include "cub3d_render_private.h"
 
@@ -62,7 +63,7 @@ void generate_mmap(t_graphics *g)
 }
 
 // 
-void	render_mmap(t_img *mmap)
-{
+// void	render_mmap(t_img *mmap)
+// {
 
-}
+// }
