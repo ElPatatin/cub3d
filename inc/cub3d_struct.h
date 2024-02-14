@@ -81,6 +81,7 @@ struct	s_image
  * @param	mlx		The mlx pointer.
  * @param	win		The window pointer.
  * @param	img		The image pointer.
+ * * @param	img		The mini-map image pointer.
  * @param	info	The info pointer.
 */
 struct	s_graphics
@@ -88,6 +89,7 @@ struct	s_graphics
 	void	*mlx;
 	void	*win;
 	t_image	*img;
+	t_image	*mmap;
 	t_info	*info;
 };
 

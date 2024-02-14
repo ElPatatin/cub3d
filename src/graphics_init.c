@@ -33,14 +33,8 @@ void	graphics(t_info *info)
 	mlx_loop(graphics.mlx);
 }
 
-static void	graphics_init(t_graphics *graphics, t_info *info)
+static void	img_init(t_graphics *graphics)
 {
-	graphics->mlx = mlx_init();
-	if (!graphics->mlx)
-		exit(EXIT_FAILURE); // TODO 
-	graphics->win = mlx_new_window(graphics->mlx, WINWIDTH, WINHEIGHT, TITLE);
-	if (!graphics->win)
-		exit(EXIT_FAILURE); // TODO 
 	graphics->img = (t_image *)malloc(sizeof(t_image));
 	if (!graphics->img)
 		exit(EXIT_FAILURE); // TODO
@@ -50,6 +44,20 @@ static void	graphics_init(t_graphics *graphics, t_info *info)
 	graphics->img->addr = mlx_get_data_addr(graphics->img->img,
 			&graphics->img->bpp, &graphics->img->line_len,
 			&graphics->img->endian);
+	graphics->mmap = (t_image *)malloc(sizeof(t_image));
+	if (!graphics->mmap)
+		exit(EXIT_FAILURE); // TODO
+}
+
+static void	graphics_init(t_graphics *graphics, t_info *info)
+{
+	graphics->mlx = mlx_init();
+	if (!graphics->mlx)
+		exit(EXIT_FAILURE); // TODO 
+	graphics->win = mlx_new_window(graphics->mlx, WINWIDTH, WINHEIGHT, TITLE);
+	if (!graphics->win)
+		exit(EXIT_FAILURE); // TODO 
+	img_init(graphics);
 	graphics->info = info;
 }
 

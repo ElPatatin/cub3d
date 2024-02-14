@@ -16,6 +16,7 @@
 # include "cub3d_struct.h"
 
 # define RAYS 64
+# define MMAP_SQR_SIZE 10
 
 static void	put_background_layer(t_graphics *graphics);
 
