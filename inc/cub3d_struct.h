@@ -6,7 +6,7 @@
 /*   By: cpeset-c <cpeset-c@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/01 17:46:34 by alajara-          #+#    #+#             */
-/*   Updated: 2024/02/14 18:29:44 by cpeset-c         ###   ########.fr       */
+/*   Updated: 2024/02/14 19:09:33 by cpeset-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -116,6 +116,7 @@ struct	s_ray
  * @param	mlx		The mlx pointer.
  * @param	win		The window pointer.
  * @param	img		The image pointer.
+ * * @param	img		The mini-map image pointer.
  * @param	info	The info pointer.
 */
 struct	s_graphics
@@ -123,6 +124,7 @@ struct	s_graphics
 	void		*mlx;
 	void		*win;
 	t_image		*img;
+	t_image		*mmap;
 	t_info		*info;
 	t_player	player;
 	t_ray		ray;
