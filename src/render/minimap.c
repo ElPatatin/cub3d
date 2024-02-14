@@ -56,15 +56,13 @@ void generate_mmap(t_graphics *g)
 	{
 		x = -1;
 		while (++x < mapw)
-		{
 			if (g->info->map[y][x] == '1')
 				put_wall_mmap(g, y, x);
-		}
 	}
 }
 
 // 
 void	render_mmap(t_img *mmap)
 {
-	
+
 }
