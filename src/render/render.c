@@ -6,7 +6,7 @@
 /*   By: cpeset-c <cpeset-c@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/12 11:54:01 by cpeset-c          #+#    #+#             */
-/*   Updated: 2024/02/12 19:15:45 by cpeset-c         ###   ########.fr       */
+/*   Updated: 2024/02/14 19:00:23 by cpeset-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,10 @@
 void	render_game(t_graphics *graphics)
 {
 	put_background_layer(graphics);
-	// put_wall_layer(graphics);
+	put_wall_layer(graphics);
 }
 
-static void	put_background_layer(t_graphics *graphics)
+void	put_background_layer(t_graphics *graphics)
 {
 	int	l;
 	int	x;
@@ -38,16 +38,5 @@ static void	put_background_layer(t_graphics *graphics)
 			else
 				ft_mlx_put_pixel(graphics, x, y, graphics->info->f.argb);
 		}
-	}
-}
-
-static void	put_wall_layer(t_graphics *graphics)
-{
-	int		ray;
-
-	ray = -1;
-	while (++ray < RAYS)
-	{
-		;
 	}
 }

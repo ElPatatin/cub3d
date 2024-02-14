@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d_hooks.h                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cpeset-c <cpeset-c@student.42barce.com>    +#+  +:+       +#+        */
+/*   By: cpeset-c <cpeset-c@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/07 13:23:19 by cpeset-c          #+#    #+#             */
-/*   Updated: 2024/02/07 14:02:04 by cpeset-c         ###   ########.fr       */
+/*   Updated: 2024/02/14 15:49:49 by cpeset-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ void	hooks(t_graphics *graphics);
 int		hooks_keys_press(int keycode, t_graphics *graphics);
 void	exit_game(t_graphics *graphics);
 
-int		hooks_keys_release(int keycode, t_info *info);
+int		hooks_keys_release(int keycode, t_graphics *graphics);
 
 // MOUSE HOOKS
 // ===========

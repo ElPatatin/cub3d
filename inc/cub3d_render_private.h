@@ -6,7 +6,7 @@
 /*   By: cpeset-c <cpeset-c@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/12 12:17:07 by cpeset-c          #+#    #+#             */
-/*   Updated: 2024/02/12 15:49:43 by cpeset-c         ###   ########.fr       */
+/*   Updated: 2024/02/14 15:31:35 by cpeset-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@
 
 # define RAYS 64
 
-static void	put_background_layer(t_graphics *graphics);
+void	put_background_layer(t_graphics *graphics);
+
+void	put_wall_layer(t_graphics *graphics);
 
 #endif

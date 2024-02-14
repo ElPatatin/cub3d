@@ -1,22 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   hooks.c                                            :+:      :+:    :+:   */
+/*   cub3d_player.h                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cpeset-c <cpeset-c@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/07 13:23:08 by cpeset-c          #+#    #+#             */
-/*   Updated: 2024/02/14 15:49:37 by cpeset-c         ###   ########.fr       */
+/*   Created: 2024/02/14 15:52:21 by cpeset-c          #+#    #+#             */
+/*   Updated: 2024/02/14 17:41:10 by cpeset-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3d.h"
-#include "cub3d_struct.h"
-#include "cub3d_hooks.h"
+#ifndef CUB3D_PLAYER_H
+# define CUB3D_PLAYER_H
 
-void	hooks(t_graphics *graphics)
-{
-	mlx_hook(graphics->win, 2, 1L << 0, hooks_keys_press, graphics);
-	mlx_hook(graphics->win, 3, 1L << 1, hooks_keys_release, graphics);
-	mlx_hook(graphics->win, 17, 0, exit_on_click, graphics);
-}
+# include "cub3d_struct.h"
+
+# define ROT_SPEED	0.02
+# define MOVE_SPEED	0.05
+
+void	player_init(t_graphics *graphics);
+void	handle_player_movement(t_graphics *graphics);
+void	handle_player_rotation(t_graphics *graphics);
+
+#endif

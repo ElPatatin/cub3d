@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d_struct.h                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cpeset-c <cpeset-c@student.42barce.com>    +#+  +:+       +#+        */
+/*   By: cpeset-c <cpeset-c@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/01 17:46:34 by alajara-          #+#    #+#             */
-/*   Updated: 2024/02/07 17:39:09 by cpeset-c         ###   ########.fr       */
+/*   Updated: 2024/02/14 18:29:44 by cpeset-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@
 typedef struct s_info		t_info;
 typedef union s_argb		t_argb;
 typedef struct s_image		t_image;
+typedef struct s_player		t_player;
+typedef struct s_ray		t_ray;
 typedef struct s_graphics	t_graphics;
 
 /**
@@ -75,6 +77,39 @@ struct	s_image
 	int		height;
 };
 
+struct	s_player
+{
+	float	pos_x;
+	float	pos_y;
+	float	dir_x;
+	float	dir_y;
+	float	plane_x;
+	float	plane_y;
+	int		move_up;
+	int		move_down;
+	int		move_left;
+	int		move_right;
+	int		rotate_left;
+	int		rotate_right;
+};
+
+struct	s_ray
+{
+	float	dir_x;
+	float	dir_y;
+	float	delta_dist_x;
+	float	delta_dist_y;
+	float	side_dist_x;
+	float	side_dist_y;
+	int		step_x;
+	int		step_y;
+	int		map_x;
+	int		map_y;
+	float	distance;
+	int		hit;
+	int		side;
+};
+
 /**
  * @brief	This structure contains all the information of the graphics.
  * 
@@ -85,10 +120,12 @@ struct	s_image
 */
 struct	s_graphics
 {
-	void	*mlx;
-	void	*win;
-	t_image	*img;
-	t_info	*info;
+	void		*mlx;
+	void		*win;
+	t_image		*img;
+	t_info		*info;
+	t_player	player;
+	t_ray		ray;
 };
 
 

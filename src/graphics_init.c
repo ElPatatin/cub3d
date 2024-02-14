@@ -6,7 +6,7 @@
 /*   By: cpeset-c <cpeset-c@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/07 12:11:43 by cpeset-c          #+#    #+#             */
-/*   Updated: 2024/02/12 12:11:41 by cpeset-c         ###   ########.fr       */
+/*   Updated: 2024/02/14 17:34:17 by cpeset-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 #include "cub3d_render.h"
 #include "cub3d_hooks.h"
 #include "cub3d_errors.h"
-
+#include "cub3d_player.h"
 
 static void	graphics_init(t_graphics *graphics, t_info *info);
 
@@ -28,6 +28,7 @@ void	graphics(t_info *info)
 	graphics_init(&graphics, info);
 	mlx_put_image_to_window(graphics.mlx,
 		graphics.win, graphics.img->img, 0, 0);
+	player_init(&graphics);
 	mlx_loop_hook(graphics.mlx, game_loop, &graphics);
 	hooks(&graphics);
 	mlx_loop(graphics.mlx);
@@ -62,6 +63,8 @@ int	game_loop(t_graphics *graphics)
 	graphics->img->addr = mlx_get_data_addr(graphics->img->img,
 			&graphics->img->bpp, &graphics->img->line_len,
 			&graphics->img->endian);
+	handle_player_movement(graphics);
+	handle_player_rotation(graphics);
 	render_game(graphics);
 	mlx_put_image_to_window(graphics->mlx, graphics->win,
 		graphics->img->img, 0, 0);

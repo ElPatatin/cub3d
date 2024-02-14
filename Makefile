@@ -6,7 +6,7 @@
 #    By: cpeset-c <cpeset-c@student.42barcel>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/07 19:56:27 by cpeset-c          #+#    #+#              #
-#    Updated: 2024/02/12 12:10:57 by cpeset-c         ###   ########.fr        #
+#    Updated: 2024/02/14 17:13:27 by cpeset-c         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -37,6 +37,7 @@ PRS_DIR	:= $(SRC_DIR)parser/
 UTL_DIR	:= $(SRC_DIR)basic_utils/
 HKS_DIR	:= $(SRC_DIR)hooks/
 RDR_DIR	:= $(SRC_DIR)render/
+PLY_DIR	:= $(SRC_DIR)player/
 
 OBJ_DIR	:= .objs/
 DEP_DIR	:= .deps/
@@ -100,7 +101,12 @@ CUB_HKS = hooks.c \
 		hooks_mouse_press.c \
 		hooks_utils.c
 
-CUB_RDR = render.c
+CUB_RDR = render.c \
+		ray.c
+
+CUB_PLY = player_init.c \
+		player_move.c \
+		player_rotate.c
 		
 CUB_UTL = inclusive_split.c \
 		ft_strncpy.c \
@@ -113,6 +119,7 @@ SRCS	+= $(addprefix $(PRS_DIR), $(CUB_PRS))
 SRCS	+= $(addprefix $(UTL_DIR), $(CUB_UTL))
 SRCS	+= $(addprefix $(HKS_DIR), $(CUB_HKS))
 SRCS	+= $(addprefix $(RDR_DIR), $(CUB_RDR))
+SRCS	+= $(addprefix $(PLY_DIR), $(CUB_PLY))
 
 OBJS	= $(addprefix $(OBJ_DIR), $(SRCS:.c=.o))
 DEPS	= $(addprefix $(DEP_DIR), $(addsuffix .d, $(basename $(SRCS))))
