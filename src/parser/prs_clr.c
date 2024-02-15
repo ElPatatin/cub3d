@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   prs_clr.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cpeset-c <cpeset-c@student.42barce.com>    +#+  +:+       +#+        */
+/*   By: cpeset-c <cpeset-c@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/01 17:42:09 by alajara-          #+#    #+#             */
-/*   Updated: 2024/02/06 17:51:09 by cpeset-c         ###   ########.fr       */
+/*   Updated: 2024/02/15 15:57:50 by cpeset-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,12 +36,8 @@ static int	get_subcolor(char **s)
 		val += (*s)[n] - '0';
 	}
 	if (!n)
-	{
-		printf("error: 38 subcolor\n");
 		return (0);
-	}
 	*s += n;
-	printf("subval = %d\n", val);
 	return (val);
 
 }
@@ -78,5 +74,4 @@ void	prs_clr(char **r_info, t_info *info)
 				get_color(&r_info[i][2], &(info->f));
 		}
 	}
-	ft_printf_fd(1, "c = %x | f = %x\n", info->c.argb,info->f.argb);
 }

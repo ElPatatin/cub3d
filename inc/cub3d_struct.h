@@ -6,19 +6,14 @@
 /*   By: cpeset-c <cpeset-c@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/01 17:46:34 by alajara-          #+#    #+#             */
-/*   Updated: 2024/02/14 19:09:33 by cpeset-c         ###   ########.fr       */
+/*   Updated: 2024/02/15 16:29:31 by cpeset-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef CUB3D_STRUCT_H
 # define CUB3D_STRUCT_H
 
-typedef struct s_info		t_info;
-typedef union s_argb		t_argb;
-typedef struct s_image		t_image;
-typedef struct s_player		t_player;
-typedef struct s_ray		t_ray;
-typedef struct s_graphics	t_graphics;
+# include "libft.h"
 
 /**
  * @brief	This union contains the color of the ceiling and the floor.
@@ -26,12 +21,11 @@ typedef struct s_graphics	t_graphics;
  * @param	clr		Array of 4 unsigned char that contains the color.
  * @param	argb	The color in ARGB format.
 */
-union s_argb
+typedef union s_argb
 {
 	unsigned char	clr[4];
 	unsigned int	argb;
-};
-
+}	t_argb;
 
 /**
  * @brief	This structure contains all the information of the simulaion.
@@ -44,7 +38,7 @@ union s_argb
  * @param	c		The color of the ceiling.
  * @param	f		The color of the floor.
 */
-struct	s_info
+typedef struct s_info
 {
 	char	**map;
 	char	*txr_no;
@@ -53,7 +47,7 @@ struct	s_info
 	char	*txr_ea;
 	t_argb	c;
 	t_argb	f;
-};
+}	t_info;
 
 /**
  * @brief	This structure contains all the information of the image.
@@ -66,7 +60,7 @@ struct	s_info
  * @param	width		The width of the image.
  * @param	height		The height of the image.
 */
-struct	s_image
+typedef struct s_image
 {
 	void	*img;
 	char	*addr;
@@ -75,9 +69,26 @@ struct	s_image
 	int		endian;
 	int		width;
 	int		height;
-};
+}	t_image;
 
-struct	s_player
+/**
+ * @brief	This structure contains all the information of the player.
+ * 
+ * @param	pos_x			The x position of the player.
+ * @param	pos_y			The y position of the player.
+ * @param	dir_x			The direction of the player in the x axis.
+ * @param	dir_y			The direction of the player in the y axis.
+ * @param	plane_x			The plane of the player in the x axis.
+ * @param	plane_y			The plane of the player in the y axis.
+ * @param	move_up			The speed of the player moving up.
+ * @param	move_down		The speed of the player moving down.
+ * @param	move_left		The speed of the player moving left.
+ * @param	move_right		The speed of the player moving right.
+ * @param	rotate_left		Value of the rotation to the left.
+ * @param	rotate_right	Value of the rotation to the right.
+ * @param	rotate_speed	The speed of the rotation.
+*/
+typedef struct s_player
 {
 	float	pos_x;
 	float	pos_y;
@@ -91,9 +102,26 @@ struct	s_player
 	int		move_right;
 	int		rotate_left;
 	int		rotate_right;
-};
+}	t_player;
 
-struct	s_ray
+/**
+ * @brief	This structure contains all the information of the ray.
+ * 
+ * @param	dir_x			The direction of the ray in the x axis.
+ * @param	dir_y			The direction of the ray in the y axis.
+ * @param	delta_dist_x	The distance between the ray and the next x side.
+ * @param	delta_dist_y	The distance between the ray and the next y side.
+ * @param	side_dist_x		The distance between the ray and the next x side.
+ * @param	side_dist_y		The distance between the ray and the next y side.
+ * @param	step_x			The step in the x axis.
+ * @param	step_y			The step in the y axis.
+ * @param	map_x			The x position in the map.
+ * @param	map_y			The y position in the map.
+ * @param	distance		The distance of the ray.
+ * @param	hit				True if the ray hit a wall, false otherwise.
+ * @param	side			The side of the wall hit.
+*/
+typedef struct s_ray
 {
 	float	dir_x;
 	float	dir_y;
@@ -106,9 +134,9 @@ struct	s_ray
 	int		map_x;
 	int		map_y;
 	float	distance;
-	int		hit;
+	t_bool	hit;
 	int		side;
-};
+}	t_ray;
 
 /**
  * @brief	This structure contains all the information of the graphics.
@@ -116,10 +144,12 @@ struct	s_ray
  * @param	mlx		The mlx pointer.
  * @param	win		The window pointer.
  * @param	img		The image pointer.
- * * @param	img		The mini-map image pointer.
+ * @param	mmap	The mini-map image pointer.
  * @param	info	The info pointer.
+ * @param	player	The player info.
+ * @param	ray		The ray info.
 */
-struct	s_graphics
+typedef struct s_graphics
 {
 	void		*mlx;
 	void		*win;
@@ -128,7 +158,6 @@ struct	s_graphics
 	t_info		*info;
 	t_player	player;
 	t_ray		ray;
-};
-
+}	t_graphics;
 
 #endif

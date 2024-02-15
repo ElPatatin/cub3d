@@ -6,14 +6,14 @@
 /*   By: cpeset-c <cpeset-c@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/01 17:45:08 by alajara-          #+#    #+#             */
-/*   Updated: 2024/02/12 11:25:09 by cpeset-c         ###   ########.fr       */
+/*   Updated: 2024/02/15 15:50:43 by cpeset-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef CUB3D_PARSER_PRIVATE_H
 # define CUB3D_PARSER_PRIVATE_H
 
-# include <stddef.h>
+# include "libft.h"
 # include "cub3d_struct.h"
 
 # define SPCTAB				" \t"
@@ -49,7 +49,9 @@ int		get_metadata(char *current_data, char **metadata,
 int		end_of_metadata(char *line);
 void	built_valid_metadata(char **valid_metadata);
 
-// 
+// MAO TEXTURE
+// ===========
+int	prs_txt(char **metadata, t_info *info);
 
 // FILE BODY
 // =========

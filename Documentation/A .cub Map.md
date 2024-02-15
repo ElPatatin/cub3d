@@ -3,8 +3,7 @@ The extension .cub is a light and fast format, which content is in plain text, c
 The map must be parsed as it looks in the file. Spaces are a valid part of the map and are up to you to handle. You must be able to parse any kind of map, as long as it respects the rules of the map.
 
 # Header - Metadata of the file
-At minimum, there are 6 elements. Each element firsts information is the type identifier (com-
-posed by one or two character(s)), followed by all specific information for each object **in a strict order** such as :
+At minimum, there are 6 elements. Each element firsts information is the type identifier (composed by one or two character(s)), followed by all specific information for each object **in a strict order** such as :
 - **North** texture:
 	``NO ./path_to_the_north_texture``
 	- Identifier: NO

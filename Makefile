@@ -6,7 +6,7 @@
 #    By: cpeset-c <cpeset-c@student.42barcel>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/07 19:56:27 by cpeset-c          #+#    #+#              #
-#    Updated: 2024/02/14 17:13:27 by cpeset-c         ###   ########.fr        #
+#    Updated: 2024/02/15 16:09:21 by cpeset-c         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -93,7 +93,8 @@ CUB_PRS	= parse.c \
 		prs_map_expander.c \
 		prs_map_sanitizer.c \
 		prs_map_validator.c \
-		prs_clr.c
+		prs_clr.c \
+		prs_txt.c
 
 CUB_HKS = hooks.c \
 		hooks_keys_press.c \
@@ -102,7 +103,9 @@ CUB_HKS = hooks.c \
 		hooks_utils.c
 
 CUB_RDR = render.c \
-		ray.c
+		ray_calc.c \
+		ray_dda.c \
+		ray_pixel_calc.c
 
 CUB_PLY = player_init.c \
 		player_move.c \
