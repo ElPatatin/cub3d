@@ -6,7 +6,7 @@
 /*   By: cpeset-c <cpeset-c@student.42barce.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/07 13:31:59 by cpeset-c          #+#    #+#             */
-/*   Updated: 2024/02/07 13:33:25 by cpeset-c         ###   ########.fr       */
+/*   Updated: 2024/02/15 22:38:30 by cpeset-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,15 +38,15 @@
 
 #  define ESC_KEY			(int)65307
 
-// #  define A_KEY				(int)97
-// #  define D_KEY				(int)100
-// #  define W_KEY       		(int)119
-// #  define S_KEY				(int)115
+#  define A_KEY				(int)97
+#  define D_KEY				(int)100
+#  define W_KEY       		(int)119
+#  define S_KEY				(int)115
 
-// #  define LFT_KEY			(int)65361
-// #  define RGT_KEY			(int)65363
-// #  define UP_KEY			(int)65362
-// #  define DWN_KEY			(int)65364
+#  define LFT_KEY			(int)65361
+#  define RGT_KEY			(int)65363
+#  define UP_KEY			(int)65362
+#  define DWN_KEY			(int)65364
 
 // #  define ZOOM_IN_KEY	(int)4
 // #  define ZOOM_OUT_KEY	(int)5

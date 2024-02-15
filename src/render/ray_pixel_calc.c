@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ray_pixel_calc.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cpeset-c <cpeset-c@student.42barcel>       +#+  +:+       +#+        */
+/*   By: cpeset-c <cpeset-c@student.42barce.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/15 16:04:50 by cpeset-c          #+#    #+#             */
-/*   Updated: 2024/02/15 20:04:30 by cpeset-c         ###   ########.fr       */
+/*   Updated: 2024/02/15 22:39:51 by cpeset-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,12 +86,9 @@ void	draw_line(t_graphics *g, int x, int draw_start, int draw_end)
 
 void	calculate_texture(t_graphics *g, int x, int draw_start, int draw_end, int line_height)
 {
-	int 	texNum;
 	double wallX;
 	int texX;
 	uint32_t color;
-
-	texNum = g->info->map[g->ray.map_x][g->ray.map_y] - 1;
 
 	if (g->ray.side == 0)
 		wallX = g->player.pos_y + g->ray.distance * g->ray.dir_y;
