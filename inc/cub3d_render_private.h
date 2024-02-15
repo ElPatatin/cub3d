@@ -6,7 +6,7 @@
 /*   By: cpeset-c <cpeset-c@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/12 12:17:07 by cpeset-c          #+#    #+#             */
-/*   Updated: 2024/02/15 16:10:44 by cpeset-c         ###   ########.fr       */
+/*   Updated: 2024/02/15 19:45:42 by cpeset-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@
 
 # define RAYS 64
 # define MMAP_SQR_SIZE 10
+# define PITCH 0
+// PITCH is the distance from the top of the screen to the top of the wall
 
 void	put_background_layer(t_graphics *graphics);
 void	put_wall_layer(t_graphics *graphics);
@@ -38,5 +40,7 @@ void	perfome_dda(t_graphics *g);
 int		calculate_lowest_pixel_to_fill(int line_height);
 int		calculate_highest_pixel_to_fill(int line_height);
 void	draw_line(t_graphics *g, int x, int draw_start, int draw_end);
+void	calculate_texture(t_graphics *g, int x, int draw_start, int draw_end, int line_height);
+void	draw_buffer(t_graphics *g);
 
 #endif

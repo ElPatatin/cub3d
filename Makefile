@@ -6,7 +6,7 @@
 #    By: cpeset-c <cpeset-c@student.42barcel>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/07 19:56:27 by cpeset-c          #+#    #+#              #
-#    Updated: 2024/02/15 16:09:21 by cpeset-c         ###   ########.fr        #
+#    Updated: 2024/02/15 19:47:47 by cpeset-c         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -38,6 +38,7 @@ UTL_DIR	:= $(SRC_DIR)basic_utils/
 HKS_DIR	:= $(SRC_DIR)hooks/
 RDR_DIR	:= $(SRC_DIR)render/
 PLY_DIR	:= $(SRC_DIR)player/
+TEX_DIR	:= $(SRC_DIR)textures/
 
 OBJ_DIR	:= .objs/
 DEP_DIR	:= .deps/
@@ -53,7 +54,7 @@ MLX_DIR	= minilibx/
 UNAME	= $(shell uname -s)
 
 CFLAGS		= -Wall -Wextra -Werror -W
-XFLAGS		= -g3# -fsanitize=address
+XFLAGS		= -g3 -fsanitize=address
 DFLAGS		= -MT $@ -MMD -MP
 
 ifeq ($(UNAME), Darwin)
@@ -110,6 +111,8 @@ CUB_RDR = render.c \
 CUB_PLY = player_init.c \
 		player_move.c \
 		player_rotate.c
+
+CUB_TEX = texture_init.c
 		
 CUB_UTL = inclusive_split.c \
 		ft_strncpy.c \
@@ -123,6 +126,7 @@ SRCS	+= $(addprefix $(UTL_DIR), $(CUB_UTL))
 SRCS	+= $(addprefix $(HKS_DIR), $(CUB_HKS))
 SRCS	+= $(addprefix $(RDR_DIR), $(CUB_RDR))
 SRCS	+= $(addprefix $(PLY_DIR), $(CUB_PLY))
+SRCS	+= $(addprefix $(TEX_DIR), $(CUB_TEX))
 
 OBJS	= $(addprefix $(OBJ_DIR), $(SRCS:.c=.o))
 DEPS	= $(addprefix $(DEP_DIR), $(addsuffix .d, $(basename $(SRCS))))

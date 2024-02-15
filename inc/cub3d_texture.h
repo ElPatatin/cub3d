@@ -1,23 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   cub3d_reader_private.h                             :+:      :+:    :+:   */
+/*   cub3d_texture.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cpeset-c <cpeset-c@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/06 15:49:46 by alajara-          #+#    #+#             */
-/*   Updated: 2024/02/15 18:56:41 by cpeset-c         ###   ########.fr       */
+/*   Created: 2024/02/15 18:41:21 by cpeset-c          #+#    #+#             */
+/*   Updated: 2024/02/15 19:21:31 by cpeset-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CUB3D_READER_PRIVATE_H
-# define CUB3D_READER_PRIVATE_H
+#ifndef CUB3D_TEXTURE_H
+# define CUB3D_TEXTURE_H
 
-# include "cub3d.h"
-# include "cub3d_errors.h"
-
-static int	check_map_extension(const char *map_name);
-static char	*read_map_file(int fd, char *buffer);
-static void	*clean_buffer(void **dlt);
+void	texture_init(t_graphics *graphics);
+void	reset_buffer(t_graphics *g);
 
 #endif

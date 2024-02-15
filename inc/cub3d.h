@@ -6,7 +6,7 @@
 /*   By: cpeset-c <cpeset-c@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/01 17:28:53 by cpeset-c          #+#    #+#             */
-/*   Updated: 2024/02/12 12:00:55 by cpeset-c         ###   ########.fr       */
+/*   Updated: 2024/02/15 18:38:53 by cpeset-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,5 +32,7 @@
 # define WINWIDTH		1280
 # define TITLE			"cub3d gatito miau miau"
 # define MAP_EXT		".cub"
+# define TEXWIDTH		64
+# define TEXHEIGHT		64
 
 #endif

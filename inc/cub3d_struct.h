@@ -6,7 +6,7 @@
 /*   By: cpeset-c <cpeset-c@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/01 17:46:34 by alajara-          #+#    #+#             */
-/*   Updated: 2024/02/15 16:29:31 by cpeset-c         ###   ########.fr       */
+/*   Updated: 2024/02/15 19:16:40 by cpeset-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define CUB3D_STRUCT_H
 
 # include "libft.h"
+# include "cub3d.h"
 
 /**
  * @brief	This union contains the color of the ceiling and the floor.
@@ -158,6 +159,8 @@ typedef struct s_graphics
 	t_info		*info;
 	t_player	player;
 	t_ray		ray;
+	uint32_t	*texture[4];
+	uint32_t	**buffer;
 }	t_graphics;
 
 #endif
