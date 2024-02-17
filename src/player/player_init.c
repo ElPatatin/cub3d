@@ -6,7 +6,7 @@
 /*   By: cpeset-c <cpeset-c@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/14 16:21:53 by cpeset-c          #+#    #+#             */
-/*   Updated: 2024/02/15 16:15:25 by cpeset-c         ###   ########.fr       */
+/*   Updated: 2024/02/17 19:22:27 by cpeset-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,7 +83,7 @@ static void	player_plane_init(t_graphics *graphics, ssize_t i, ssize_t j)
 	if (graphics->info->map[i][j] == P_NO)
 	{
 		graphics->player.plane_x = 0;
-		graphics->player.plane_y = 0.66;
+		graphics->player.plane_y = -0.66;
 	}
 	else if (graphics->info->map[i][j] == P_EA)
 	{
@@ -98,6 +98,6 @@ static void	player_plane_init(t_graphics *graphics, ssize_t i, ssize_t j)
 	else if (graphics->info->map[i][j] == P_SO)
 	{
 		graphics->player.plane_x = 0;
-		graphics->player.plane_y = -0.66;
+		graphics->player.plane_y = 0.66;
 	}
 }

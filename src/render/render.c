@@ -6,7 +6,7 @@
 /*   By: cpeset-c <cpeset-c@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/12 11:54:01 by cpeset-c          #+#    #+#             */
-/*   Updated: 2024/02/15 19:57:19 by cpeset-c         ###   ########.fr       */
+/*   Updated: 2024/02/17 18:46:39 by cpeset-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,7 +78,6 @@ void	put_wall_layer(t_graphics *graphics)
 		line_height = (int)(WINHEIGHT / graphics->ray.distance);
 		draw_start = calculate_lowest_pixel_to_fill(line_height);
 		draw_end = calculate_highest_pixel_to_fill(line_height);
-		// draw_line(graphics, x, draw_start, draw_end);
 		calculate_texture(graphics, x, draw_start, draw_end, line_height);
 	}
 	draw_buffer(graphics);

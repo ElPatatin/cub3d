@@ -6,7 +6,7 @@
 #    By: cpeset-c <cpeset-c@student.42barcel>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/07 19:56:27 by cpeset-c          #+#    #+#              #
-#    Updated: 2024/02/15 19:47:47 by cpeset-c         ###   ########.fr        #
+#    Updated: 2024/02/17 19:08:03 by cpeset-c         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -112,7 +112,8 @@ CUB_PLY = player_init.c \
 		player_move.c \
 		player_rotate.c
 
-CUB_TEX = texture_init.c
+CUB_TEX = texture_init.c \
+		texture.c
 		
 CUB_UTL = inclusive_split.c \
 		ft_strncpy.c \
