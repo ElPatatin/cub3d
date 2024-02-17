@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   texture_init.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cpeset-c <cpeset-c@student.42barcel>       +#+  +:+       +#+        */
+/*   By: cpeset-c <cpeset-c@student.42barce.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/15 18:43:31 by cpeset-c          #+#    #+#             */
-/*   Updated: 2024/02/15 19:56:47 by cpeset-c         ###   ########.fr       */
+/*   Updated: 2024/02/18 00:04:35 by cpeset-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,10 +29,18 @@ void	texture_init(t_graphics *graphics)
 		y = -1;
 		while (++y < TEXHEIGHT)
 		{
-			graphics->texture[0][TEXWIDTH * y + x] = 65536 * 254 * (x != y && x != TEXWIDTH - y);
-			graphics->texture[1][TEXWIDTH * y + x] = y * 128 / TEXHEIGHT + x * 128 / TEXWIDTH;
-			graphics->texture[2][TEXWIDTH * y + x] = 256 * y + 65536 * y;
-			graphics->texture[3][TEXWIDTH * y + x] = x * 256 / TEXWIDTH ^ y * 256 / TEXHEIGHT;
+			graphics->texture[0][TEXWIDTH * y + x] = 0x00FF0000;
+			graphics->texture[1][TEXWIDTH * y + x] = 0x0000FF00;
+			graphics->texture[2][TEXWIDTH * y + x] = 0x000000FF;
+			if ((x < TEXWIDTH / 2 && y < TEXHEIGHT / 2) || (x >= TEXWIDTH / 2 && y >= TEXHEIGHT / 2))
+			{
+				// black
+				graphics->texture[3][TEXWIDTH * y + x] = 0xFF000000;
+			}
+			else
+			{
+				graphics->texture[3][TEXWIDTH * y + x] = 0xFFf800f8;
+			}
 		}
 	}
 	reset_buffer(graphics);

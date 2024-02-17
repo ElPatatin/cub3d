@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ray_pixel_calc.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cpeset-c <cpeset-c@student.42barcel>       +#+  +:+       +#+        */
+/*   By: cpeset-c <cpeset-c@student.42barce.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/15 16:04:50 by cpeset-c          #+#    #+#             */
-/*   Updated: 2024/02/17 19:21:06 by cpeset-c         ###   ########.fr       */
+/*   Updated: 2024/02/18 00:03:23 by cpeset-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,7 +85,7 @@ void	calculate_texture(t_graphics *g, int x, int draw_start, int draw_end, int l
 		int texY = (int)texPos & (TEXHEIGHT - 1);
 		texPos += step;
 		color = g->texture[textureIndex][TEXWIDTH * texY + texX];
-		if (g->ray.side == 1)
+		if (g->ray.side == 1 && textureIndex != 3)
 			color = (color >> 1) & 8355711;
 		g->buffer[y][x] = color;
 	}
@@ -101,7 +101,9 @@ void	draw_buffer(t_graphics *g)
 	{
 		x = -1;
 		while (++x < WINWIDTH)
+		{
 			if (g->buffer[y][x] != 0)
 				ft_mlx_put_pixel(g, x, y, g->buffer[y][x]);
+		}
 	}
 }
