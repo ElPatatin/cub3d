@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d_struct.h                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cpeset-c <cpeset-c@student.42barcel>       +#+  +:+       +#+        */
+/*   By: cpeset-c <cpeset-c@student.42barce.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/01 17:46:34 by alajara-          #+#    #+#             */
-/*   Updated: 2024/02/18 19:33:48 by cpeset-c         ###   ########.fr       */
+/*   Updated: 2024/02/19 00:48:39 by cpeset-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -107,6 +107,7 @@ typedef struct s_texture
  * @param	move_right		The speed of the player moving right.
  * @param	rotate_left		Value of the rotation to the left.
  * @param	rotate_right	Value of the rotation to the right.
+ * @param	mouse_rotate	True if the mouse is rotating the player, false otherwise.
  * @param	rotate_speed	The speed of the rotation.
 */
 typedef struct s_player
@@ -123,6 +124,8 @@ typedef struct s_player
 	int		move_right;
 	int		rotate_left;
 	int		rotate_right;
+	t_bool	mouse_rotate;
+	float	rotate_speed;
 }	t_player;
 
 /**

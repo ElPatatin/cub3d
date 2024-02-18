@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: cpeset-c <cpeset-c@student.42barcel>       +#+  +:+       +#+         #
+#    By: cpeset-c <cpeset-c@student.42barce.com>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/07 19:56:27 by cpeset-c          #+#    #+#              #
-#    Updated: 2024/02/18 20:41:43 by cpeset-c         ###   ########.fr        #
+#    Updated: 2024/02/19 00:43:57 by cpeset-c         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -101,6 +101,7 @@ CUB_HKS = hooks.c \
 		hooks_keys_press.c \
 		hooks_keys_release.c \
 		hooks_mouse_press.c \
+		hooks_mouse_release.c \
 		hooks_utils.c
 
 CUB_RDR = render.c \

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   player_init.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cpeset-c <cpeset-c@student.42barcel>       +#+  +:+       +#+        */
+/*   By: cpeset-c <cpeset-c@student.42barce.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/14 16:21:53 by cpeset-c          #+#    #+#             */
-/*   Updated: 2024/02/18 19:31:46 by cpeset-c         ###   ########.fr       */
+/*   Updated: 2024/02/19 00:29:22 by cpeset-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,8 @@ static void	player_moves_init(t_graphics *graphics)
 	graphics->player.move_right = 0;
 	graphics->player.rotate_left = 0;
 	graphics->player.rotate_right = 0;
+	graphics->player.mouse_rotate = 0;
+	graphics->player.rotate_speed = 0;
 }
 
 static void	player_dir_init(t_graphics *graphics, ssize_t i, ssize_t j)

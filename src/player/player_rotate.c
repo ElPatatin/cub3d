@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   player_rotate.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cpeset-c <cpeset-c@student.42barcel>       +#+  +:+       +#+        */
+/*   By: cpeset-c <cpeset-c@student.42barce.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/14 16:08:47 by cpeset-c          #+#    #+#             */
-/*   Updated: 2024/02/15 16:20:05 by cpeset-c         ###   ########.fr       */
+/*   Updated: 2024/02/19 00:39:01 by cpeset-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,10 +20,10 @@ void	handle_player_rotation(t_graphics *g)
 {
 	double	rotate_speed;
 
-	// if (g->player.mouse_rotate)
-	// 	rotate_speed = 2 * ROT_SPEED * g->player.normalized_rotate_speed;
-	// else
-	rotate_speed = ROT_SPEED;
+	if (g->player.mouse_rotate)
+		rotate_speed = 2 * ROT_SPEED * g->player.rotate_speed;
+	else
+		rotate_speed = ROT_SPEED;
 	if (g->player.rotate_left)
 		rotate_left(g, rotate_speed);
 	if (g->player.rotate_right)

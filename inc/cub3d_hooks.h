@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d_hooks.h                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cpeset-c <cpeset-c@student.42barcel>       +#+  +:+       +#+        */
+/*   By: cpeset-c <cpeset-c@student.42barce.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/07 13:23:19 by cpeset-c          #+#    #+#             */
-/*   Updated: 2024/02/14 15:49:49 by cpeset-c         ###   ########.fr       */
+/*   Updated: 2024/02/19 00:48:03 by cpeset-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define CUB3D_HOOKS_H
 
 # include "cub3d_struct.h"
+
 
 /**
  * @brief Hooks the events to the window
@@ -33,6 +34,10 @@ int		hooks_keys_release(int keycode, t_graphics *graphics);
 // MOUSE HOOKS
 // ===========
 
-int exit_on_click(t_graphics *graphics);
+int		exit_on_click(t_graphics *graphics);
+int		mouse_press_handler(int keycode, int x, int y, t_graphics *g);
+int		camera_press_handler(int x, int y, t_graphics *g);
+
+int		mouse_release_handler(int keycode, int x, int y, t_graphics *g);
 
 #endif
