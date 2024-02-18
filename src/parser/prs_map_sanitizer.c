@@ -6,7 +6,7 @@
 /*   By: cpeset-c <cpeset-c@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/02 20:35:59 by cpeset-c          #+#    #+#             */
-/*   Updated: 2024/02/18 15:50:11 by cpeset-c         ###   ########.fr       */
+/*   Updated: 2024/02/18 19:34:34 by cpeset-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,13 +37,11 @@ t_bool	map_sanitizer(t_info *info, size_t width, size_t height)
 				return (TRUE);
 			if (ft_strchr("NSEW", info->map[y][x]))
 				player_count++;
-			if (player_count > 1)
-				return (TRUE);
 			x++;
 		}
 		y++;
 	}
-	if (!player_count)
+	if (!player_count || player_count > 1)
 		return (TRUE);
 	return (FALSE);
 }

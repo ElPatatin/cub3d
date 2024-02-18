@@ -6,7 +6,7 @@
 /*   By: cpeset-c <cpeset-c@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/14 16:21:53 by cpeset-c          #+#    #+#             */
-/*   Updated: 2024/02/18 17:08:21 by cpeset-c         ###   ########.fr       */
+/*   Updated: 2024/02/18 19:31:46 by cpeset-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,13 +58,13 @@ static void	player_dir_init(t_graphics *graphics, ssize_t i, ssize_t j)
 {
 	graphics->player.dir_x = 0;
 	graphics->player.dir_y = 0;
-	if (graphics->info->map[i][j] == P_NO)
+	if (graphics->info->map[i][j] == P_SO)
 		graphics->player.dir_x = 1;
 	else if (graphics->info->map[i][j] == P_EA)
 		graphics->player.dir_y = 1;
 	else if (graphics->info->map[i][j] == P_WE)
 		graphics->player.dir_y = -1;
-	else if (graphics->info->map[i][j] == P_SO)
+	else if (graphics->info->map[i][j] == P_NO)
 		graphics->player.dir_x = -1;
 }
 
@@ -72,12 +72,12 @@ static void	player_plane_init(t_graphics *graphics, ssize_t i, ssize_t j)
 {
 	graphics->player.plane_x = 0;
 	graphics->player.plane_y = 0;
-	if (graphics->info->map[i][j] == P_NO)
+	if (graphics->info->map[i][j] == P_SO)
 		graphics->player.plane_y = -0.77f;
 	else if (graphics->info->map[i][j] == P_EA)
 		graphics->player.plane_x = 0.77f;
 	else if (graphics->info->map[i][j] == P_WE)
 		graphics->player.plane_x = -0.77f;
-	else if (graphics->info->map[i][j] == P_SO)
+	else if (graphics->info->map[i][j] == P_NO)
 		graphics->player.plane_y = 0.77f;
 }

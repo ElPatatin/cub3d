@@ -6,7 +6,7 @@
 /*   By: cpeset-c <cpeset-c@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/02 12:27:04 by cpeset-c          #+#    #+#             */
-/*   Updated: 2024/02/12 11:19:25 by cpeset-c         ###   ########.fr       */
+/*   Updated: 2024/02/18 19:23:23 by cpeset-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ int	get_raw_map_data(char **raw_info, t_raw_map_data *raw_map_data)
 		return (TRUE);
 	raw_map_data->width = get_map_width(raw_info, raw_map_data->map_start,
 			raw_map_data->map_end);
-	if (raw_map_data->width == -1)  
+	if (raw_map_data->width == -1)
 		return (TRUE);
 	raw_map_data->width += 2;
 	raw_map_data->height
