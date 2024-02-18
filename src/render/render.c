@@ -6,7 +6,7 @@
 /*   By: cpeset-c <cpeset-c@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/12 11:54:01 by cpeset-c          #+#    #+#             */
-/*   Updated: 2024/02/18 15:26:05 by cpeset-c         ###   ########.fr       */
+/*   Updated: 2024/02/18 15:46:18 by cpeset-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,7 @@ void	put_background_layer(t_graphics *graphics)
 */
 void	put_wall_layer(t_graphics *graphics)
 {
-	ssize_t		x;
+	int	x;
 
 	x = -1;
 	while (++x < WINWIDTH)

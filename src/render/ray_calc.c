@@ -6,7 +6,7 @@
 /*   By: cpeset-c <cpeset-c@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/15 16:03:24 by cpeset-c          #+#    #+#             */
-/*   Updated: 2024/02/18 15:27:59 by cpeset-c         ###   ########.fr       */
+/*   Updated: 2024/02/18 16:18:53 by cpeset-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,12 +34,14 @@
  * This has to be done both for the x and y coordinate of the vector
  * (since adding two vectors is adding their x-coordinates,
  * and adding their y-coordinates).
+ * 
+ * the players plain is the 2D raycaster version of the camera plane.
 */
 void	calculate_ray_position(t_graphics *g, int x)
 {
 	float	camera_x;
 
-	camera_x = 2 * x / (float)WINWIDTH - 1;
+	camera_x = (x << 1) / (float)WINWIDTH - 1;
 	g->ray.dir_x = g->player.dir_x + g->player.plane_x * camera_x;
 	g->ray.dir_y = g->player.dir_y + g->player.plane_y * camera_x;
 }

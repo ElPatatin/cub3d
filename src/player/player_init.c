@@ -6,7 +6,7 @@
 /*   By: cpeset-c <cpeset-c@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/14 16:21:53 by cpeset-c          #+#    #+#             */
-/*   Updated: 2024/02/17 19:22:27 by cpeset-c         ###   ########.fr       */
+/*   Updated: 2024/02/18 17:08:21 by cpeset-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,8 +34,8 @@ void	player_init(t_graphics *graphics)
 		{
 			if (ft_strchr("NEWS", graphics->info->map[i][j]))
 			{
-				graphics->player.pos_x = i;
-				graphics->player.pos_y = j;
+				graphics->player.pos_x = i + 0.5f;
+				graphics->player.pos_y = j + 0.5f;
 				player_dir_init(graphics, i, j);
 				player_plane_init(graphics, i, j);
 				return ;
@@ -56,48 +56,28 @@ static void	player_moves_init(t_graphics *graphics)
 
 static void	player_dir_init(t_graphics *graphics, ssize_t i, ssize_t j)
 {
+	graphics->player.dir_x = 0;
+	graphics->player.dir_y = 0;
 	if (graphics->info->map[i][j] == P_NO)
-	{
 		graphics->player.dir_x = 1;
-		graphics->player.dir_y = 0;
-	}
 	else if (graphics->info->map[i][j] == P_EA)
-	{
-		graphics->player.dir_x = 0;
 		graphics->player.dir_y = 1;
-	}
 	else if (graphics->info->map[i][j] == P_WE)
-	{
-		graphics->player.dir_x = 0;
 		graphics->player.dir_y = -1;
-	}
 	else if (graphics->info->map[i][j] == P_SO)
-	{
 		graphics->player.dir_x = -1;
-		graphics->player.dir_y = 0;
-	}
 }
 
 static void	player_plane_init(t_graphics *graphics, ssize_t i, ssize_t j)
 {
+	graphics->player.plane_x = 0;
+	graphics->player.plane_y = 0;
 	if (graphics->info->map[i][j] == P_NO)
-	{
-		graphics->player.plane_x = 0;
-		graphics->player.plane_y = -0.66;
-	}
+		graphics->player.plane_y = -0.77f;
 	else if (graphics->info->map[i][j] == P_EA)
-	{
-		graphics->player.plane_x = 0.66;
-		graphics->player.plane_y = 0;
-	}
+		graphics->player.plane_x = 0.77f;
 	else if (graphics->info->map[i][j] == P_WE)
-	{
-		graphics->player.plane_x = -0.66;
-		graphics->player.plane_y = 0;
-	}
+		graphics->player.plane_x = -0.77f;
 	else if (graphics->info->map[i][j] == P_SO)
-	{
-		graphics->player.plane_x = 0;
-		graphics->player.plane_y = 0.66;
-	}
+		graphics->player.plane_y = 0.77f;
 }

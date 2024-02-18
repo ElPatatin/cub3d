@@ -6,7 +6,7 @@
 /*   By: cpeset-c <cpeset-c@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/15 16:04:50 by cpeset-c          #+#    #+#             */
-/*   Updated: 2024/02/18 15:45:09 by cpeset-c         ###   ########.fr       */
+/*   Updated: 2024/02/18 16:58:25 by cpeset-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ void	calculate_texture(t_graphics *g, int x)
 		g->tex.wall_x = g->player.pos_x + g->ray.distance * g->ray.dir_x;
 	g->tex.wall_x -= floor((g->tex.wall_x));
 	g->tex.tex_x = (int)(g->tex.wall_x * (double)TEXWIDTH);
-	g->tex.step = 1.0 * TEXHEIGHT / g->line.height;
+	g->tex.step = 1.0f * TEXHEIGHT / g->line.height;
 	g->tex.tex_pos = (g->line.start - (WINHEIGHT >> 1) \
 		+ (g->line.height >> 1)) * g->tex.step;
 	build_buffer(g, x);

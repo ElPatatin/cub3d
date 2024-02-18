@@ -6,7 +6,7 @@
 /*   By: cpeset-c <cpeset-c@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/02 20:35:59 by cpeset-c          #+#    #+#             */
-/*   Updated: 2024/02/02 21:14:51 by cpeset-c         ###   ########.fr       */
+/*   Updated: 2024/02/18 15:50:11 by cpeset-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,8 @@ t_bool	map_sanitizer(t_info *info, size_t width, size_t height)
 		}
 		y++;
 	}
+	if (!player_count)
+		return (TRUE);
 	return (FALSE);
 }
 

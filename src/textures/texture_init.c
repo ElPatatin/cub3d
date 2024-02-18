@@ -6,7 +6,7 @@
 /*   By: cpeset-c <cpeset-c@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/15 18:43:31 by cpeset-c          #+#    #+#             */
-/*   Updated: 2024/02/18 15:12:40 by cpeset-c         ###   ########.fr       */
+/*   Updated: 2024/02/18 16:04:40 by cpeset-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,12 +29,12 @@ void	texture_init(t_graphics *g)
 		y = -1;
 		while (++y < TEXHEIGHT)
 		{
-			g->tex.texture[0][TEXWIDTH * y + x] = 0x00FF0000;
-			g->tex.texture[1][TEXWIDTH * y + x] = 0x0000FF00;
-			g->tex.texture[2][TEXWIDTH * y + x] = 0x000000FF;
-			if ((x < TEXWIDTH / 2 && y < TEXHEIGHT / 2)
+			g->tex.texture[0][TEXWIDTH * y + x] = 0x00FF0000; //rojo sud
+			g->tex.texture[1][TEXWIDTH * y + x] = 0x0000FF00; //verde norte
+			g->tex.texture[2][TEXWIDTH * y + x] = 0x000000FF; //azul este
+			if ((x < TEXWIDTH / 2 && y < TEXHEIGHT / 2)       //	o esta
 				|| (x >= TEXWIDTH / 2 && y >= TEXHEIGHT / 2))
-				g->tex.texture[3][TEXWIDTH * y + x] = 0x01FFFFFF;
+				g->tex.texture[3][TEXWIDTH * y + x] = 0x01000000;
 			else
 				g->tex.texture[3][TEXWIDTH * y + x] = 0x00f800f8;
 		}
