@@ -6,7 +6,7 @@
 /*   By: cpeset-c <cpeset-c@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/01 17:42:26 by alajara-          #+#    #+#             */
-/*   Updated: 2024/02/12 11:20:51 by cpeset-c         ###   ########.fr       */
+/*   Updated: 2024/02/18 18:21:59 by cpeset-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,5 +46,6 @@ int	prs_map(char **data, t_info *info)
 		terminate_error(ERR_BAD_MAP, SYS_BAD_MAP);
 	if (map_validator(info, raw_map_data.width, raw_map_data.height))
 		terminate_error(ERR_BAD_MAP, SYS_BAD_MAP);
+	flip_map(info, raw_map_data.height);
 	return (0);
 }

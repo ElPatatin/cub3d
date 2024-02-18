@@ -6,7 +6,7 @@
 /*   By: cpeset-c <cpeset-c@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/01 17:45:08 by alajara-          #+#    #+#             */
-/*   Updated: 2024/02/15 15:50:43 by cpeset-c         ###   ########.fr       */
+/*   Updated: 2024/02/18 17:40:48 by cpeset-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,12 +51,12 @@ void	built_valid_metadata(char **valid_metadata);
 
 // MAO TEXTURE
 // ===========
-int	prs_txt(char **metadata, t_info *info);
+int		prs_txt(char **metadata, t_info *info);
 
 // FILE BODY
 // =========
 t_bool	check_metadata(const char *currnet_data);
-int	get_body_size(char **data, ssize_t i, size_t *size);
+int		get_body_size(char **data, ssize_t i, size_t *size);
 
 // PARSE MAP
 // =========
@@ -75,6 +75,7 @@ int		map_expander(char **raw_info,
 // MAP SANITIZER
 // =============
 t_bool	map_sanitizer(t_info *info, size_t width, size_t height);
+void	flip_map(t_info *info, size_t height);
 
 // MAP VALIDATOR
 // =============
