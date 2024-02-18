@@ -6,7 +6,7 @@
 /*   By: cpeset-c <cpeset-c@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/01 17:46:34 by alajara-          #+#    #+#             */
-/*   Updated: 2024/02/15 19:16:40 by cpeset-c         ###   ########.fr       */
+/*   Updated: 2024/02/18 15:19:01 by cpeset-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,6 +71,26 @@ typedef struct s_image
 	int		width;
 	int		height;
 }	t_image;
+
+typedef struct s_wall_line
+{
+	int	start;
+	int	end;
+	int	height;
+}	t_wall_line;
+
+typedef struct s_texture
+{
+	int			tex_x;
+	int			tex_y;
+	float		tex_pos;
+	int			tex_idx;
+	float		step;
+	float		wall_x;
+	uint32_t	color;
+	uint32_t	*texture[4];
+	uint32_t	**buffer;
+}	t_texture;
 
 /**
  * @brief	This structure contains all the information of the player.
@@ -159,8 +179,8 @@ typedef struct s_graphics
 	t_info		*info;
 	t_player	player;
 	t_ray		ray;
-	uint32_t	*texture[4];
-	uint32_t	**buffer;
+	t_wall_line	line;
+	t_texture	tex;
 }	t_graphics;
 
 #endif

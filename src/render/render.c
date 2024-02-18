@@ -6,7 +6,7 @@
 /*   By: cpeset-c <cpeset-c@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/12 11:54:01 by cpeset-c          #+#    #+#             */
-/*   Updated: 2024/02/17 18:46:39 by cpeset-c         ###   ########.fr       */
+/*   Updated: 2024/02/18 15:26:05 by cpeset-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,9 +62,6 @@ void	put_background_layer(t_graphics *graphics)
 void	put_wall_layer(t_graphics *graphics)
 {
 	ssize_t		x;
-	int			line_height;
-	int			draw_start;
-	int			draw_end;
 
 	x = -1;
 	while (++x < WINWIDTH)
@@ -73,12 +70,10 @@ void	put_wall_layer(t_graphics *graphics)
 		calculate_map_position(graphics);
 		calculate_length_of_ray(graphics);
 		calculate_step_and_initial_side_dist(graphics);
-		perfome_dda(graphics);
+		perfom_dda(graphics);
 		calculate_distance_projected(graphics);
-		line_height = (int)(WINHEIGHT / graphics->ray.distance);
-		draw_start = calculate_lowest_pixel_to_fill(line_height);
-		draw_end = calculate_highest_pixel_to_fill(line_height);
-		calculate_texture(graphics, x, draw_start, draw_end, line_height);
+		set_line_limit(graphics);
+		calculate_texture(graphics, x);
 	}
 	draw_buffer(graphics);
 	reset_buffer(graphics);

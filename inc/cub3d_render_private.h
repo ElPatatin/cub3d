@@ -6,7 +6,7 @@
 /*   By: cpeset-c <cpeset-c@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/12 12:17:07 by cpeset-c          #+#    #+#             */
-/*   Updated: 2024/02/15 19:45:42 by cpeset-c         ###   ########.fr       */
+/*   Updated: 2024/02/18 15:28:10 by cpeset-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,13 +34,11 @@ void	calculate_step_and_initial_side_dist(t_graphics *g);
 void	calculate_distance_projected(t_graphics *g);
 
 // On ray_dda.c
-void	perfome_dda(t_graphics *g);
+void	perfom_dda(t_graphics *g);
 
 // On ray_pixel_calc.c
-int		calculate_lowest_pixel_to_fill(int line_height);
-int		calculate_highest_pixel_to_fill(int line_height);
-void	draw_line(t_graphics *g, int x, int draw_start, int draw_end);
-void	calculate_texture(t_graphics *g, int x, int draw_start, int draw_end, int line_height);
+void	set_line_limit(t_graphics *g);
+void	calculate_texture(t_graphics *g, int x);
 void	draw_buffer(t_graphics *g);
 
 #endif

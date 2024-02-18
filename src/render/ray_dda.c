@@ -6,7 +6,7 @@
 /*   By: cpeset-c <cpeset-c@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/15 16:03:33 by cpeset-c          #+#    #+#             */
-/*   Updated: 2024/02/15 17:42:26 by cpeset-c         ###   ########.fr       */
+/*   Updated: 2024/02/18 15:25:51 by cpeset-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@
  * where the wall was hit however, but that's not needed in this case because
  * we won't use textured walls for now.
 */
-void	perfome_dda(t_graphics *g)
+void	perfom_dda(t_graphics *g)
 {
 	g->ray.hit = FALSE;
 	while (g->ray.hit == FALSE)

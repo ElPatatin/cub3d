@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ray_pixel_calc.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cpeset-c <cpeset-c@student.42barce.com>    +#+  +:+       +#+        */
+/*   By: cpeset-c <cpeset-c@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/15 16:04:50 by cpeset-c          #+#    #+#             */
-/*   Updated: 2024/02/18 00:03:23 by cpeset-c         ###   ########.fr       */
+/*   Updated: 2024/02/18 15:45:09 by cpeset-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,78 +16,47 @@
 #include "cub3d_render_private.h"
 #include "cub3d_texture.h"
 
-/**
- * @brief This function calculates the lowest pixel to fill
- * 
- * @param line_height (int) - The height of the line
- * 
- * @retval int - The lowest pixel to fill
- * 
- * @note
- * This function calculates the lowest pixel to fill. It calculates the pixel
- * where the wall starts to be drawn on the screen.
-*/
-int	calculate_lowest_pixel_to_fill(int line_height)
-{
-	int	draw_start;
+static void	build_buffer(t_graphics *g, int x);
 
-	draw_start = -line_height / 2 + WINHEIGHT / 2 + PITCH;
-	if (draw_start < 0)
-		draw_start = 0;
-	return (draw_start);
+void	set_line_limit(t_graphics *g)
+{
+	g->line.height = (int)(WINHEIGHT / g->ray.distance);
+	g->line.start = (-g->line.height >> 1) + (WINHEIGHT >> 1) + PITCH;
+	if (g->line.start < 0)
+		g->line.start = 0;
+	g->line.end = (g->line.height >> 1) + (WINHEIGHT >> 1) + PITCH;
+	if (g->line.end >= WINHEIGHT)
+		g->line.end = WINHEIGHT - 1;
 }
 
-/**
- * @brief This function calculates the highest pixel to fill
- * 
- * @param line_height (int) - The height of the line
- * 
- * @retval int - The highest pixel to fill
- * 
- * @note
- * This function calculates the highest pixel to fill. It calculates the pixel
- * where the wall ends to be drawn on the screen.
-*/
-int	calculate_highest_pixel_to_fill(int line_height)
+void	calculate_texture(t_graphics *g, int x)
 {
-	int	draw_end;
-
-	draw_end = line_height / 2 + WINHEIGHT / 2 + PITCH;
-	if (draw_end >= WINHEIGHT)
-		draw_end = WINHEIGHT - 1;
-	return (draw_end);
-}
-
-void	calculate_texture(t_graphics *g, int x, int draw_start, int draw_end, int line_height)
-{
-	double		wallX;
-	int			texX;
-	uint32_t	color;
-	int			textureIndex;
-	double		step;
- 	double		texPos;
-
-	textureIndex = determine_wall_texture_index(g);
 	if (g->ray.side == 0)
-		wallX = g->player.pos_y + g->ray.distance * g->ray.dir_y;
+		g->tex.wall_x = g->player.pos_y + g->ray.distance * g->ray.dir_y;
 	else
-		wallX = g->player.pos_x + g->ray.distance * g->ray.dir_x;
-	wallX -= floor((wallX));
-	texX = (int)(wallX * (double)TEXWIDTH);
-	if (g->ray.side == 0 && g->ray.dir_x > 0)
-		texX = TEXWIDTH - texX - 1;
-	if (g->ray.side == 1 && g->ray.dir_y < 0)
-		texX = TEXWIDTH - texX - 1;
-	step = 1.0 * TEXHEIGHT / line_height;
-	texPos = (draw_start - WINHEIGHT / 2 + line_height / 2) * step;
-	for (int y = draw_start; y < draw_end; y++)
+		g->tex.wall_x = g->player.pos_x + g->ray.distance * g->ray.dir_x;
+	g->tex.wall_x -= floor((g->tex.wall_x));
+	g->tex.tex_x = (int)(g->tex.wall_x * (double)TEXWIDTH);
+	g->tex.step = 1.0 * TEXHEIGHT / g->line.height;
+	g->tex.tex_pos = (g->line.start - (WINHEIGHT >> 1) \
+		+ (g->line.height >> 1)) * g->tex.step;
+	build_buffer(g, x);
+}
+
+static void	build_buffer(t_graphics *g, int x)
+{
+	int	y;
+	int	px;
+
+	y = g->line.start - 1;
+	g->tex.tex_idx = determine_wall_texture_index(g);
+	while (++y < g->line.end)
 	{
-		int texY = (int)texPos & (TEXHEIGHT - 1);
-		texPos += step;
-		color = g->texture[textureIndex][TEXWIDTH * texY + texX];
-		if (g->ray.side == 1 && textureIndex != 3)
-			color = (color >> 1) & 8355711;
-		g->buffer[y][x] = color;
+		g->tex.tex_y = (int)g->tex.tex_pos & (TEXHEIGHT - 1);
+		g->tex.tex_pos += g->tex.step;
+		px = TEXWIDTH * g->tex.tex_y + g->tex.tex_x;
+		g->tex.color = g->tex.texture[g->tex.tex_idx][px];
+		g->tex.buffer[y][x] = g->tex.color;
 	}
 }
 
@@ -102,8 +71,8 @@ void	draw_buffer(t_graphics *g)
 		x = -1;
 		while (++x < WINWIDTH)
 		{
-			if (g->buffer[y][x] != 0)
-				ft_mlx_put_pixel(g, x, y, g->buffer[y][x]);
+			if (g->tex.buffer[y][x] != 0)
+				ft_mlx_put_pixel(g, x, y, g->tex.buffer[y][x]);
 		}
 	}
 }

@@ -6,7 +6,7 @@
 /*   By: cpeset-c <cpeset-c@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/07 12:11:43 by cpeset-c          #+#    #+#             */
-/*   Updated: 2024/02/15 19:51:53 by cpeset-c         ###   ########.fr       */
+/*   Updated: 2024/02/18 15:30:08 by cpeset-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ void	graphics(t_info *info)
 	mlx_put_image_to_window(graphics.mlx,
 		graphics.win, graphics.img->img, 0, 0);
 	player_init(&graphics);
-	graphics.buffer = NULL;
+	graphics.tex.buffer = NULL;
 	texture_init(&graphics);
 	mlx_loop_hook(graphics.mlx, game_loop, &graphics);
 	hooks(&graphics);
