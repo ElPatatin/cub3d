@@ -6,7 +6,7 @@
 /*   By: cpeset-c <cpeset-c@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/24 15:03:58 by cpeset-c          #+#    #+#             */
-/*   Updated: 2024/02/15 15:37:46 by cpeset-c         ###   ########.fr       */
+/*   Updated: 2024/02/18 20:32:39 by cpeset-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,7 @@
 # define ERR_HDR_MIS    "\aThe header is incomplete or does not exist!\n"
 # define ERR_HDR_DUP    "\aThe content of the header is duplicated!\n"
 # define ERR_TEX_CLS	"\aTexture could not be closed!\n"
+# define ERR_TEX_DIR	"\aDirectory not allowed as texture file!\n"
 
 // ERROR CODES
 // ===========
@@ -63,6 +64,7 @@
 # define SYS_HDR_MIS    20
 # define SYS_HDR_DUP    21
 # define SYS_TEX_CLS	22
+# define SYS_TEX_DIR	23
 
 int		print_error(const char *str, int syserr);
 void	terminate_error(const char *str, int syserr);
