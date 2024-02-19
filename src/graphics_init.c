@@ -6,7 +6,7 @@
 /*   By: cpeset-c <cpeset-c@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/07 12:11:43 by cpeset-c          #+#    #+#             */
-/*   Updated: 2024/02/18 15:30:08 by cpeset-c         ###   ########.fr       */
+/*   Updated: 2024/02/19 14:13:16 by cpeset-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ void	graphics(t_info *info)
 	player_init(&graphics);
 	graphics.tex.buffer = NULL;
 	texture_init(&graphics);
+	reset_buffer(&graphics);
 	mlx_loop_hook(graphics.mlx, game_loop, &graphics);
 	hooks(&graphics);
 	mlx_loop(graphics.mlx);
@@ -48,9 +49,6 @@ static void	img_init(t_graphics *graphics)
 	graphics->img->addr = mlx_get_data_addr(graphics->img->img,
 			&graphics->img->bpp, &graphics->img->line_len,
 			&graphics->img->endian);
-	graphics->mmap = (t_image *)malloc(sizeof(t_image));
-	if (!graphics->mmap)
-		exit(EXIT_FAILURE); // TODO
 }
 
 static void	graphics_init(t_graphics *graphics, t_info *info)

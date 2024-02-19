@@ -6,7 +6,7 @@
 /*   By: cpeset-c <cpeset-c@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/15 18:43:31 by cpeset-c          #+#    #+#             */
-/*   Updated: 2024/02/18 20:52:36 by cpeset-c         ###   ########.fr       */
+/*   Updated: 2024/02/19 14:17:52 by cpeset-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,57 +14,70 @@
 #include "cub3d_struct.h"
 #include "cub3d_texture.h"
 
-void	texture_init(t_graphics *g)
+static void		get_wall_texture(t_graphics *g);
+static void		set_wall_texture(t_graphics *g);
+static uint32_t	*set_texture_pixel(t_image *img);
+
+void	texture_init(t_graphics *graphics)
 {
 	int	x;
 	int	y;
 
 	x = -1;
-	g->tex.texture[2] = (uint32_t *)ft_calloc(sizeof(uint32_t), TEXWIDTH * TEXHEIGHT);
-	g->tex.texture[3] = (uint32_t *)ft_calloc(sizeof(uint32_t), TEXWIDTH * TEXHEIGHT);
-	t_image *img1;
-	img1 = malloc(sizeof(t_image));
-	img1 = mlx_xpm_file_to_image(g->mlx, g->info->txr_no, &img1->width, &img1->height);
-	t_image *img2;
-	img2 = malloc(sizeof(t_image));
-	img2 = mlx_xpm_file_to_image(g->mlx, g->info->txr_so, &img2->width, &img2->height);
+	build_walls_array(graphics);
+	get_wall_texture(graphics);
 	while (++x < TEXWIDTH)
 	{
 		y = -1;
 		while (++y < TEXHEIGHT)
-		{
-			g->tex.texture[0] = (uint32_t *)mlx_get_data_addr(img1, &img1->bpp, &img1->line_len, &img1->endian);
-			g->tex.texture[1] = (uint32_t *)mlx_get_data_addr(img2, &img2->bpp, &img2->line_len, &img2->endian);
-			g->tex.texture[2][TEXWIDTH * y + x] = 0x000000FF;
-			if ((x < TEXWIDTH / 2 && y < TEXHEIGHT / 2)
-				|| (x >= TEXWIDTH / 2 && y >= TEXHEIGHT / 2))
-				g->tex.texture[3][TEXWIDTH * y + x] = 0x01000000;
-			else
-				g->tex.texture[3][TEXWIDTH * y + x] = 0x00f800f8;
-		}
+			set_wall_texture(graphics);
 	}
-	reset_buffer(g);
 }
 
-void	reset_buffer(t_graphics *g)
+static void	build_walls_array(t_graphics *g)
+{
+	g->info->txr_walls[0] = ft_strdup(g->info->txr_no);
+	if (!g->info->txr_walls[0])
+		exit(1);
+	g->info->txr_walls[1] = ft_strdup(g->info->txr_so);
+	if (!g->info->txr_walls[1])
+		exit(1);
+	g->info->txr_walls[2] = ft_strdup(g->info->txr_we);
+	if (!g->info->txr_walls[2])
+		exit(1);
+	g->info->txr_walls[3] = ft_strdup(g->info->txr_ea);
+	if (!g->info->txr_walls[3])
+		exit(1);
+}
+
+static void	get_wall_texture(t_graphics *g)
 {
 	int	i;
 
-	if (g->tex.buffer)
-	{
-		i = -1;
-		while (++i < WINHEIGHT)
-			ft_bzero(g->tex.buffer[i], WINWIDTH * sizeof(uint32_t));
-		return ;
-	}
-	g->tex.buffer = ft_calloc(WINHEIGHT + 1, sizeof(uint32_t *));
-	if (!g->tex.buffer)
-		exit(1);
 	i = -1;
-	while (++i < WINHEIGHT)
+	while (++i < 4)
 	{
-		g->tex.buffer[i] = ft_calloc(WINWIDTH + 1, sizeof(uint32_t));
-		if (!g->tex.buffer[i])
+		g->tex.img[i] = (t_image *)malloc(sizeof(t_image));
+		if (!g->tex.img[i])
+			exit(1);
+		g->tex.img[i] = mlx_xpm_file_to_image(g->mlx, g->info->txr_walls[i],
+				&g->tex.img[i]->width, &g->tex.img[i]->height);
+		if (!g->tex.img[i])
 			exit(1);
 	}
+}
+
+static void	set_wall_texture(t_graphics *g)
+{
+	int	i;
+
+	i = -1;
+	while (++i < 4)
+		g->tex.texture[i] = set_texture_pixel(g->tex.img[i]);
+}
+
+static uint32_t	*set_texture_pixel(t_image *img)
+{
+	return ((uint32_t *)mlx_get_data_addr(img, &img->bpp,
+			&img->line_len, &img->endian));
 }

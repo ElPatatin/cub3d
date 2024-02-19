@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d_struct.h                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cpeset-c <cpeset-c@student.42barce.com>    +#+  +:+       +#+        */
+/*   By: cpeset-c <cpeset-c@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/01 17:46:34 by alajara-          #+#    #+#             */
-/*   Updated: 2024/02/19 00:48:39 by cpeset-c         ###   ########.fr       */
+/*   Updated: 2024/02/19 13:58:48 by cpeset-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,9 @@
 
 # include "libft.h"
 # include "cub3d.h"
+
+// STRUCT S_ARGV
+// ============================================================================
 
 /**
  * @brief	This union contains the color of the ceiling and the floor.
@@ -28,16 +31,20 @@ typedef union s_argb
 	unsigned int	argb;
 }	t_argb;
 
+// STRUCT S_INFO
+// ============================================================================
+
 /**
  * @brief	This structure contains all the information of the simulaion.
  * 
- * @param	map		The map of the simulation.
- * @param	txr_no	The path to the north texture.
- * @param	txr_so	The path to the south texture.
- * @param	txr_we	The path to the west texture.
- * @param	txr_ea	The path to the east texture.
- * @param	c		The color of the ceiling.
- * @param	f		The color of the floor.
+ * @param	map			The map of the simulation.
+ * @param	txr_no		The path to the north texture.
+ * @param	txr_so		The path to the south texture.
+ * @param	txr_we		The path to the west texture.
+ * @param	txr_ea		The path to the east texture.
+ * @param	txr_walls	The path to the walls textures.
+ * @param	c			The color of the ceiling.
+ * @param	f			The color of the floor.
 */
 typedef struct s_info
 {
@@ -46,9 +53,13 @@ typedef struct s_info
 	char	*txr_so;
 	char	*txr_we;
 	char	*txr_ea;
+	char	*txr_walls[4];
 	t_argb	c;
 	t_argb	f;
 }	t_info;
+
+// STRUCT S_IMAGE
+// ============================================================================
 
 /**
  * @brief	This structure contains all the information of the image.
@@ -72,6 +83,16 @@ typedef struct s_image
 	int		height;
 }	t_image;
 
+// STRUCT S_WALL_LINE
+// ============================================================================
+
+/**
+ * @brief	This structure contains all the information of the wall line.
+ * 
+ * @param	start	The start of the wall line.
+ * @param	end		The end of the wall line.
+ * @param	height	The height of the wall line.
+*/
 typedef struct s_wall_line
 {
 	int	start;
@@ -79,6 +100,23 @@ typedef struct s_wall_line
 	int	height;
 }	t_wall_line;
 
+// STRUCT S_TEXTURE
+// ============================================================================
+
+/**
+ * @brief	This structure contains all the information of the texture.
+ * 
+ * @param	tex_x		The x position of the texture.
+ * @param	tex_y		The y position of the texture.
+ * @param	tex_pos		The position of the texture.
+ * @param	tex_idx		The index of the texture.
+ * @param	step		The step of the texture.
+ * @param	wall_x		The x position of the wall.
+ * @param	color		The color of the texture.
+ * @param	img			The image array of the texture.
+ * @param	texture		The texture array of the texture.
+ * @param	buffer		The buffer of the texture.
+*/
 typedef struct s_texture
 {
 	int			tex_x;
@@ -88,9 +126,13 @@ typedef struct s_texture
 	float		step;
 	float		wall_x;
 	uint32_t	color;
+	t_image		*img[4];
 	uint32_t	*texture[4];
 	uint32_t	**buffer;
 }	t_texture;
+
+// STRUCT S_PLAYER
+// ============================================================================
 
 /**
  * @brief	This structure contains all the information of the player.
@@ -107,7 +149,8 @@ typedef struct s_texture
  * @param	move_right		The speed of the player moving right.
  * @param	rotate_left		Value of the rotation to the left.
  * @param	rotate_right	Value of the rotation to the right.
- * @param	mouse_rotate	True if the mouse is rotating the player, false otherwise.
+ * @param	mouse_rotate	True if the mouse is rotating the player,
+							false otherwise.
  * @param	rotate_speed	The speed of the rotation.
 */
 typedef struct s_player
@@ -127,6 +170,9 @@ typedef struct s_player
 	t_bool	mouse_rotate;
 	float	rotate_speed;
 }	t_player;
+
+// STRUCT S_RAY
+// ============================================================================
 
 /**
  * @brief	This structure contains all the information of the ray.
@@ -162,6 +208,9 @@ typedef struct s_ray
 	int		side;
 }	t_ray;
 
+// STRUCT S_GRAPHICS
+// ============================================================================
+
 /**
  * @brief	This structure contains all the information of the graphics.
  * 
@@ -172,6 +221,8 @@ typedef struct s_ray
  * @param	info	The info pointer.
  * @param	player	The player info.
  * @param	ray		The ray info.
+ * @param	line	The wall line info.
+ * @param	tex		The texture info.
 */
 typedef struct s_graphics
 {
