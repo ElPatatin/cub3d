@@ -6,7 +6,7 @@
 /*   By: cpeset-c <cpeset-c@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/07 12:11:43 by cpeset-c          #+#    #+#             */
-/*   Updated: 2024/02/19 15:30:11 by cpeset-c         ###   ########.fr       */
+/*   Updated: 2024/02/19 17:29:32 by cpeset-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,10 +42,10 @@ static void	img_init(t_graphics *graphics)
 {
 	graphics->img = (t_image *)malloc(sizeof(t_image));
 	if (!graphics->img)
-		exit(EXIT_FAILURE); // TODO
+		terminate_error(ERR_MEM, SYS_MEM);
 	graphics->img->img = mlx_new_image(graphics->mlx, WINWIDTH, WINHEIGHT);
 	if (!graphics->img->img)
-		exit(EXIT_FAILURE); // TODO 
+		terminate_error(ERR_MEM, SYS_MEM);
 	graphics->img->addr = mlx_get_data_addr(graphics->img->img,
 			&graphics->img->bpp, &graphics->img->line_len,
 			&graphics->img->endian);
@@ -55,10 +55,10 @@ static void	graphics_init(t_graphics *graphics, t_info *info)
 {
 	graphics->mlx = mlx_init();
 	if (!graphics->mlx)
-		exit(EXIT_FAILURE); // TODO 
+		terminate_error(ERR_MLX, SYS_MLX);
 	graphics->win = mlx_new_window(graphics->mlx, WINWIDTH, WINHEIGHT, TITLE);
 	if (!graphics->win)
-		exit(EXIT_FAILURE); // TODO 
+		terminate_error(ERR_WIN, SYS_WIN);
 	img_init(graphics);
 	graphics->info = info;
 }
@@ -68,7 +68,7 @@ int	game_loop(t_graphics *graphics)
 	mlx_destroy_image(graphics->mlx, graphics->img->img);
 	graphics->img->img = mlx_new_image(graphics->mlx, WINWIDTH, WINHEIGHT);
 	if (!graphics->img->img)
-		exit(EXIT_FAILURE); // TODO 
+		terminate_error(ERR_MLX, SYS_MLX);
 	graphics->img->addr = mlx_get_data_addr(graphics->img->img,
 			&graphics->img->bpp, &graphics->img->line_len,
 			&graphics->img->endian);

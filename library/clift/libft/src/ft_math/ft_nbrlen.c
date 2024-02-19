@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_nbrlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cpeset-c <cpeset-c@student.42barce>        +#+  +:+       +#+        */
+/*   By: cpeset-c <cpeset-c@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/09 20:00:16 by cpeset-c          #+#    #+#             */
-/*   Updated: 2022/12/07 17:01:02 by cpeset-c         ###   ########.fr       */
+/*   Updated: 2024/02/19 17:31:05 by cpeset-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,8 @@ int
 		len++;
 	while (nbr)
 	{
-			nbr /= 10;
-			len++;
+		nbr /= 10;
+		len++;
 	}
 	return (len);
 }

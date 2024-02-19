@@ -6,7 +6,7 @@
 #    By: cpeset-c <cpeset-c@student.42barcel>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/07 19:56:27 by cpeset-c          #+#    #+#              #
-#    Updated: 2024/02/19 14:55:47 by cpeset-c         ###   ########.fr        #
+#    Updated: 2024/02/19 17:15:14 by cpeset-c         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -54,7 +54,7 @@ MLX_DIR	= minilibx/
 UNAME	= $(shell uname -s)
 
 CFLAGS		= -Wall -Wextra -Werror -W -pedantic
-XFLAGS		= -g3# -fsanitize=address
+#XFLAGS		= -g3 -fsanitize=address
 DFLAGS		= -MT $@ -MMD -MP
 
 ifeq ($(UNAME), Darwin)

@@ -6,7 +6,7 @@
 /*   By: cpeset-c <cpeset-c@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/02 20:37:05 by cpeset-c          #+#    #+#             */
-/*   Updated: 2024/02/18 18:30:38 by cpeset-c         ###   ########.fr       */
+/*   Updated: 2024/02/19 17:32:09 by cpeset-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,20 +65,4 @@ static t_bool	is_surrounded_by_void_or_wall(t_info *info, size_t x, size_t y)
 		++idx;
 	}
 	return (FALSE);
-}
-
-void	flip_map(t_info *info, size_t height)
-{
-	size_t	y;
-
-	y = -1;
-	while (++y < (height >> 1))
-	{
-		ft_swap((int *)&info->map[y], (int *)&info->map[height - y - 1]);
-	}
-	y = -1;
-	while (++y < height)
-	{
-		printf("%s\n", info->map[y]);
-	}
 }

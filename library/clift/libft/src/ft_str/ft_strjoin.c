@@ -3,17 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cpeset-c <cpeset-c@student.42.fr>          +#+  +:+       +#+        */
+/*   By: cpeset-c <cpeset-c@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/18 17:49:39 by cpeset-c          #+#    #+#             */
-/*   Updated: 2023/04/09 17:17:29 by cpeset-c         ###   ########.fr       */
+/*   Created: 2024/02/19 17:36:04 by cpeset-c          #+#    #+#             */
+/*   Updated: 2024/02/19 17:36:57 by cpeset-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char
-	*ft_strjoin(char *s1, char *s2)
+char	*ft_strjoin(char *s1, char *s2)
 {
 	char	*dst;
 	char	*ptr;

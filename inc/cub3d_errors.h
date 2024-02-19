@@ -6,7 +6,7 @@
 /*   By: cpeset-c <cpeset-c@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/24 15:03:58 by cpeset-c          #+#    #+#             */
-/*   Updated: 2024/02/19 14:56:10 by cpeset-c         ###   ########.fr       */
+/*   Updated: 2024/02/19 17:29:00 by cpeset-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,8 @@
 # define ERR_HDR_DUP    "\aThe content of the header is duplicated!\n"
 # define ERR_TEX_CLS	"\aTexture could not be closed!\n"
 # define ERR_TEX_DIR	"\aDirectory not allowed as texture file!\n"
+# define ERR_TEX_RED	"\aTexture could not be read!\n"
+# define ERR_MLX		"\aSomething went wrong with minilibx!\n"
 
 // ERROR CODES
 // ===========
@@ -65,6 +67,8 @@
 # define SYS_HDR_DUP    21
 # define SYS_TEX_CLS	22
 # define SYS_TEX_DIR	23
+# define SYS_TEX_RED	24
+# define SYS_MLX		25
 
 int		print_error(const char *str, int syserr);
 void	terminate_error(const char *str, int syserr);

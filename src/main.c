@@ -6,7 +6,7 @@
 /*   By: cpeset-c <cpeset-c@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/01 17:09:13 by alajara-          #+#    #+#             */
-/*   Updated: 2024/02/19 14:04:44 by cpeset-c         ###   ########.fr       */
+/*   Updated: 2024/02/19 16:43:38 by cpeset-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ int	main(int ac, char **av)
 	raw = reader(av[1]);
 	if (!raw)
 		terminate_error(ERR_READ_MAP, SYS_READ_MAP);
-	data = inclusive_split(raw, '\n');
+	data = ft_split(raw, '\n');
 	ft_delete(raw);
 	if (!data)
 		terminate_error(ERR_MEM, SYS_MEM);

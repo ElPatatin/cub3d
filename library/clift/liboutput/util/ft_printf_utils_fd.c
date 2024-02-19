@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf_utils_fd.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cpeset-c <cpeset-c@student.42barce>        +#+  +:+       +#+        */
+/*   By: cpeset-c <cpeset-c@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/18 18:36:13 by cpeset-c          #+#    #+#             */
-/*   Updated: 2022/12/08 23:47:30 by cpeset-c         ###   ########.fr       */
+/*   Updated: 2024/02/19 17:34:21 by cpeset-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ t_ll
 			flags->sign = TRUE;
 		}
 		else if (ft_isdigit(c) && flags->plus == TRUE)
-		{	
+		{
 			if (print_char_fd('+', vars) == ERRNUM)
 				return (ERRNUM);
 			++len;

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cpeset-c <cpeset-c@student.42barce>        +#+  +:+       +#+        */
+/*   By: cpeset-c <cpeset-c@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/18 17:51:03 by cpeset-c          #+#    #+#             */
-/*   Updated: 2022/12/06 20:53:04 by cpeset-c         ###   ########.fr       */
+/*   Updated: 2024/02/19 16:31:50 by cpeset-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ size_t
 	size_t	i;
 
 	i = 0;
-	if (!s)
+	if (!s || !s[i])
 		return (0);
 	while (s[i])
 		i++;

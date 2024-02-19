@@ -6,7 +6,7 @@
 /*   By: cpeset-c <cpeset-c@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/01 17:45:08 by alajara-          #+#    #+#             */
-/*   Updated: 2024/02/19 14:56:49 by cpeset-c         ###   ########.fr       */
+/*   Updated: 2024/02/19 17:32:21 by cpeset-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,7 +75,6 @@ int		map_expander(char **raw_info,
 // MAP SANITIZER
 // =============
 t_bool	map_sanitizer(t_info *info, size_t width, size_t height);
-void	flip_map(t_info *info, size_t height);
 
 // MAP VALIDATOR
 // =============

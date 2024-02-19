@@ -6,13 +6,14 @@
 /*   By: cpeset-c <cpeset-c@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/15 18:43:31 by cpeset-c          #+#    #+#             */
-/*   Updated: 2024/02/19 15:51:47 by cpeset-c         ###   ########.fr       */
+/*   Updated: 2024/02/19 17:29:54 by cpeset-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 #include "cub3d_struct.h"
 #include "cub3d_texture.h"
+#include "cub3d_errors.h"
 
 static void		build_walls_array(t_graphics *g);
 static void		get_wall_texture(t_graphics *g);
@@ -61,12 +62,12 @@ static void	get_wall_texture(t_graphics *g)
 	{
 		img = (t_image *)malloc(sizeof(t_image));
 		if (!img)
-			exit(EXIT_FAILURE);
+			terminate_error(ERR_MEM, SYS_MEM);
 		g->tex.img[i] = img;
 		g->tex.img[i] = mlx_xpm_file_to_image(g->mlx, g->info->txr_walls[i],
 				&g->tex.img[i]->width, &g->tex.img[i]->height);
 		if (!g->tex.img[i])
-			exit(EXIT_FAILURE);
+			terminate_error(ERR_TEX_RED, SYS_TEX_RED);
 		ft_delete(img);
 	}
 }

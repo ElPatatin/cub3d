@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   reader.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cpeset-c <cpeset-c@student.42barce.com>    +#+  +:+       +#+        */
+/*   By: cpeset-c <cpeset-c@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/01 17:28:37 by cpeset-c          #+#    #+#             */
-/*   Updated: 2024/02/05 20:38:46 by cpeset-c         ###   ########.fr       */
+/*   Updated: 2024/02/19 16:16:50 by cpeset-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ char	*reader(const char *map_name)
 	int		fd;
 	char	*buffer;
 
-	if (check_map_extension(map_name))
+	if (check_map_extension((char *)map_name))
 		terminate_error(ERR_EXT_MAP, SYS_EXT_MAP);
 	fd = open(map_name, O_RDONLY);
 	if (fd < 0 || fd > OPEN_MAX || BUFFER_SIZE <= 0)
@@ -34,7 +34,7 @@ char	*reader(const char *map_name)
 	return (buffer);
 }
 
-static int	check_map_extension(const char *map_name)
+static int	check_map_extension(char *map_name)
 {
 	size_t	len;
 	char	*str;
@@ -42,10 +42,12 @@ static int	check_map_extension(const char *map_name)
 	len = ft_strlen(map_name);
 	str = ft_strrchr(map_name, '/');
 	if (!str)
-		ft_strncpy(str, map_name, ft_strlen(map_name));
-	if (len <= 4 || ft_strlen(&str[1]) <= 4)
+		str = map_name;
+	else
+		++str;
+	if (len <= 4 || ft_strlen(str) <= 4)
 		return (TRUE);
-	if (ft_strncmp(MAP_EXT, &map_name[len - 4], ft_strlen(MAP_EXT)))
+	if (ft_strncmp(MAP_EXT, &str[ft_strlen(str) - 4], ft_strlen(MAP_EXT)))
 		return (TRUE);
 	return (FALSE);
 }
@@ -69,7 +71,7 @@ static char	*read_map_file(int fd, char *buffer)
 		}
 		line[bytes] = '\0';
 		buffer = ft_memjoin(buffer, line);
-		if (!buffer)
+		if (bytes == 0 || !buffer)
 			return (clean_buffer((void **)&line));
 	}
 	clean_buffer((void **)&line);

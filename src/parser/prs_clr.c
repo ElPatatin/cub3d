@@ -6,7 +6,7 @@
 /*   By: cpeset-c <cpeset-c@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/01 17:42:09 by alajara-          #+#    #+#             */
-/*   Updated: 2024/02/17 19:26:56 by cpeset-c         ###   ########.fr       */
+/*   Updated: 2024/02/19 17:25:57 by cpeset-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,12 @@ static void	get_color(char *s, t_argb *clr)
 {
 	while (*s && is_spc(*s))
 		++s;
+	if (!*s)
+	{
+		clr->argb = 0;
+		return ;
+	}
+	clr->argb = 0;
 	clr->clr[2] = get_subcolor(&s);
 	if (*s != ',')
 		return ;
@@ -69,9 +75,9 @@ void	prs_clr(char **r_info, t_info *info)
 		if (is_cf_flag(r_info[i][0]) && is_spc(r_info[i][1]))
 		{
 			if (*r_info[i] == 'C')
-				get_color(&r_info[i][2], &(info->c));
+				get_color(&r_info[i][1], &(info->c));
 			else if (*r_info[i] == 'F')
-				get_color(&r_info[i][2], &(info->f));
+				get_color(&r_info[i][1], &(info->f));
 		}
 	}
 }

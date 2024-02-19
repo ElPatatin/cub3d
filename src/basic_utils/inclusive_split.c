@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   inclusive_split.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cpeset-c <cpeset-c@student.42barce.com>    +#+  +:+       +#+        */
+/*   By: cpeset-c <cpeset-c@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/02 23:59:24 by cpeset-c          #+#    #+#             */
-/*   Updated: 2024/02/05 19:36:12 by cpeset-c         ###   ########.fr       */
+/*   Updated: 2024/02/19 17:26:24 by cpeset-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ static char	**do_split(char **tab, const char *str, char chr, size_t len)
 	size_t	substr_len;
 
 	count = 0;
-	start = 0;
+	start = 1;
 	i = -1;
 	while (++i <= len)
 	{
@@ -60,11 +60,10 @@ static char	**do_split(char **tab, const char *str, char chr, size_t len)
 			tab[count] = (char *)ft_calloc(substr_len, sizeof(char));
 			if (!tab[count])
 				return ((char **)ft_memfree(tab));
-			ft_strncpy(tab[count], str + start, substr_len - 1);
+			ft_strncpy(tab[count], str + start, substr_len);
 			++count;
 			start = i + 1;
 		}
 	}
-	tab[count] = NULL;
 	return (tab);
 }

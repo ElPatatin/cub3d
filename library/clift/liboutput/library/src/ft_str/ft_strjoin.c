@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cpeset-c <cpeset-c@student.42.fr>          +#+  +:+       +#+        */
+/*   By: cpeset-c <cpeset-c@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/19 22:41:34 by cpeset-c          #+#    #+#             */
-/*   Updated: 2023/04/03 15:51:33 by cpeset-c         ###   ########.fr       */
+/*   Updated: 2024/02/19 17:37:09 by cpeset-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ char	*ft_strjoin(char *s1, char *s2)
 		if (!s1)
 			return (NULL);
 		s1[0] = '\0';
-	}	
+	}
 	new = (char *)malloc(sizeof(char) * (newlen + 1));
 	if (!new)
 		return (NULL);
