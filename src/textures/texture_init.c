@@ -6,7 +6,7 @@
 /*   By: cpeset-c <cpeset-c@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/15 18:43:31 by cpeset-c          #+#    #+#             */
-/*   Updated: 2024/02/19 14:17:52 by cpeset-c         ###   ########.fr       */
+/*   Updated: 2024/02/19 14:31:37 by cpeset-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 #include "cub3d_struct.h"
 #include "cub3d_texture.h"
 
+static void	build_walls_array(t_graphics *g);
 static void		get_wall_texture(t_graphics *g);
 static void		set_wall_texture(t_graphics *g);
 static uint32_t	*set_texture_pixel(t_image *img);
