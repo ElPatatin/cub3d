@@ -6,7 +6,7 @@
 /*   By: cpeset-c <cpeset-c@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/15 18:43:31 by cpeset-c          #+#    #+#             */
-/*   Updated: 2024/02/19 17:29:54 by cpeset-c         ###   ########.fr       */
+/*   Updated: 2024/02/19 17:45:32 by cpeset-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,17 @@ static void		get_wall_texture(t_graphics *g);
 static void		set_wall_texture(t_graphics *g);
 static uint32_t	*set_texture_pixel(t_image *img);
 
+/**
+ * @brief Initialize the textures
+ * 
+ * @param graphics (t_graphics *) - The graphics structure
+ * 
+ * @retval None
+ * 
+ * @note
+ * This function initializes the textures. It builds the walls array, gets the
+ * wall texture, and sets the wall texture.
+*/
 void	texture_init(t_graphics *graphics)
 {
 	int	x;
@@ -36,6 +47,17 @@ void	texture_init(t_graphics *graphics)
 	}
 }
 
+/**
+ * @brief Build the walls array
+ * 
+ * @param g (t_graphics *) - The graphics structure
+ * 
+ * @retval None
+ * 
+ * @note
+ * This function builds the walls array. It allocates memory for the walls array
+ * and copies the texture paths to the walls array.
+*/
 static void	build_walls_array(t_graphics *g)
 {
 	g->info->txr_walls[0] = ft_strdup(g->info->txr_no);
@@ -52,6 +74,17 @@ static void	build_walls_array(t_graphics *g)
 		exit(1);
 }
 
+/**
+ * @brief Get the wall texture
+ * 
+ * @param g (t_graphics *) - The graphics structure
+ * 
+ * @retval None
+ * 
+ * @note
+ * This function gets the wall texture. It loops through the walls array and
+ * gets the wall texture.
+*/
 static void	get_wall_texture(t_graphics *g)
 {
 	int		i;
@@ -72,6 +105,17 @@ static void	get_wall_texture(t_graphics *g)
 	}
 }
 
+/**
+ * @brief Set the wall texture
+ * 
+ * @param g (t_graphics *) - The graphics structure
+ * 
+ * @retval None
+ * 
+ * @note
+ * This function sets the wall texture. It loops through the walls array and
+ * sets the wall texture.
+*/
 static void	set_wall_texture(t_graphics *g)
 {
 	int	i;
@@ -82,6 +126,17 @@ static void	set_wall_texture(t_graphics *g)
 	i = -1;
 }
 
+/**
+ * @brief Set the texture pixel
+ * 
+ * @param img (t_image *) - The image structure
+ * 
+ * @retval uint32_t * - The texture pixel
+ * 
+ * @note
+ * This function sets the texture pixel. It gets the texture pixel from the
+ * image structure.
+*/
 static uint32_t	*set_texture_pixel(t_image *img)
 {
 	return ((uint32_t *)mlx_get_data_addr(img, &img->bpp,

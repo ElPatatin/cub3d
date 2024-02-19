@@ -6,7 +6,7 @@
 /*   By: cpeset-c <cpeset-c@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/15 16:04:50 by cpeset-c          #+#    #+#             */
-/*   Updated: 2024/02/18 16:58:25 by cpeset-c         ###   ########.fr       */
+/*   Updated: 2024/02/19 17:44:11 by cpeset-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,18 @@
 
 static void	build_buffer(t_graphics *g, int x);
 
+/**
+ * @brief Calculate the distance to the wall and the height of the line to draw
+ * 
+ * @param g (t_graphics *) - The graphics structure
+ * 
+ * @retval None
+ * 
+ * @note
+ * This function calculates the distance to the wall and the height of the line
+ * to draw. The distance to the wall is calculated with the DDA algorithm, and
+ * the height of the line to draw is calculated with the distance to the wall.
+*/
 void	set_line_limit(t_graphics *g)
 {
 	g->line.height = (int)(WINHEIGHT / g->ray.distance);
@@ -29,6 +41,19 @@ void	set_line_limit(t_graphics *g)
 		g->line.end = WINHEIGHT - 1;
 }
 
+/**
+ * @brief Calculate the texture to draw
+ * 
+ * @param g (t_graphics *) - The graphics structure
+ * @param x (int) - The x-coordinate of the pixel
+ * 
+ * @retval None
+ * 
+ * @note
+ * This function calculates the texture to draw. It calculates the texture
+ * coordinate, the texture index, and the texture color, and then it builds the
+ * buffer with the texture color.
+*/
 void	calculate_texture(t_graphics *g, int x)
 {
 	if (g->ray.side == 0)
@@ -43,6 +68,18 @@ void	calculate_texture(t_graphics *g, int x)
 	build_buffer(g, x);
 }
 
+/**
+ * @brief Build the buffer with the texture color
+ * 
+ * @param g (t_graphics *) - The graphics structure
+ * 
+ * @retval None
+ * 
+ * @note
+ * This function builds the buffer with the texture color. It calculates the
+ * texture coordinate, the texture index, and the texture color, and then it
+ * builds the buffer with the texture color.
+*/
 static void	build_buffer(t_graphics *g, int x)
 {
 	int	y;
@@ -60,6 +97,17 @@ static void	build_buffer(t_graphics *g, int x)
 	}
 }
 
+/**
+ * @brief Draw the buffer
+ * 
+ * @param g (t_graphics *) - The graphics structure
+ * 
+ * @retval None
+ * 
+ * @note
+ * This function draws the buffer. It loops through the buffer and draws the
+ * pixels with the color of the buffer.
+*/
 void	draw_buffer(t_graphics *g)
 {
 	int	x;

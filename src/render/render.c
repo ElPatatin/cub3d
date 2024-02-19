@@ -6,7 +6,7 @@
 /*   By: cpeset-c <cpeset-c@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/12 11:54:01 by cpeset-c          #+#    #+#             */
-/*   Updated: 2024/02/18 20:51:23 by cpeset-c         ###   ########.fr       */
+/*   Updated: 2024/02/19 17:44:43 by cpeset-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,18 @@ void	render_game(t_graphics *graphics)
 	put_wall_layer(graphics);
 }
 
+/**
+ * @brief This function puts the background layer on the screen
+ * 
+ * @param graphics (t_graphics *) - The graphics structure
+ * 
+ * @retval None
+ * 
+ * @note
+ * This function puts the background layer on the screen. It loops through each
+ * pixel of the screen and puts the color of the ceiling or the floor depending
+ * on the position of the pixel.
+*/
 void	put_background_layer(t_graphics *graphics)
 {
 	int	l;

@@ -6,7 +6,7 @@
 /*   By: cpeset-c <cpeset-c@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/07 12:11:43 by cpeset-c          #+#    #+#             */
-/*   Updated: 2024/02/19 17:29:32 by cpeset-c         ###   ########.fr       */
+/*   Updated: 2024/02/19 17:47:05 by cpeset-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,17 @@
 
 static void	graphics_init(t_graphics *graphics, t_info *info);
 
+/**
+ * @brief Initialize the image
+ * 
+ * @param info (t_info *) - The info structure
+ * 
+ * @retval None
+ * 
+ * @note
+ * This function initializes the image. It allocates memory for the image and
+ * creates the image with the mlx_new_image function.
+ */
 void	graphics(t_info *info)
 {
 	t_graphics	graphics;
@@ -63,6 +74,18 @@ static void	graphics_init(t_graphics *graphics, t_info *info)
 	graphics->info = info;
 }
 
+/**
+ * @brief The game loop
+ * 
+ * @param graphics (t_graphics *) - The graphics structure
+ * 
+ * @retval int - The return value
+ * 
+ * @note
+ * This function is the game loop. It destroys the image, creates a new image,
+ * handles the player movement, handles the player rotation, renders the game,
+ * and puts the image to the window.
+*/
 int	game_loop(t_graphics *graphics)
 {
 	mlx_destroy_image(graphics->mlx, graphics->img->img);
