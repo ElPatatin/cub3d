@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cpeset-c <cpeset-c@student.42.fr>          +#+  +:+       +#+        */
+/*   By: cpeset-c <cpeset-c@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/18 18:36:08 by cpeset-c          #+#    #+#             */
-/*   Updated: 2023/04/03 15:50:57 by cpeset-c         ###   ########.fr       */
+/*   Updated: 2024/02/19 14:59:40 by cpeset-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,25 +18,25 @@
 # include <stdarg.h>
 
 // Function Reference
-# define FTRREF		(char *)"%cspdiuxX"
+# define FTRREF		"%cspdiuxX"
 
 // Hexadecimal Prefix Direction
-# define HEXPRE		(char *)"0x"
-# define HEXPREU	(char *)"0X"
+# define HEXPRE		"0x"
+# define HEXPREU	"0X"
 
 // ERROR VALS
-# define ERRNUM		(int)-1
-# define NLLMSG		(char *)"(null)"
+# define ERRNUM		-1
+# define NLLMSG		"(null)"
 
 // SIGN FLAGS
-# define PLSSIGN	(int)1
-# define MNSSIGN	(int)2
-# define SPCSIGN	(int)3
+# define PLSSIGN	1
+# define MNSSIGN	2
+# define SPCSIGN	3
 
 // BASE VALS
-# define STR_BASE10		(char *)"0123456789"
-# define STR_BASE16L	(char *)"0123456789abcdef"
-# define STR_BASE16U	(char *)"0123456789ABCDEF"
+# define STR_BASE10		"0123456789"
+# define STR_BASE16L	"0123456789abcdef"
+# define STR_BASE16U	"0123456789ABCDEF"
 
 // ft_printf function
 int		ft_printf(const char *fmt, ...);

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cpeset-c <cpeset-c@student.42barce.com>    +#+  +:+       +#+        */
+/*   By: cpeset-c <cpeset-c@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/09 18:08:37 by cpeset-c          #+#    #+#             */
-/*   Updated: 2024/02/02 12:58:23 by cpeset-c         ###   ########.fr       */
+/*   Updated: 2024/02/19 14:58:45 by cpeset-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,21 +26,21 @@
 
 # ifdef __APPLE__
 #  ifndef BUFFER_SIZE
-#   define BUFFER_SIZE	(int)1024
+#   define BUFFER_SIZE	1024
 #  endif
 # elif __linux__
 #  define OPEN_MAX 		FOPEN_MAX
 #  ifndef BUFFER_SIZE
-#   define BUFFER_SIZE	(int)1024
+#   define BUFFER_SIZE	1024
 #  endif
 # endif
 
 // Not compiling
 // typedef enum {FALSE, TRUE} t_bool;
 
-# define TRUE	(int)1
-# define FALSE	(int)0
-# define SPACES	(char *)" \n\t\v\f\r"
+# define TRUE	1
+# define FALSE	0
+# define SPACES	" \n\t\v\f\r"
 
 typedef int					t_bool;
 typedef unsigned int		t_unt;

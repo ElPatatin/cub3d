@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libftprintf.h                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cpeset-c <cpeset-c@student.42.fr>          +#+  +:+       +#+        */
+/*   By: cpeset-c <cpeset-c@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/18 18:36:09 by cpeset-c          #+#    #+#             */
-/*   Updated: 2023/04/03 16:46:46 by cpeset-c         ###   ########.fr       */
+/*   Updated: 2024/02/19 15:00:41 by cpeset-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,11 +17,11 @@
 # include <stdlib.h>
 # include <limits.h>
 
-# define TRUE	(int)1
-# define FALSE	(int)0
-# define UNUSED	(void)
+# define TRUE	1
+# define FALSE	0
+# define UNUSED
 
-# define ERRSTR	(char *)"Error"
+# define ERRSTR	"Error"
 
 typedef int					t_bool;
 typedef unsigned int		t_unt;

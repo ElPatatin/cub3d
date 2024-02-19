@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   hooks_mouse_release.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cpeset-c <cpeset-c@student.42barce.com>    +#+  +:+       +#+        */
+/*   By: cpeset-c <cpeset-c@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/19 00:23:07 by cpeset-c          #+#    #+#             */
-/*   Updated: 2024/02/19 00:40:44 by cpeset-c         ###   ########.fr       */
+/*   Updated: 2024/02/19 15:01:36 by cpeset-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,8 @@
 
 int	mouse_release_handler(int keycode, int x, int y, t_graphics *g)
 {
-	UNUSED(x);
-	UNUSED(y);
+	(void)x;
+	(void)y;
 	if (keycode == 1)
 		g->player.mouse_rotate = 0;
 	g->player.rotate_right = 0;

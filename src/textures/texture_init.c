@@ -6,7 +6,7 @@
 /*   By: cpeset-c <cpeset-c@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/15 18:43:31 by cpeset-c          #+#    #+#             */
-/*   Updated: 2024/02/19 14:31:37 by cpeset-c         ###   ########.fr       */
+/*   Updated: 2024/02/19 15:51:47 by cpeset-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include "cub3d_struct.h"
 #include "cub3d_texture.h"
 
-static void	build_walls_array(t_graphics *g);
+static void		build_walls_array(t_graphics *g);
 static void		get_wall_texture(t_graphics *g);
 static void		set_wall_texture(t_graphics *g);
 static uint32_t	*set_texture_pixel(t_image *img);
@@ -53,18 +53,21 @@ static void	build_walls_array(t_graphics *g)
 
 static void	get_wall_texture(t_graphics *g)
 {
-	int	i;
+	int		i;
+	void	*img;
 
 	i = -1;
 	while (++i < 4)
 	{
-		g->tex.img[i] = (t_image *)malloc(sizeof(t_image));
-		if (!g->tex.img[i])
-			exit(1);
+		img = (t_image *)malloc(sizeof(t_image));
+		if (!img)
+			exit(EXIT_FAILURE);
+		g->tex.img[i] = img;
 		g->tex.img[i] = mlx_xpm_file_to_image(g->mlx, g->info->txr_walls[i],
 				&g->tex.img[i]->width, &g->tex.img[i]->height);
 		if (!g->tex.img[i])
-			exit(1);
+			exit(EXIT_FAILURE);
+		ft_delete(img);
 	}
 }
 
@@ -75,6 +78,7 @@ static void	set_wall_texture(t_graphics *g)
 	i = -1;
 	while (++i < 4)
 		g->tex.texture[i] = set_texture_pixel(g->tex.img[i]);
+	i = -1;
 }
 
 static uint32_t	*set_texture_pixel(t_image *img)

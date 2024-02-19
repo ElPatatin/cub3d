@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   hooks_mouse_press.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cpeset-c <cpeset-c@student.42barce.com>    +#+  +:+       +#+        */
+/*   By: cpeset-c <cpeset-c@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/07 13:44:06 by cpeset-c          #+#    #+#             */
-/*   Updated: 2024/02/19 00:41:51 by cpeset-c         ###   ########.fr       */
+/*   Updated: 2024/02/19 15:01:22 by cpeset-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ int	mouse_press_handler(int keycode, int x, int y, t_graphics *g)
 {
 	int		delta_x;
 
-	UNUSED(y);
+	(void)y;
 	if (keycode == 1)
 		g->player.mouse_rotate = 1;
 	delta_x = x - (WINWIDTH >> 1);
@@ -43,7 +43,7 @@ int	camera_press_handler(int x, int y, t_graphics *g)
 {
 	int		delta_x;
 
-	UNUSED(y);
+	(void)y;
 	if (g->player.mouse_rotate == 0)
 		return (0);
 	delta_x = x - (WINWIDTH >> 1);

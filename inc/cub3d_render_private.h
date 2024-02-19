@@ -6,7 +6,7 @@
 /*   By: cpeset-c <cpeset-c@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/12 12:17:07 by cpeset-c          #+#    #+#             */
-/*   Updated: 2024/02/18 15:28:10 by cpeset-c         ###   ########.fr       */
+/*   Updated: 2024/02/19 14:57:23 by cpeset-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@
 # include "cub3d_struct.h"
 
 # define RAYS 64
-# define MMAP_SQR_SIZE 10
 # define PITCH 0
 // PITCH is the distance from the top of the screen to the top of the wall
 
