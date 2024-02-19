@@ -67,8 +67,6 @@ static t_bool	is_surrounded_by_void_or_wall(t_info *info, size_t x, size_t y)
 	return (FALSE);
 }
 
-
-
 void	flip_map(t_info *info, size_t height)
 {
 	size_t	y;

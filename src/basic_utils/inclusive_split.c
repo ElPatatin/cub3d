@@ -16,7 +16,8 @@
 static char	**do_split(char **tab, const char *str, char chr, size_t len);
 
 /**
- * @brief Splits a string into an array of strings using a character as delimiter.
+ * @brief Splits a string into an array of strings using a character as
+ * delimiter.
  * It includes the delimiter in the strings.
  * 
  * @param str {char const *} - The string to split.
@@ -28,7 +29,7 @@ char	**inclusive_split(const char *str, char chr)
 {
 	char	**tab;
 	size_t	len;
-	
+
 	if (!str)
 		return (NULL);
 	len = ft_strlen(str);
@@ -38,15 +39,15 @@ char	**inclusive_split(const char *str, char chr)
 	tab = do_split(tab, str, chr, len);
 	if (!tab)
 		return (NULL);
-    return (tab);
+	return (tab);
 }
 
 static char	**do_split(char **tab, const char *str, char chr, size_t len)
 {
-	size_t count;
-	size_t start;
-	size_t i;
-	size_t substr_len;
+	size_t	count;
+	size_t	start;
+	size_t	i;
+	size_t	substr_len;
 
 	count = 0;
 	start = 0;
@@ -62,8 +63,8 @@ static char	**do_split(char **tab, const char *str, char chr, size_t len)
 			ft_strncpy(tab[count], str + start, substr_len - 1);
 			++count;
 			start = i + 1;
-        }
-    }
+		}
+	}
 	tab[count] = NULL;
 	return (tab);
 }

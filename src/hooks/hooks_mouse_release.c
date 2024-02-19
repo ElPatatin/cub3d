@@ -16,8 +16,8 @@
 
 int	mouse_release_handler(int keycode, int x, int y, t_graphics *g)
 {
-    UNUSED(x);
-    UNUSED(y);
+	UNUSED(x);
+	UNUSED(y);
 	if (keycode == 1)
 		g->player.mouse_rotate = 0;
 	g->player.rotate_right = 0;

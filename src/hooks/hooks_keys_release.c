@@ -17,19 +17,19 @@
 
 int	hooks_keys_release(int keycode, t_graphics *graphics)
 {
-    if (keycode == W_KEY)
-        graphics->player.move_up = 0;
-    if (keycode == S_KEY)
-        graphics->player.move_down = 0;
-    if (keycode == A_KEY)
-        graphics->player.move_left = 0;
-    if (keycode == D_KEY)
-        graphics->player.move_right = 0;
-    if (keycode == LFT_KEY)
-        graphics->player.rotate_left = 0;
-    if (keycode == RGT_KEY)
-    {
-        graphics->player.rotate_right = 0;
-    }
+	if (keycode == W_KEY)
+		graphics->player.move_up = 0;
+	if (keycode == S_KEY)
+		graphics->player.move_down = 0;
+	if (keycode == A_KEY)
+		graphics->player.move_left = 0;
+	if (keycode == D_KEY)
+		graphics->player.move_right = 0;
+	if (keycode == LFT_KEY)
+		graphics->player.rotate_left = 0;
+	if (keycode == RGT_KEY)
+	{
+		graphics->player.rotate_right = 0;
+	}
 	return (0);
 }

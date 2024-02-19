@@ -31,7 +31,5 @@ int	hooks_keys_press(int keycode, t_graphics *graphics)
 		graphics->player.rotate_left = 1;
 	if (keycode == RGT_KEY)
 		graphics->player.rotate_right = 1;
-
-	// printf("keycode: %d\n", keycode);
 	return (0);
 }

@@ -14,10 +14,10 @@
 #include "cub3d_struct.h"
 #include "cub3d_render_private.h"
 
-static void put_wall_mmap(t_graphics *g, int y, int x)
+static void	put_wall_mmap(t_graphics *g, int y, int x)
 {
-	int y_end;
-	int x_end;
+	int	y_end;
+	int	x_end;
 
 	y_end = (y + 1) * MMAP_SQR_SIZE;
 	x_end = (x + 1) * MMAP_SQR_SIZE;
@@ -30,13 +30,13 @@ static void put_wall_mmap(t_graphics *g, int y, int x)
 			++x;
 		}
 		x -= MMAP_SQR_SIZE;
-		++y;		
+		++y;
 	}
 }
 
 // Converts (char **)map to (t_img)mmap, representing the 1 as squares.
 // Squares will have MMAP_SQR_SIZE pixels as side.
-void generate_mmap(t_graphics *g)
+void	generate_mmap(t_graphics *g)
 {
 	int	mapw;
 	int	maph;

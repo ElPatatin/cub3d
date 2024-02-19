@@ -15,7 +15,6 @@
 
 # include "cub3d_struct.h"
 
-
 /**
  * @brief Hooks the events to the window
  * 

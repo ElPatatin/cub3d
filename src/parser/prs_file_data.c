@@ -22,25 +22,25 @@ static void	free_file_mem(char **data, t_file_data *file_data,
 				const char *err_msg, int sys_code);
 // ============================================================================
 
-int prs_file_data(char **data, t_file_data *file_data)
+int	prs_file_data(char **data, t_file_data *file_data)
 {
-    int status;
+	int	status;
 
 	if (prs_file_trash(data))
 		free_file_mem(data, NULL, ERR_INV_DTA, SYS_INV_DTA);
-    status = prs_file_header(data, file_data);
-    if (status == 1)
-        free_file_mem(data, file_data, ERR_HDR_MIS, SYS_HDR_MIS);
-    else if (status == 2)
-        free_file_mem(data, file_data, ERR_MEM, SYS_MEM);
-    else if (status == 3)
-        free_file_mem(data, file_data, ERR_HDR_DUP, SYS_HDR_DUP);
-    status = prs_file_body(data, file_data);
-    if (status == 1)
+	status = prs_file_header(data, file_data);
+	if (status == 1)
+		free_file_mem(data, file_data, ERR_HDR_MIS, SYS_HDR_MIS);
+	else if (status == 2)
+		free_file_mem(data, file_data, ERR_MEM, SYS_MEM);
+	else if (status == 3)
+		free_file_mem(data, file_data, ERR_HDR_DUP, SYS_HDR_DUP);
+	status = prs_file_body(data, file_data);
+	if (status == 1)
 		free_file_mem(data, file_data, ERR_BAD_MAP, SYS_BAD_MAP);
-    else if (status == 2)
-        free_file_mem(data, file_data, ERR_MEM, SYS_MEM);
-    return (status);
+	else if (status == 2)
+		free_file_mem(data, file_data, ERR_MEM, SYS_MEM);
+	return (status);
 }
 
 static int	prs_file_trash(char **data)
@@ -52,44 +52,44 @@ static int	prs_file_trash(char **data)
 	while (data[++i])
 	{
 		if (check_metadata(data[i]))
-		   	continue;
+			continue ;
 		else if (data[i][0] == '\0' || data[i] == NULL)
-			continue;
+			continue ;
 		else
 		{
 			j = -1;
 			while (data[i][++j] == ' ')
 				;
 			if (data[i][j] == '1' || data[i][j] == '0')
-				continue;
+				continue ;
 		}
 		return (TRUE);
 	}
 	return (FALSE);
 }
 
-static int    	prs_file_header(char **data, t_file_data *file_data)
+static int	prs_file_header(char **data, t_file_data *file_data)
 {
-    ssize_t	i;
-    ssize_t	size;
-    char	*metadata[MIN_HEADER + 1];
+	ssize_t	i;
+	ssize_t	size;
+	char	*metadata[MIN_HEADER + 1];
 
-    built_valid_metadata(metadata);
+	built_valid_metadata(metadata);
 	if (duplicated_metadata(data, metadata))
 		return (3);
-    size = get_metadata_size(data, metadata);
-    if (size < 0)
-        return (1);
-    file_data->metadata = (char **)ft_calloc(size + 1, sizeof(char *));
-    if (!file_data->metadata)
-        return (2);
-    i = -1;
-    while (data[++i])
-    {
+	size = get_metadata_size(data, metadata);
+	if (size < 0)
+		return (1);
+	file_data->metadata = (char **)ft_calloc(size + 1, sizeof(char *));
+	if (!file_data->metadata)
+		return (2);
+	i = -1;
+	while (data[++i])
+	{
 		if (get_metadata(data[i], metadata, file_data))
 			return (2);
-    }
-    return (0);
+	}
+	return (0);
 }
 
 static int	prs_file_body(char **data, t_file_data *file_data)
@@ -132,6 +132,5 @@ static void	free_file_mem(char **data, t_file_data *file_data,
 		if (file_data->body)
 			ft_memfree(file_data->body);
 	}
-    terminate_error(err_msg, sys_code);
+	terminate_error(err_msg, sys_code);
 }
-

@@ -25,12 +25,12 @@ static t_bool	is_cf_flag(char c)
 
 static int	get_subcolor(char **s)
 {
-	int n;
+	int	n;
 	int	val;
 
 	n = -1;
 	val = 0;
-	while(++n < 3 && ft_isdigit((*s)[n]))
+	while (++n < 3 && ft_isdigit((*s)[n]))
 	{
 		val *= 10;
 		val += (*s)[n] - '0';
@@ -39,7 +39,6 @@ static int	get_subcolor(char **s)
 		return (0);
 	*s += n;
 	return (val);
-
 }
 
 // Gets a [s]tring begining with 'C' or 'F' and stores the value to the 
@@ -58,13 +57,14 @@ static void	get_color(char *s, t_argb *clr)
 }
 
 // Allocates the information for info.c and info.f
-// Also checks for duplicated inputs, in case of error returns the proper message
+// Also checks for duplicated inputs, in case of error 
+// returns the proper message.
 void	prs_clr(char **r_info, t_info *info)
 {
 	int	i;
 
 	i = -1;
-	while(r_info[++i])
+	while (r_info[++i])
 	{
 		if (is_cf_flag(r_info[i][0]) && is_spc(r_info[i][1]))
 		{

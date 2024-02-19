@@ -17,14 +17,14 @@
 t_bool	check_metadata(const char *currnet_data)
 {
 	ssize_t	i;
-    char	*metadata[MIN_HEADER + 1];
+	char	*metadata[MIN_HEADER + 1];
 
 	i = -1;
-    built_valid_metadata(metadata);
+	built_valid_metadata(metadata);
 	while (metadata[++i])
 	{
 		if (currnet_data[0] == '\0' || currnet_data == NULL)
-			continue;
+			continue ;
 		if (!ft_strncmp(currnet_data, metadata[i], ft_strlen(metadata[i])))
 			return (TRUE);
 	}

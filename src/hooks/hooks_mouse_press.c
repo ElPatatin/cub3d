@@ -15,10 +15,10 @@
 #include "cub3d_hooks.h"
 #include "cub3d_keys.h"
 
-int exit_on_click(t_graphics *graphics)
+int	exit_on_click(t_graphics *graphics)
 {
-    exit_game(graphics);
-    return (0);
+	exit_game(graphics);
+	return (0);
 }
 
 int	mouse_press_handler(int keycode, int x, int y, t_graphics *g)
@@ -32,11 +32,10 @@ int	mouse_press_handler(int keycode, int x, int y, t_graphics *g)
 	g->player.rotate_speed = (float)ft_absval(delta_x) / (WINWIDTH >> 1);
 	g->player.rotate_left = 0;
 	g->player.rotate_right = 0;
-    if (delta_x > 0)
+	if (delta_x > 0)
 		g->player.rotate_right = 1;
 	else if (delta_x < 0)
 		g->player.rotate_left = 1;
-
 	return (0);
 }
 
@@ -46,10 +45,10 @@ int	camera_press_handler(int x, int y, t_graphics *g)
 
 	UNUSED(y);
 	if (g->player.mouse_rotate == 0)
-        return (0);
+		return (0);
 	delta_x = x - (WINWIDTH >> 1);
 	g->player.rotate_speed = (float)ft_absval(delta_x) / (WINWIDTH >> 1);
-    g->player.rotate_left = 0;
+	g->player.rotate_left = 0;
 	g->player.rotate_right = 0;
 	if (delta_x > 0)
 		g->player.rotate_right = 1;
@@ -57,4 +56,3 @@ int	camera_press_handler(int x, int y, t_graphics *g)
 		g->player.rotate_left = 1;
 	return (0);
 }
-

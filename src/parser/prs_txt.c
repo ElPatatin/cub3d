@@ -20,7 +20,7 @@ int	prs_txt(char **metadata, t_info *info)
 {
 	int	i;
 	int	j;
-	int status;
+	int	status;
 
 	i = -1;
 	j = 0;
