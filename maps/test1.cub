@@ -1,7 +1,7 @@
-NO ./resources/north.xpm
-SO ./resources/south.xpm
-WE ./resources/west.xpm
-EA ./resources/east.xpm
+NO ./resources/cpeset-c.xpm
+SO ./resources/alajara-.xpm
+WE ./resources/eralonso.xpm
+EA ./resources/frankgar.xpm
 
 F 255,0,255
 C 100,50,200

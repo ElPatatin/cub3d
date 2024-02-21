@@ -1,13 +1,7 @@
-NO ./resources/1_1_.xpm
-
-
-
-
-
-SO      ./resources/2_1_.xpm
-WE ./resources/4_1_.xpm
-EA ./resources/3_1_.xpm
-
+NO ./resources/cpeset-c.xpm
+SO ./resources/alajara-.xpm
+WE ./resources/eralonso.xpm
+EA ./resources/frankgar.xpm
 F    0,255,0
 C    255,,255
 
