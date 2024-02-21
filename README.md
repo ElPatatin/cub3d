@@ -73,8 +73,8 @@ cub3d uses a simple map configuration file with specific parameters. Refer to th
 
 ## Screenshots
 ![Dungeon.cub](https://github.com/ElPatatin/cub3d/blob/main/screenshots/1.png)
-![basic1.cub](https://github.com/ElPatatin/cub3d/blob/main/screenshots/1.png)
-![basic2.cub](https://github.com/ElPatatin/cub3d/blob/main/screenshots/1.png)
+![basic1.cub](https://github.com/ElPatatin/cub3d/blob/main/screenshots/2.png)
+![basic2.cub](https://github.com/ElPatatin/cub3d/blob/main/screenshots/3.png)
 
 ## Known Issues
 
