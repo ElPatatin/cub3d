@@ -35,12 +35,14 @@ cub3d is a simple 3D game engine project that uses the Raycasting technique. It 
 ## Installation
 
 1. Clone the repository:
-
 	```bash
-	git clone https://github.com/ElPatatin/cub3d.git
+	git clone https://github.com/ElPatatin/cub3d.git cub3d
 	```
-2. Build the project:
-
+2. Acces de cloned directory
+	```bash
+	cd cub3d
+	```  
+3. Build the project:
 	```bash
 	make
 	```
