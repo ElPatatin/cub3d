@@ -1,4 +1,5 @@
 # cub3d
+By @ElPatatin & @LAG-jara
 
 ## Description
 
