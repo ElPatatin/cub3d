@@ -1,5 +1,5 @@
 # cub3d
-By @ElPatatin & @LAG-jara
+By [ElPatatin](https://github.com/ElPatatin) & [LAG-jara](https://github.com/LAG-jara)
 
 ## Description
 
